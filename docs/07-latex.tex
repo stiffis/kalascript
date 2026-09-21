@@ -1,0 +1,54 @@
+\section{Pasar apuntes a limpio en LaTeX}\label{sec:latex}
+
+Los signos están dibujados con TikZ en \path{simbolos/glifos.tex}. No hace falta
+ninguna fuente tipográfica ni imagen externa.
+
+\subsection{Un signo dentro del texto}
+\begin{Verbatim}[fontsize=\small,frame=single]
+fricción \ks{K23} calor        % tamaño de apunte
+fricción \kss{K23} calor       % más pequeño, para párrafos
+\KalaSimbolo[20mm]{K23}        % cualquier tamaño
+\end{Verbatim}
+\KalaMostrar{fricción \ks{K23} calor \qquad fricción \kss{K23} calor \qquad \KalaSimbolo[20mm]{K23}}
+
+\subsection{Una hoja de apunte}
+El entorno \texttt{apunte} dibuja la hoja con su margen. Cada \verb|\linea| recibe
+dos argumentos: lo que va en el margen y lo que va en el contenido. El título
+es opcional.
+\begin{Verbatim}[fontsize=\small,frame=single]
+\begin{apunte}[Biología · célula]
+\linea{}{mitocondria \ks{K27} célula eucariota}
+\linea{\ks{K31}}{glucosa \ks{K24} ATP}
+\end{apunte}
+\lectura{La mitocondria es parte de la célula...}
+\end{Verbatim}
+\begin{apunte}[Biología · célula]
+\linea{}{mitocondria \ks{K27} célula eucariota}
+\linea{\ks{K31}}{glucosa \ks{K24} ATP}
+\end{apunte}
+
+\subsection{Añadir un signo}
+Cada signo se registra una sola vez con \verb|\KalaRegistrar|: código, nombre,
+familia, definición, número de trazos y dibujo. La cuadrícula es de
+\(64\times64\) con el origen arriba a la izquierda; el dibujo debe quedar
+aproximadamente entre 12 y 52.
+\begin{Verbatim}[fontsize=\small,frame=single]
+\KalaRegistrar{K36}{Nombre}{Conector}
+  {Qué significa y qué no significa.}{2}{%
+  \draw (12,32) -- (52,32);
+  \draw (44,24) -- (52,32) -- (44,40);
+}
+\end{Verbatim}
+Después se añade al catálogo (\path{docs/02-signos.tex}), al trazado
+(\path{simbolos/trazado.tex}), a la hoja de consulta (\path{atlas.tex}) y al
+cuaderno de práctica (\path{practica.tex}).
+
+\subsection{Compilar}
+Desde la carpeta del proyecto:
+\begin{Verbatim}[fontsize=\small,frame=single]
+make            # los tres PDF en compilado/
+make manual     # solo este manual
+make limpiar    # borra los archivos auxiliares
+\end{Verbatim}
+Se necesita pdf\LaTeX{} con TikZ y \texttt{latexmk}; no hace falta internet ni
+\texttt{shell-escape}.

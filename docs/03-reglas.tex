@@ -1,0 +1,166 @@
+\section{Cómo se escribe}\label{sec:reglas}
+
+\subsection{La hoja}
+Trazo una línea vertical a un centímetro del borde izquierdo: a la izquierda
+queda el \textbf{margen}, a la derecha el \textbf{contenido}. Escribo una idea
+por línea, de izquierda a derecha, y las líneas de arriba abajo. Arriba de la
+página anoto el curso, la fecha y el tema.
+
+\begin{apunte}[Teoría de la computación · 20/09 · lenguajes regulares]
+\linea{}{\ks{K09} lenguaje regular: lo acepta algún AFD}
+\linea{\ks{K31}}{AFD \(\approx\) AFN \(\approx\) expr. regular (mismo poder)}
+\linea{}{\(\{a^nb^n\}\) \(\notin\) regulares \ks{K10}\(_3\)}
+\linea{\ks{K34}}{repasar lema de bombeo}
+\end{apunte}
+\lectura{Definición: un lenguaje es regular si lo acepta algún autómata finito
+determinista. Importante: AFD, AFN y expresiones regulares son equivalentes,
+tienen el mismo poder. El lenguaje \(a^nb^n\) no es regular; ver nota 3.
+Pendiente: repasar el lema de bombeo.}
+
+\subsection{Conectores}
+Un conector une la idea que tiene inmediatamente a la izquierda con la que
+tiene inmediatamente a la derecha. Una \emph{idea} es una palabra, una frase
+breve o un grupo entre corchetes.
+
+\begin{itemize}
+\item \textbf{Con dirección.} Causa \kss{K23}, Luego \kss{K21}, Se vuelve
+ \kss{K24}, Relación \kss{K03}, Ejemplo \kss{K26} y Parte de \kss{K27} se leen
+ de izquierda a derecha. «A \kss{K23} B» es «A causa B»; «B \kss{K23} A» dice
+ lo contrario.
+\item \textbf{Simétricos.} Pero \kss{K25}, Van juntos \kss{K28} y Opuesto
+ \kss{K29} dicen lo mismo en cualquier orden.
+\item \textbf{Cadenas.} «A \kss{K21} B \kss{K21} C» son tres etapas seguidas.
+ En una cadena, cada conector une a sus dos vecinos: «A \kss{K23} B \kss{K21} C»
+ dice que A causa B y que después viene C.
+\item \textbf{Siempre la causa primero.} En español digo «Y porque X»; en
+ KalaScript escribo «X \kss{K23} Y». Así la flecha siempre apunta hacia el efecto.
+\item \textbf{Relación con nombre.} Si conozco la relación pero no tiene signo,
+ escribo una palabra breve sobre Relación \kss{K03}: «hormona
+ \(\overset{\text{\tiny regula}}{\text{\kss{K03}}}\) glucosa».
+\end{itemize}
+
+\subsection{Corchetes: qué va con qué}
+Los corchetes convierten varias palabras en una sola idea. Sin ellos, el conector
+solo toma a su vecino inmediato.
+\begin{apunte}
+\linea{}{[inflación \(\wedge\) desempleo] \ks{K23} protestas}
+\linea{}{inflación \(\wedge\) [desempleo \ks{K23} protestas]}
+\end{apunte}
+\lectura{La primera línea dice que las dos cosas juntas causan las protestas.
+La segunda dice que hay inflación y, aparte, que el desempleo causa protestas.}
+
+Los corchetes también delimitan el alcance de \(\neg\), de Según \kss{K16} y de
+Pregunta \kss{K19}: «\(\neg\)[A \(\wedge\) B]» niega que ambas se cumplan
+juntas; «\(\neg\)A \(\wedge\) B» niega solo A.
+
+\subsection{Categorías}
+Una categoría va pegada delante del nombre que clasifica: «\kss{K30} Kant»,
+«\kss{K07} 1929», «\kss{K08} Mesopotamia». La uso la primera vez que aparece
+un nombre, o cuando la palabra podría leerse de dos maneras. No hace falta
+marcar todo: un apunte lleno de categorías se lee peor.
+
+Lista \kss{K06} anuncia una enumeración. Los elementos van debajo, uno por
+línea, o en la misma línea separados por barras:
+«\kss{K06} causas: deuda | cosechas | ideas ilustradas».
+
+\subsection{Marcadores dentro de la línea}
+\begin{itemize}
+\item \textbf{Definición} \kss{K09}: «término \kss{K09} significado», o bien
+ \kss{K09} al principio de la línea, seguido de «término:».
+\item \textbf{Según} \kss{K16}: «\kss{K16} Piaget: \ldots» atribuye a Piaget todo
+ lo que sigue hasta el final de la línea, o solo el grupo entre corchetes que
+ va detrás.
+\item \textbf{Pregunta} \kss{K19}: delante de un grupo, duda de ese grupo; en el
+ margen, duda de la línea entera.
+\item \textbf{Ver} \kss{K10}: con un número abajo a la derecha, remite a la idea
+ que marqué con ese número en un círculo al final de su línea, o a una página:
+ \kss{K10}\(_{\text{p.40}}\).
+\end{itemize}
+
+\subsection{Margen}
+Importante \kss{K31}, Resumen \kss{K35}, Idea mía \kss{K32}, Hipótesis \kss{K33},
+Revisar \kss{K34} y Pregunta \kss{K19} se escriben en el margen y afectan a toda
+la línea. Si una marca debe cubrir varias líneas, dibujo una llave vertical en el
+margen que las abarque y escribo la marca una vez.
+
+Cuando resuelvo un pendiente \kss{K34}, lo tacho con una diagonal; cuando
+resuelvo una duda \kss{K19}, escribo la respuesta en la línea siguiente.
+
+\subsection{Símbolos matemáticos adoptados}\label{sec:matematica}
+Dentro de KalaScript estos símbolos tienen un único significado, también
+fuera de las clases de matemática. Dentro de una fórmula siguen las reglas
+habituales de su materia.
+
+\begin{longtable}{@{}p{16mm}>{\raggedright\arraybackslash}p{38mm}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-54mm-4\tabcolsep\relax}@{}}
+\toprule Símbolo & Se lee & Ejemplo en un apunte \\ \midrule\endhead
+\bottomrule\endfoot
+\(\neg\) & no & \(\neg\) democracia plena \\
+\(\wedge\), \(\vee\) & y, o (opcional) & las palabras «y», «o» también valen \\
+\(=\), \(\neq\) & es igual, es distinto & velocidad \(\neq\) rapidez \\
+\(\approx\) & se parece, aproximadamente & \(\pi\approx3{,}14\); AFD \(\approx\) AFN \\
+\(<\), \(>\) & menor, mayor & oferta \(<\) demanda \\
+\(\in\), \(\notin\) & es uno de, no es uno de & Perú \(\in\) países andinos \\
+\(\subset\) & es un tipo de & mamíferos \(\subset\) vertebrados \\
+\(\to\) & si\ldots{} entonces, implica & llueve \(\to\) suelo mojado \\
+\(\Leftrightarrow\) & si y solo si & \\
+\(\therefore\) & por lo tanto (deduzco) & premisas\ldots{} \(\therefore\) conclusión \\
+\(\uparrow\), \(\downarrow\) & aumenta, disminuye & \(\uparrow\) precio \kss{K23} \(\downarrow\) demanda \\
+\(\Delta\) & cambio de & \(\Delta\) temperatura \\
+\(\forall\), \(\exists\) & para todo, existe & \(\forall\) célula \(\exists\) membrana \\
+\(\#\) & número de, cantidad de & \# habitantes \\
+\end{longtable}
+
+\textbf{La flecha \(\to\) ya no es comodín.} Solo significa implicación lógica.
+Para unir ideas de cualquier otra manera uso el conector que corresponde.
+
+\subsection{Distinciones que no se mezclan}\label{sec:distinciones}
+Este es el corazón del sistema. Antes de escribir un conector me pregunto qué
+quiero decir exactamente.
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{50mm}p{13mm}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-63mm-4\tabcolsep\relax}@{}}
+\toprule Quiero decir\ldots & Escribo & Por ejemplo \\ \midrule\endhead
+\bottomrule\endfoot
+\multicolumn{3}{@{}l}{\textit{Una cosa lleva a otra}}\\
+A provoca B en el mundo & \kss{K23} & fricción \kss{K23} calor \\
+A pasa antes que B & \kss{K21} & Edad Media \kss{K21} Renacimiento \\
+A se convierte en B & \kss{K24} & glucosa \kss{K24} piruvato \\
+si A es verdad, B también & \(\to\) & \(n\) par \(\to\) \(n^2\) par \\
+de lo anterior deduzco B & \(\therefore\) & \(\therefore\) el algoritmo termina \\
+A y B cambian a la vez & \kss{K28} & ingresos \kss{K28} años de estudio \\[3pt]
+\multicolumn{3}{@{}l}{\textit{Algo no es, o es distinto}}\\
+A no es así & \(\neg\) & \(\neg\) soluble \\
+A y B son extremos contrarios & \kss{K29} & ácido \kss{K29} base \\
+A, en cambio B & \kss{K25} & Platón: ideas \kss{K25} Aristóteles: sustancias \\
+A es distinto de B & \(\neq\) & clima \(\neq\) tiempo atmosférico \\[3pt]
+\multicolumn{3}{@{}l}{\textit{Una cosa está en otra}}\\
+A es una pieza de B & \kss{K27} & ribosoma \kss{K27} célula \\
+A es uno de los B & \(\in\) & Mercurio \(\in\) planetas \\
+todo A es un B & \(\subset\) & cuadrados \(\subset\) rectángulos \\
+A es un caso de lo anterior & \kss{K26} & \kss{K26} el ciclo del agua \\[3pt]
+\multicolumn{3}{@{}l}{\textit{¿Quién lo dice y qué tan seguro es?}}\\
+lo dice una fuente & \kss{K16} & \kss{K16} INEI 2023: \ldots \\
+lo pienso yo & \kss{K32} & (margen) \\
+podría ser cierto, falta probarlo & \kss{K33} & (margen) \\
+no lo entiendo o lo pregunto & \kss{K19} & (margen o delante de un grupo) \\
+es la idea clave & \kss{K31} & (margen) \\
+\end{longtable}
+
+\needspace{8\baselineskip}\textbf{Tres errores que KalaScript evita:}
+\begin{itemize}
+\item Leer «Luego» como «Causa». Que la Revolución Industrial viniera después
+ del Renacimiento no dice que este la causara.
+\item Leer «Opuesto» como negación. «\(\neg\) caliente» incluye «tibio»;
+ «caliente \kss{K29} frío» habla de los extremos de una escala.
+\item Leer «Según» como verdad. «\kss{K16} el profesor: \ldots» dice quién lo
+ afirma, no que esté demostrado.
+\end{itemize}
+
+\subsection{Lo que no hago}
+\begin{itemize}
+\item No uso \(\to\) como flecha para todo.
+\item No doy significado al tamaño, al color, a la inclinación ni a la posición
+ de un signo, salvo la regla de margen y contenido.
+\item No convierto todo en signos: si la palabra es clara y corta, la escribo.
+\item No invento un signo en medio de una clase. Si me falta uno, escribo la
+ palabra y lo anoto como candidato (sección~\ref{sec:crecer}).
+\end{itemize}

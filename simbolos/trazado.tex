@@ -1,59 +1,36 @@
-% Orden orientativo de ejecución; una fila por signo canónico.
-\newcommand{\KalaTrazoFila}[2]{%
-\KalaSimbolo[13mm]{#1}\quad\texttt{#1} &
-\textbf{\csname KalaNombre#1\endcsname}
-(\csname KalaTrayectos#1\endcsname\
-\ifnum\csname KalaTrayectos#1\endcsname=1 trayecto\else trayectos\fi). #2\\[7pt]}
 \begin{longtable}{@{}p{32mm}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-32mm-2\tabcolsep\relax}@{}}
-\toprule Modelo & Orden de trazado \\ \midrule\endhead
+\toprule Signo & Orden de trazado \\ \midrule\endhead
 \bottomrule\endfoot
-\KalaTrazoFila{K01}{1. Bajo por la izquierda y curvo hacia la derecha en la base.
-2. Dibujo el ángulo superior desde la izquierda hacia la derecha y bajo.}
-\KalaTrazoFila{K02}{1. Desde abajo a la izquierda, subo curvando por arriba hacia
-la derecha y vuelvo a la izquierda hasta el centro. 2. Bajo desde ese extremo.}
-\KalaTrazoFila{K03}{1. Trazo la curva ascendente de izquierda a derecha y termino
-horizontal. 2. Dibujo la punta desde arriba a la izquierda, pasando por el
-extremo derecho y bajando a la izquierda.}
-\KalaTrazoFila{K04}{1. Desde abajo a la izquierda, dibujo una onda con arco
-superior, valle y subida derecha. 2. Añado la punta superior de izquierda a derecha.}
-\KalaTrazoFila{K05}{1. Bajo por la izquierda y giro a la derecha en la base.
-2. Añado la barra superior hacia la derecha. 3. Añado la barra intermedia.}
-\KalaTrazoFila{K06}{1. Arco izquierdo abierto, de arriba abajo.
-2. Zigzag derecho: derecha, diagonal abajo a la izquierda y derecha.}
-\KalaTrazoFila{K07}{1. Desde arriba a la izquierda, curvo por la derecha y vuelvo
-a la izquierda por abajo. 2. Trazo la L interior bajando y girando a la derecha.}
-\KalaTrazoFila{K08}{1. Cierro el rombo: izquierda, arriba, derecha, abajo,
-izquierda. 2. Barra interior hacia la derecha hasta tocar el lado oblicuo,
-sin sobresalir.}
-\KalaTrazoFila{K09}{1. Corchete izquierdo: derecha, abajo, izquierda.
-2. Barra derecha superior. 3. Barra derecha inferior.}
-\KalaTrazoFila{K10}{1. Desde abajo a la izquierda, subo, redondeo la esquina,
-sigo a la derecha, bajo y vuelvo hacia el interior a la izquierda.}
-\KalaTrazoFila{K11}{1. Arco desde arriba a la izquierda por la derecha hasta
-abajo. 2. Diagonal desde abajo a la izquierda hacia arriba a la derecha.}
-\KalaTrazoFila{K12}{1. V desde arriba a la izquierda al centro inferior y arriba
-a la derecha. 2. Bajo una cola desde el vértice inferior.}
-\KalaTrazoFila{K13}{1. Desde arriba a la izquierda, voy al centro y vuelvo abajo
-a la izquierda. 2. Del centro hacia la derecha y un retorno corto arriba a la izquierda.}
-\KalaTrazoFila{K14}{1. U desde arriba a la izquierda, base curva y subida derecha.
-2. Barra horizontal entre los lados. 3. Vertical central desde arriba, cruzando la barra.}
-\KalaTrazoFila{K15}{1. La misma U. 2. Barra corta interior, separada de ambos
-lados. Conservo esa separación y no añado la vertical de K14.}
-\KalaTrazoFila{K16}{1. Desde abajo a la izquierda: subo, derecha, esquina
-inclinada, bajo y cierro hacia la izquierda. 2. Barra interior hacia la derecha.}
-\KalaTrazoFila{K17}{1. Ángulo izquierdo hacia el centro y de vuelta abajo a la
-izquierda. 2. Ángulo derecho hacia el centro y de vuelta abajo a la derecha.
-Dejo separados los vértices; no formo una X.}
-\KalaTrazoFila{K18}{1. Desde arriba a la derecha, voy a la izquierda, bajo con
-esquinas curvas y vuelvo a la derecha por abajo. 2. Ángulo interior hacia la
-derecha y abajo a la izquierda.}
-\KalaTrazoFila{K19}{1. Desde abajo a la izquierda, curvo por arriba hacia la
-derecha, vuelvo en diagonal abajo a la izquierda y termino abajo a la derecha.}
-\KalaTrazoFila{K20}{1. Barra superior hacia la derecha, diagonal abajo a la
-izquierda y bajada vertical. 2. Barra intermedia hacia la derecha.}
+\KalaTrazoFila{K23}{1. Zigzag desde abajo a la izquierda: subo, bajo y subo hasta arriba a la derecha.
+2. Punta: desde la izquierda al extremo y bajo un poco.}
 \KalaTrazoFila{K21}{1. Escalera: subo, derecha, subo, derecha.
-2. Punta de flecha desde arriba a la izquierda, extremo y abajo a la izquierda.}
-\KalaTrazoFila{K22}{1. Desde arriba a la derecha, rodeo por arriba, izquierda y
-abajo, subo por la derecha y termino con la barra hacia dentro. Todo es un
-trayecto continuo; no añado una bajada ni repaso el arco.}
+2. Punta desde arriba a la izquierda, pasando por el extremo, hacia abajo a la izquierda.}
+\KalaTrazoFila{K24}{1. Línea a la derecha, bucle hacia arriba que vuelve a la línea, y sigo recto.
+2. Punta de flecha al final.}
+\KalaTrazoFila{K03}{1. Curva que sube de izquierda a derecha y termina horizontal.
+2. Punta desde arriba a la izquierda, pasando por el extremo, hacia abajo a la izquierda.}
+\KalaTrazoFila{K26}{1. Círculo empezando abajo a la derecha, en sentido horario, y al cerrarlo sigo con el mango en diagonal.
+2. Punto en el centro.}
+\KalaTrazoFila{K27}{1. Círculo grande. 2. Círculo pequeño dentro, cargado a la derecha.}
+\KalaTrazoFila{K25}{1. Arco izquierdo, abombado hacia el centro. 2. Arco derecho, abombado hacia el centro. No se tocan.}
+\KalaTrazoFila{K28}{1. Diagonal ascendente. 2. Otra diagonal paralela, desplazada a la derecha.}
+\KalaTrazoFila{K29}{1. Círculo pequeño a la izquierda. 2. Línea horizontal. 3. Círculo pequeño a la derecha.
+Rápido, se puede hacer en un solo trazo: círculo, línea, círculo.}
+\KalaTrazoFila{K30}{1. Círculo pequeño arriba. 2. V invertida: desde abajo a la izquierda, subo bajo el círculo y bajo a la derecha.}
+\KalaTrazoFila{K08}{1. Rombo: izquierda, arriba, derecha, abajo, izquierda. 2. Barra desde el centro hasta el lado derecho, sin sobresalir.}
+\KalaTrazoFila{K07}{1. Desde arriba a la izquierda, curvo por la derecha y vuelvo por abajo. 2. L interior.}
+\KalaTrazoFila{K04}{1. Desde abajo a la izquierda, onda con arco, valle y subida. 2. Punta superior.}
+\KalaTrazoFila{K01}{1. Bajo por la izquierda y curvo hacia la derecha en la base. 2. Ángulo superior: derecha y abajo.}
+\KalaTrazoFila{K02}{1. Desde abajo a la izquierda, subo curvando hacia la derecha y vuelvo al centro. 2. Bajo desde ahí.}
+\KalaTrazoFila{K05}{1. Bajo por la izquierda y giro a la derecha. 2. Barra alta. 3. Barra media, más larga.}
+\KalaTrazoFila{K06}{1. Arco izquierdo, de arriba abajo. 2. Zigzag: derecha, diagonal abajo a la izquierda, derecha.}
+\KalaTrazoFila{K09}{1. Corchete: derecha, abajo, izquierda. 2. Barra superior. 3. Barra inferior.}
+\KalaTrazoFila{K16}{1. Contorno desde abajo a la izquierda: subo, derecha, esquina cortada, bajo y cierro. 2. Barra interior.}
+\KalaTrazoFila{K19}{1. Desde abajo a la izquierda, curvo por arriba, bajo en diagonal al centro y termino abajo a la derecha.}
+\KalaTrazoFila{K10}{1. Subo por la izquierda, redondeo, derecha, bajo y vuelvo hacia dentro.}
+\KalaTrazoFila{K31}{1. Asta desde abajo, subo, y banderín: derecha en diagonal y vuelta al asta.}
+\KalaTrazoFila{K35}{1. Triángulo hacia abajo: derecha, diagonal al vértice, vuelta al inicio. 2. Tallo hacia abajo.}
+\KalaTrazoFila{K32}{1. Espiral desde el centro hacia fuera, en sentido antihorario.}
+\KalaTrazoFila{K33}{1. Onda horizontal. 2. Vertical que la cruza por el centro.}
+\KalaTrazoFila{K34}{1. Cuadrado en un trazo. Al resolver la tarea, lo tacho con una diagonal.}
 \end{longtable}

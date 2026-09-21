@@ -1,102 +1,157 @@
-% Inventario base de KalaScript, con las revisiones gráficas aceptadas.
+% Inventario activo de KalaScript para apuntes.
 % Coordenadas: cuadrícula 64 × 64, origen superior izquierdo.
-% Editar directamente en LaTeX; no depende de SVG ni JSON.
+% \KalaRegistrar{código}{nombre}{familia}{definición}{trayectos}{dibujo}
 
-\KalaRegistrar{K01}{Entidad}{Categoría}
-  {Un objeto del dominio del que se habla; no identifica por sí solo un objeto particular.}{2}{%
+\KalaRegistrar{K01}{Cosa}{Categoría}
+  {Marca un nombre como objeto, concepto o teoría. Se usa solo cuando la palabra podría leerse de otro modo.}{2}{%
   \draw (18,18) -- (18,40) .. controls (18,46) and (21.333333,49) .. (28,49) -- (44,49);
   \draw (30,15) -- (46,15) -- (46,31);
 }
 
 \KalaRegistrar{K02}{Propiedad}{Categoría}
-  {Una característica atribuible a una entidad dentro de un dominio definido.}{2}{%
+  {Característica de algo: «es rojo», «es soluble», «es regular». Se escribe delante de la característica.}{2}{%
   \draw (16,44) .. controls (16,28) and (22,20) .. (34,20) .. controls (42,20) and (46,24.666667) .. (46,34) -- (32,34);
   \draw (32,34) -- (32,49);
 }
 
-\KalaRegistrar{K03}{Relación}{Categoría}
-  {Con un índice y argumentos, aplica una relación del catálogo. El orden de los argumentos es significativo.}{2}{%
+\KalaRegistrar{K03}{Relación}{Conector}
+  {Hay una relación entre dos cosas, sin decir todavía cuál. Si se conoce, se escribe encima una palabra breve.}{2}{%
   \draw (13,42) .. controls (19,42) and (23.333333,38.333333) .. (26,31) .. controls (28.666667,23.666667) and (33,20) .. (39,20) -- (51,20);
   \draw (42,12) -- (51,20) -- (43,29);
 }
 
 \KalaRegistrar{K04}{Proceso}{Categoría}
-  {Una actividad o transformación considerada en un dominio. No implica automáticamente causalidad.}{2}{%
+  {Marca una actividad o cambio que dura: fotosíntesis, industrialización, compilación. No dice qué lo causa.}{2}{%
   \draw (14,43) .. controls (14,26) and (30,26) .. (30,43) .. controls (30,58) and (47,49) .. (47,25);
   \draw (40,30) -- (47,22) -- (54,29);
 }
 
 \KalaRegistrar{K05}{Cantidad}{Categoría}
-  {Una magnitud expresable mediante un valor y, cuando corresponde, una unidad.}{3}{%
+  {Marca una magnitud o cifra que importa recordar; se acompaña del valor y la unidad.}{3}{%
   \draw (19,15) -- (19,48) -- (47,48);
   \draw (19,26) -- (36,26);
   \draw (19,37) -- (43,37);
 }
 
-\KalaRegistrar{K06}{Colección}{Categoría}
-  {Una agrupación cuya naturaleza se declara: conjunto, lista u otra estructura. No impone orden ni unicidad por sí sola.}{2}{%
+\KalaRegistrar{K06}{Lista}{Categoría}
+  {Anuncia una enumeración: «los siguientes». Los elementos van debajo, uno por línea, o separados por barras.}{2}{%
   \draw (24,14) .. controls (8,14) and (8,50) .. (24,50);
   \draw (34,22) -- (47,22) -- (34,42) -- (47,42);
 }
 
 \KalaRegistrar{K07}{Tiempo}{Categoría}
-  {Un aspecto temporal, como instante o intervalo, con referencia temporal declarada cuando sea necesaria.}{2}{%
+  {Marca una fecha, época o duración: 1789, s.~XIX, 3~ms.}{2}{%
   \draw (17,16) .. controls (38.333333,16) and (49,21.333333) .. (49,32) .. controls (49,42.666667) and (38.333333,48) .. (17,48);
   \draw (18,25) -- (18,39) -- (29,39);
 }
 
-\KalaRegistrar{K08}{Espacio}{Categoría}
-  {Un aspecto espacial cuya interpretación requiere dominio, escala o marco de referencia cuando corresponda.}{2}{%
+\KalaRegistrar{K08}{Lugar}{Categoría}
+  {Marca un lugar o región: Cusco, la corteza, el núcleo celular.}{2}{%
   \draw (15,36) -- (32,15) -- (49,36) -- (32,49) -- cycle;
-  % La barra termina en el centro del lado oblicuo, sin sobresalir.
   \draw (32,32) -- (45.761905,32);
 }
 
 \KalaRegistrar{K09}{Definición}{Marcador}
-  {Introduce una definición nombrada. No afirma haber demostrado un resultado.}{3}{%
+  {«Se define como». A la izquierda el término; a la derecha su definición. No afirma que algo sea verdad: fija un significado.}{3}{%
   \draw (14,18) -- (25,18) -- (25,46) -- (14,46);
   \draw (34,25) -- (51,25);
   \draw (34,39) -- (51,39);
 }
 
-\KalaRegistrar{K10}{Referencia}{Marcador}
-  {Seguida de un índice, remite al referente definido en la leyenda del documento.}{1}{%
+\KalaRegistrar{K10}{Ver}{Marcador}
+  {Remite a otra nota, página o figura: «ver 3», «ver p.~12». El número va abajo a la derecha.}{1}{%
   \draw (17,44) -- (17,20) .. controls (17,16) and (19,14) .. (23,14) -- (41,14) -- (41,35) -- (29,35);
 }
 
-\KalaRegistrar{K11}{Negación}{Operador}
-  {Niega la proposición de su grupo. No forma antónimos ni indica desconocimiento.}{2}{%
-  \draw (15,19) .. controls (31,11) and (49,21) .. (49,36) .. controls (49,44) and (44.666667,48.333333) .. (36,49);
-  \draw (19,50) -- (43,13);
-}
-
-\KalaRegistrar{K12}{Conjunción}{Operador}
-  {Afirma conjuntamente dos proposiciones, sin afirmar un orden temporal entre ellas.}{2}{%
-  \draw (14,20) -- (32,45) -- (50,20);
-  \draw (32,45) -- (32,53);
-}
-
-\KalaRegistrar{K13}{Condicional}{Operador}
-  {Implicación material clásica entre antecedente y consecuente. No significa causa ni ejecución.}{2}{%
-  \draw (14,19) -- (32,32) -- (14,45);
-  \draw (32,32) -- (50,32) -- (44,24);
-}
-
-\KalaRegistrar{K14}{Universal}{Operador}
-  {Para cada elemento del dominio indicado se cumple el cuerpo agrupado.}{3}{%
-  \draw (15,18) -- (15,45) .. controls (26.333333,51.666667) and (37.666667,51.666667) .. (49,45) -- (49,18);
-  \draw (15,28) -- (49,28);
-  \draw (32,12) -- (32,41);
-}
-
-\KalaRegistrar{K15}{Existencia}{Operador}
-  {Existe al menos un elemento del dominio indicado para el que se cumple el cuerpo agrupado.}{2}{%
-  \draw (15,18) -- (15,45) .. controls (26.333333,51.666667) and (37.666667,51.666667) .. (49,45) -- (49,18);
-  \draw (25,28) -- (39,28);
-}
-
-\KalaRegistrar{K16}{Fuente}{Marcador}
-  {Atribuye una proposición a una fuente identificada. No certifica su verdad ni cuantifica confianza.}{2}{%
+\KalaRegistrar{K16}{Según}{Marcador}
+  {Atribuye lo que sigue a una fuente: profesor, libro, autor. Que lo diga una fuente no lo hace verdadero.}{2}{%
   \draw (16,48) -- (16,16) -- (38,16) -- (49,27) -- (49,48) -- cycle;
   \draw (25,32) -- (39,32);
+}
+
+\KalaRegistrar{K19}{Pregunta}{Marcador}
+  {Duda, algo que no entendí o una pregunta abierta. No afirma el contenido de la línea.}{1}{%
+  \draw (14,43) .. controls (14,16) and (45,14) .. (49,30) -- (33,40) -- (49,50);
+}
+
+\KalaRegistrar{K21}{Luego}{Conector}
+  {Una cosa viene después de otra: etapas, pasos de un algoritmo o sucesos. Solo ordena; no dice que la primera cause la segunda.}{2}{%
+  \draw (14,45) -- (14,32) -- (31,32) -- (31,19) -- (49,19);
+  \draw (41,11) -- (49,19) -- (41,27);
+}
+
+\KalaRegistrar{K23}{Causa}{Conector}
+  {Lo de la izquierda produce o provoca lo de la derecha, en el mundo. No es una deducción lógica ni una simple sucesión.}{2}{%
+  \draw (12,46) -- (27,20) -- (36,44) -- (51,18);
+  \draw (42,19) -- (51,18) -- (53,27);
+}
+
+\KalaRegistrar{K24}{Se vuelve}{Conector}
+  {Lo de la izquierda se transforma en lo de la derecha: reactivos en productos, oruga en mariposa, idea en ley.}{2}{%
+  \draw (11,40) -- (22,40) .. controls (32,40) and (34,22) .. (26,22) .. controls (18,22) and (20,40) .. (34,40) -- (53,40);
+  \draw (45,32) -- (53,40) -- (45,48);
+}
+
+\KalaRegistrar{K25}{Pero}{Conector}
+  {Contrasta dos ideas: «pero», «en cambio», «a diferencia de». No dice que sean opuestas.}{2}{%
+  \draw (15,14) .. controls (29,22) and (29,42) .. (15,50);
+  \draw (49,14) .. controls (35,22) and (35,42) .. (49,50);
+}
+
+\KalaRegistrar{K26}{Ejemplo}{Conector}
+  {Presenta un caso concreto de lo anterior: «por ejemplo». El ejemplo ilustra; no demuestra.}{2}{%
+  \draw (36,36) .. controls (33,39) and (30,40) .. (27,40) .. controls (19,40) and (13,34) .. (13,26) .. controls (13,18) and (19,12) .. (27,12) .. controls (35,12) and (41,18) .. (41,26) .. controls (41,30) and (39,33.5) .. (36,36) -- (51,51);
+  \fill[KalaTinta] (27,26) circle (2.6);
+}
+
+\KalaRegistrar{K27}{Parte de}{Conector}
+  {Lo de la izquierda es una pieza o componente de lo de la derecha: mitocondria de célula, CPU de computador. Ser un elemento de un conjunto se escribe \(\in\).}{2}{%
+  \draw (32,14) .. controls (42,14) and (50,22) .. (50,32) .. controls (50,42) and (42,50) .. (32,50) .. controls (22,50) and (14,42) .. (14,32) .. controls (14,22) and (22,14) .. (32,14) -- cycle;
+  \draw (36,24) .. controls (40.5,24) and (44,27.5) .. (44,32) .. controls (44,36.5) and (40.5,40) .. (36,40) .. controls (31.5,40) and (28,36.5) .. (28,32) .. controls (28,27.5) and (31.5,24) .. (36,24) -- cycle;
+}
+
+\KalaRegistrar{K28}{Van juntos}{Conector}
+  {Correlación: cuando uno cambia, el otro suele cambiar. No dice cuál causa a cuál, ni que haya causa.}{2}{%
+  \draw (13,42) -- (37,18);
+  \draw (27,46) -- (51,22);
+}
+
+\KalaRegistrar{K29}{Opuesto}{Conector}
+  {Los extremos contrarios de una misma escala: caliente y frío, ácido y básico. Negar algo se escribe \(\neg\), no con este signo.}{3}{%
+  \draw (15,32) circle (5);
+  \draw (20,32) -- (44,32);
+  \draw (49,32) circle (5);
+}
+
+\KalaRegistrar{K30}{Persona}{Categoría}
+  {Marca un nombre como persona o grupo de personas: autor, personaje, población.}{2}{%
+  \draw (32,13) circle (7);
+  \draw (16,51) -- (32,26) -- (48,51);
+}
+
+\KalaRegistrar{K31}{Importante}{Margen}
+  {Idea clave que debo recordar o que entra en el examen.}{1}{%
+  \draw (21,52) -- (21,12) -- (48,21) -- (21,30);
+}
+
+\KalaRegistrar{K32}{Idea mía}{Margen}
+  {Opinión, conexión o intuición propia, distinta de lo que dice la fuente o la clase.}{1}{%
+  \draw (32,32) .. controls (36,32) and (38,28) .. (36,25) .. controls (33,20) and (24,22) .. (24,30) .. controls (24,40) and (38,43) .. (43,35) .. controls (49,25) and (42,14) .. (30,14) .. controls (18,14) and (12,24) .. (14,36);
+}
+
+\KalaRegistrar{K33}{Hipótesis}{Margen}
+  {Algo que se supone o que podría ser cierto, pero aún no está comprobado.}{2}{%
+  \draw (12,34) .. controls (18,20) and (24,20) .. (32,32) .. controls (40,44) and (46,44) .. (52,30);
+  \draw (32,13) -- (32,51);
+}
+
+\KalaRegistrar{K34}{Revisar}{Margen}
+  {Pendiente: completar, verificar o preguntar después. Al resolverlo, se tacha con una diagonal.}{1}{%
+  \draw (16,16) -- (48,16) -- (48,48) -- (16,48) -- cycle;
+}
+
+\KalaRegistrar{K35}{Resumen}{Margen}
+  {La línea resume o concluye una sección. Conviene releer primero estas líneas.}{2}{%
+  \draw (13,15) -- (51,15) -- (32,38) -- cycle;
+  \draw (32,38) -- (32,52);
 }

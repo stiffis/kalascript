@@ -1,0 +1,65 @@
+% Signos retirados en la versión para apuntes. Se conservan para leer apuntes antiguos.
+% El último argumento de \KalaRetirado indica qué se escribe ahora en su lugar.
+\KalaRegistrar{K11}{Negación}{Retirado}
+  {Niega la proposición de su grupo. No forma antónimos ni indica desconocimiento.}{2}{%
+  \draw (15,19) .. controls (31,11) and (49,21) .. (49,36) .. controls (49,44) and (44.666667,48.333333) .. (36,49);
+  \draw (19,50) -- (43,13);
+}
+\expandafter\def\csname KalaReemplazoK11\endcsname{¬}
+
+\KalaRegistrar{K12}{Conjunción}{Retirado}
+  {Afirma conjuntamente dos proposiciones, sin afirmar un orden temporal entre ellas.}{2}{%
+  \draw (14,20) -- (32,45) -- (50,20);
+  \draw (32,45) -- (32,53);
+}
+\expandafter\def\csname KalaReemplazoK12\endcsname{y (palabra) o \(\land\)}
+
+\KalaRegistrar{K13}{Condicional}{Retirado}
+  {Implicación material clásica entre antecedente y consecuente. No significa causa ni ejecución.}{2}{%
+  \draw (14,19) -- (32,32) -- (14,45);
+  \draw (32,32) -- (50,32) -- (44,24);
+}
+\expandafter\def\csname KalaReemplazoK13\endcsname{\(\to\)}
+
+\KalaRegistrar{K14}{Universal}{Retirado}
+  {Para cada elemento del dominio indicado se cumple el cuerpo agrupado.}{3}{%
+  \draw (15,18) -- (15,45) .. controls (26.333333,51.666667) and (37.666667,51.666667) .. (49,45) -- (49,18);
+  \draw (15,28) -- (49,28);
+  \draw (32,12) -- (32,41);
+}
+\expandafter\def\csname KalaReemplazoK14\endcsname{\(\forall\)}
+
+\KalaRegistrar{K15}{Existencia}{Retirado}
+  {Existe al menos un elemento del dominio indicado para el que se cumple el cuerpo agrupado.}{2}{%
+  \draw (15,18) -- (15,45) .. controls (26.333333,51.666667) and (37.666667,51.666667) .. (49,45) -- (49,18);
+  \draw (25,28) -- (39,28);
+}
+\expandafter\def\csname KalaReemplazoK15\endcsname{\(\exists\)}
+
+\KalaRegistrar{K17}{Alternativa}{Retirado}
+  {Disyunción inclusiva de dos proposiciones: al menos una es verdadera; pueden serlo ambas.}{2}{%
+  \draw (14,18) -- (30,32) -- (14,46);
+  \draw (50,18) -- (34,32) -- (50,46);
+}
+\expandafter\def\csname KalaReemplazoK17\endcsname{o (palabra) o \(\lor\)}
+
+\KalaRegistrar{K18}{Posibilidad}{Retirado}
+  {Con un índice de modelo, afirma que el cuerpo se cumple en algún estado accesible. Fragmento modal proposicional.}{2}{%
+  \draw (44,14) -- (20,14) .. controls (12,14) and (12,18) .. (12,26) -- (12,42) .. controls (12,50) and (16,50) .. (24,50) -- (44,50);
+  \draw (32,23) -- (43,32) -- (32,41);
+}
+\expandafter\def\csname KalaReemplazoK18\endcsname{«puede» o K33}
+
+\KalaRegistrar{K20}{Selección}{Retirado}
+  {Construye el conjunto de elementos de un dominio que cumplen una condición. Vincula una variable en el cuerpo.}{2}{%
+  \draw (14,16) -- (50,16) -- (35,34) -- (35,49);
+  \draw (22,25) -- (42,25);
+}
+\expandafter\def\csname KalaReemplazoK20\endcsname{\(\{x\mid\ldots\}\)}
+
+\KalaRegistrar{K22}{Mientras}{Retirado}
+  {Comprueba una condición antes de cada iteración y ejecuta el cuerpo mientras sea verdadera. Puede no terminar.}{1}{%
+  \draw (46,20) .. controls (20,5) and (9,33) .. (22,46) .. controls (34,58) and (54,41) .. (47,30) -- (37,30);
+}
+\expandafter\def\csname KalaReemplazoK22\endcsname{«mientras»}
+

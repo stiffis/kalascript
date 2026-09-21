@@ -1,4 +1,4 @@
-% Configuración compartida por KalaScript.tex y atlas.tex.
+% Configuración compartida por todos los documentos de KalaScript.
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -7,10 +7,10 @@
 \usepackage[a4paper,margin=22mm,headheight=16pt]{geometry}
 \usepackage{microtype}
 \usepackage{amsmath,amssymb}
-\usepackage{graphicx,xcolor,tikz}
+\usepackage{graphicx,xcolor,tikz,multicol}
 \usepackage{booktabs,longtable,array,tabularx}
 \usepackage{enumitem,fancyvrb,fancyhdr,titlesec}
-\usepackage{xurl}
+\usepackage{xurl,needspace}
 \usepackage[unicode,hidelinks]{hyperref}
 
 \definecolor{KalaTinta}{HTML}{263B35}
@@ -19,8 +19,8 @@
 \definecolor{KalaLinea}{HTML}{D7DDD3}
 \definecolor{KalaPapel}{HTML}{F7F5EE}
 \definecolor{KalaVerde}{HTML}{E6EBE1}
-\hypersetup{pdftitle={KalaScript · Núcleo escrito},
-  pdfsubject={Escritura visual, gramática y ejemplos},
+\hypersetup{pdftitle={KalaScript},
+  pdfsubject={Escritura personal para tomar apuntes},
   colorlinks=true,linkcolor=KalaTinta,urlcolor=KalaAcento,
   bookmarksnumbered=true}
 \setlength{\parindent}{0pt}
@@ -37,7 +37,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small\sffamily\color{KalaSuave}KalaScript}
-\fancyhead[R]{\small\sffamily\color{KalaSuave}Núcleo escrito}
+\fancyhead[R]{\small\sffamily\color{KalaSuave}Escritura para apuntes}
 \fancyfoot[L]{\footnotesize\sffamily\color{KalaSuave}Escritura personal}
 \fancyfoot[R]{\small\sffamily\thepage}
 \renewcommand{\headrulewidth}{.3pt}
@@ -76,16 +76,6 @@
     \node[draw=KalaSuave,dashed,line width=.35pt,fill=KalaPapel,
       inner xsep=4pt,inner ysep=3pt]{\ensuremath{\displaystyle #1}};%
 }
-\newcommand{\KalaReferencia}[1]{\KalaSimbolo{K10}\kern-.8mm\textsubscript{#1}}
-\newcommand{\KalaSeparador}{\kern1.4mm\textcolor{KalaSuave}{\ensuremath{\mid}}\kern1.4mm}
-\newcommand{\KalaRelacion}[2]{\KalaSimbolo{K03}\kern-.8mm\textsubscript{#1}\kern1.5mm\KalaGrupo{#2}}
-\newcommand{\KalaNegacion}[1]{\KalaSimbolo{K11}\kern1mm\KalaGrupo{#1}}
-\newcommand{\KalaConjuncion}[2]{\KalaSimbolo{K12}\kern1mm\KalaGrupo{#1\KalaSeparador#2}}
-\newcommand{\KalaCondicional}[2]{\KalaSimbolo{K13}\kern1mm\KalaGrupo{#1\KalaSeparador#2}}
-\newcommand{\KalaUniversal}[3]{\KalaSimbolo{K14}\kern1mm\ensuremath{#1\in}\,\KalaMat{#2}\kern1mm\KalaGrupo{#3}}
-\newcommand{\KalaExistencia}[3]{\KalaSimbolo{K15}\kern1mm\ensuremath{#1\in}\,\KalaMat{#2}\kern1mm\KalaGrupo{#3}}
-\newcommand{\KalaFuente}[2]{\KalaSimbolo{K16}\kern1mm#1\kern1mm\KalaGrupo{#2}}
-\newcommand{\KalaDefinicion}[2]{\KalaSimbolo{K09}\kern1mm\ensuremath{#1}\kern1mm\KalaGrupo{#2}}
 \newsavebox{\KalaCajaExpresion}
 \newcommand{\KalaMostrar}[1]{%
   \begin{center}
@@ -112,10 +102,38 @@
   \csname KalaDescripcion#1\endcsname\par
   {\footnotesize\color{KalaSuave}\csname KalaFamilia#1\endcsname\;·\;
    \csname KalaTrayectos#1\endcsname\
-   \ifnum\csname KalaTrayectos#1\endcsname=1 trayecto propuesto\else trayectos propuestos\fi.}\\[5pt]
+   \ifnum\csname KalaTrayectos#1\endcsname=1 trayecto\else trayectos\fi.}\\[5pt]
 }
+\newcommand{\ks}[1]{\KalaSimbolo[1.75em]{#1}}
+\newcommand{\kss}[1]{\KalaSimbolo[1.35em]{#1}}
+\newcommand{\KalaTarjetas}[4]{%
+  \noindent\KalaTarjeta{#1}\hfill\KalaTarjeta{#2}\hfill\KalaTarjeta{#3}\hfill\KalaTarjeta{#4}\par\vspace{3mm}}
+\newcommand{\KalaTarjetaVacia}{\begin{minipage}[t]{.235\linewidth}\mbox{}\end{minipage}}
+\newcommand{\KalaTrazoFila}[2]{%
+  \KalaSimbolo[13mm]{#1}\quad\texttt{#1} &
+  \textbf{\csname KalaNombre#1\endcsname}
+  (\csname KalaTrayectos#1\endcsname\
+  \ifnum\csname KalaTrayectos#1\endcsname=1 trazo\else trazos\fi). #2\\[7pt]}
+\newcommand{\KalaRetiradoFila}[1]{%
+  \KalaSimbolo[9mm]{#1}\quad\texttt{#1} & \csname KalaNombre#1\endcsname &
+  \csname KalaReemplazo#1\endcsname\\[3pt]}
+\newcommand{\KalaPar}[2]{%
+  \KalaSimbolo[11mm]{#1}\,\KalaSimbolo[11mm]{#2}}
+
+% Hoja de apunte: margen para marcadores y columna para el contenido.
+\newenvironment{apunte}[1][]{%
+  \par\vspace{2mm}\noindent
+  \begin{tikzpicture}\node[fill=KalaPapel,draw=KalaLinea,line width=.5pt,
+    inner sep=3mm,text width=\dimexpr\linewidth-6mm-1pt\relax]\bgroup
+  \ifx\relax#1\relax\else{\small\sffamily\color{KalaAcento}#1}\par\vspace{1mm}\fi
+  \renewcommand{\arraystretch}{1.55}%
+  \begin{tabular}{@{}>{\centering\arraybackslash}p{9mm}!{\color{KalaAcento}\vrule width .6pt}
+    >{\raggedright\arraybackslash}p{\dimexpr\linewidth-9mm-2\tabcolsep-1pt\relax}@{}}%
+}{%
+  \end{tabular}\egroup;\end{tikzpicture}\par\vspace{2mm}%
+}
+\newcommand{\linea}[2]{#1 & #2\\}
+\newcommand{\lectura}[1]{\par{\small\color{KalaSuave}\textit{Se lee:} #1}\par}
+
 \input{simbolos/glifos.tex}
-\input{simbolos/extension-02.tex}
-\input{simbolos/anteriores.tex}
-\input{comandos-02.tex}
-\input{datos/casos-02.tex}
+\input{simbolos/archivo.tex}

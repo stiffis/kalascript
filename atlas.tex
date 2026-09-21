@@ -1,28 +1,111 @@
-% Consulta de las mismas fuentes vigentes del manual.
-\documentclass[11pt,a4paper]{article}
+% Hoja de consulta para imprimir. Compilar con: make atlas
+\documentclass[10pt,a4paper]{article}
 \input{preambulo.tex}
-\hypersetup{pdftitle={KalaScript · Atlas escrito}}
+\geometry{margin=14mm,headheight=14pt}
+\hypersetup{pdftitle={KalaScript · Hoja de consulta}}
+\newcommand{\Mini}[1]{%
+  \begin{minipage}[t]{.158\linewidth}\centering
+  \KalaSimbolo[12mm]{#1}\par\vspace{-.5mm}
+  {\footnotesize\sffamily\csname KalaNombre#1\endcsname}
+  \end{minipage}}
+\newcommand{\MiniVacia}{\begin{minipage}[t]{.158\linewidth}\mbox{}\end{minipage}}
+\newcommand{\Familia}[1]{\par\vspace{2.5mm}{\small\sffamily\color{KalaAcento}\MakeUppercase{#1}}\par\vspace{1mm}\noindent}
 \begin{document}
-{\small\sffamily\color{KalaAcento}KALASCRIPT / CONSULTA}\par
-\section*{Atlas del núcleo escrito}\label{sec:atlas}
-\input{simbolos/lamina.tex}
+\thispagestyle{empty}
+{\Large\sffamily\color{KalaTinta}KalaScript}\hfill{\small\sffamily\color{KalaSuave}hoja de consulta · versión 2}\par
+\vspace{1mm}\textcolor{KalaLinea}{\rule{\linewidth}{.5pt}}
+
+\Familia{Conectores · van entre dos ideas, de izquierda a derecha}
+{\footnotesize\color{KalaSuave}Con punta: tienen dirección y la causa va primero. Sin punta: dicen lo mismo en cualquier orden.}\par\vspace{1mm}\noindent
+\Mini{K23}\hfill\Mini{K21}\hfill\Mini{K24}\hfill\Mini{K03}\hfill\Mini{K26}\hfill\Mini{K27}\par\vspace{2mm}\noindent
+\Mini{K25}\hfill\Mini{K28}\hfill\Mini{K29}\hfill\MiniVacia\hfill\MiniVacia\hfill\MiniVacia
+
+\Familia{Categorías · pequeñas, delante de un nombre, solo si ayudan}
+\Mini{K30}\hfill\Mini{K08}\hfill\Mini{K07}\hfill\Mini{K04}\hfill\Mini{K01}\hfill\Mini{K02}\par\vspace{2mm}\noindent
+\Mini{K05}\hfill\Mini{K06}\hfill\MiniVacia\hfill\MiniVacia\hfill\MiniVacia\hfill\MiniVacia
+
+\Familia{Marcadores · dentro de la línea, delante de lo que marcan}
+\Mini{K09}\hfill\Mini{K16}\hfill\Mini{K19}\hfill\Mini{K10}\hfill\MiniVacia\hfill\MiniVacia
+
+\Familia{Margen · afectan a toda la línea}
+\Mini{K31}\hfill\Mini{K35}\hfill\Mini{K32}\hfill\Mini{K33}\hfill\Mini{K34}\hfill\Mini{K19}
+
+\vspace{4mm}
+\begin{apunte}[Así se ve una página]
+\linea{}{\ks{K07} 1929 \ks{K08} Nueva York: [especulacn \(\wedge\) crédito fácil] \ks{K23} burbuja \ks{K21} crac}
+\linea{\ks{K31}}{crac \ks{K23} quiebra de bancos \ks{K23} \(\uparrow\) desempleo}
+\linea{\ks{K32}}{\(\approx\) crisis de 2008 \ks{K25} respuesta del gob distinta}
+\linea{\ks{K34}}{buscar cifras de desempleo \ks{K10}\(_{\text{cap.4}}\)}
+\end{apunte}
+
 \clearpage
-\input{simbolos/lamina-02.tex}
-\clearpage
-\section{Catálogo de funciones}\label{sec:catalogo}
-\input{simbolos/catalogo.tex}
-\clearpage
-\input{docs/03-escritura.tex}
-\clearpage
-\input{docs/gramatica.tex}
-\clearpage
-\input{datos/relaciones.tex}
-\clearpage
-\input{datos/vocabulario-02.tex}
-\clearpage
-\input{docs/07-composicion.tex}
-\clearpage
-\input{docs/texto-integrado.tex}
-\clearpage
-\input{datos/corpus-02.tex}
+\thispagestyle{empty}
+\begin{minipage}[t]{.48\linewidth}
+{\small\sffamily\color{KalaAcento}QUIERO DECIR\ldots}\par\vspace{1mm}
+\small\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}p{50mm}c@{}}
+\toprule
+A provoca B & \kss{K23} \\
+A pasa antes que B & \kss{K21} \\
+A se convierte en B & \kss{K24} \\
+si A, entonces B & \(\to\) \\
+por lo tanto & \(\therefore\) \\
+A y B cambian juntos & \kss{K28} \\ \midrule
+no & \(\neg\) \\
+extremos contrarios & \kss{K29} \\
+pero, en cambio & \kss{K25} \\
+es distinto de & \(\neq\) \\ \midrule
+A es pieza de B & \kss{K27} \\
+A es uno de los B & \(\in\) \\
+todo A es un B & \(\subset\) \\
+por ejemplo & \kss{K26} \\ \midrule
+lo dice una fuente & \kss{K16} \\
+lo pienso yo & \kss{K32} \\
+podría ser, sin probar & \kss{K33} \\
+no entiendo / pregunto & \kss{K19} \\
+\bottomrule
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[t]{.48\linewidth}
+{\small\sffamily\color{KalaAcento}SÍMBOLOS MATEMÁTICOS}\par\vspace{1mm}
+\small\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}c>{\raggedright\arraybackslash}p{52mm}@{}}
+\toprule
+\(=\;\neq\;\approx\) & igual, distinto, se parece \\
+\(<\;>\) & menor, mayor \\
+\(\in\;\notin\;\subset\) & uno de, no es uno de, tipo de \\
+\(\to\;\Leftrightarrow\) & implica, si y solo si \\
+\(\therefore\) & por lo tanto \\
+\(\uparrow\;\downarrow\;\Delta\) & aumenta, disminuye, cambio \\
+\(\forall\;\exists\;\#\) & todo, existe, número de \\
+\(\neg\;\wedge\;\vee\) & no, y, o \\
+\bottomrule
+\end{tabular}
+
+\vspace{4mm}
+{\small\sffamily\color{KalaAcento}ABREVIATURAS}\par\vspace{1mm}
+\begin{tabular}{@{}ll@{\qquad}ll@{}}
+q & que & cdo & cuando \\
+xq & porque & dnd & donde \\
+x & por & tb & también \\
+p/ & para & k & como \\
+c/ & con & d, dl & de, del \\
+s/ & sin & prof & profesor \\
+-cn & -ción & -mte & -mente \\
+-mto & -miento & -dd & -dad \\
+\end{tabular}
+\end{minipage}
+
+\vspace{6mm}
+{\small\sffamily\color{KalaAcento}REGLAS}\par\vspace{1mm}
+\begin{enumerate}[itemsep=1pt,topsep=2pt]\small
+\item Margen de 1 cm a la izquierda para las marcas; una idea por línea.
+\item Un conector une a sus dos vecinos inmediatos. Los corchetes \([\ldots]\) agrupan varias palabras en una idea.
+\item La causa siempre va primero: «Y porque X» se escribe «X \kss{K23} Y».
+\item Según \kss{K16} y Pregunta \kss{K19} afectan a lo que va detrás: hasta el final de la línea o el grupo entre corchetes.
+\item La flecha \(\to\) solo significa «implica». Nunca como flecha para todo.
+\item Tamaño, color, giro y posición no cambian el significado.
+\item Si la palabra es corta y clara, se escribe la palabra.
+\item Si falta un signo: palabra subrayada con línea ondulada; al repasar, contarla como candidata.
+\end{enumerate}
 \end{document}

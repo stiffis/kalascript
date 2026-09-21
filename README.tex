@@ -1,45 +1,30 @@
-\section{Guía del proyecto}
-Estoy desarrollando KalaScript como una escritura personal para componer
-conceptos, relacionar objetos, formular afirmaciones y describir procedimientos.
-En este manual reúno sus reglas, signos y ejemplos. Quiero ampliar su
-vocabulario gradualmente para escribir ideas de distintas disciplinas.
+\section*{Guía rápida}
+\addcontentsline{toc}{section}{Guía rápida}
+KalaScript es mi escritura para tomar apuntes: español abreviado, algunos
+símbolos matemáticos y veintiséis signos propios que dicen \emph{cómo se
+relacionan las ideas}.
 
-Por ahora trabajo exclusivamente con la escritura. Uso el español para explicar
-el sistema y los comandos para editarlo; ninguno asigna pronunciaciones.
-Conservo las fuentes en \texttt{.tex} y dibujo los signos con TikZ.
-
-\subsection{Cómo organizo el estudio}
+\subsection*{Por dónde empezar}
 \begin{enumerate}
-\item Comienzo por los 22 signos y su orden orientativo de trazado.
-\item Continúo con la gramática y los catálogos de relaciones y vocabulario.
-\item Estudio la composición de conceptos, el texto M01 y las fichas T01--T20.
-\item Uso las hojas de lectura para practicar sin consultar las explicaciones.
+\item Leer la idea y los principios (sección~\ref{sec:idea}).
+\item Aprender primero los nueve conectores y las cinco marcas de margen: son
+ los que más se usan (sección~\ref{sec:signos}).
+\item Leer las reglas y, sobre todo, la tabla de distinciones
+ (sección~\ref{sec:distinciones}).
+\item Imprimir la hoja de consulta (\path{compilado/atlas.pdf}) y tenerla junto
+ al cuaderno las primeras semanas.
+\item Practicar con \path{compilado/practica.pdf} y usarlo en un curso real
+ durante dos semanas.
 \end{enumerate}
-Elegí las formas simplificadas de Colección y Fuente porque me resultaron más
-fáciles de escribir y distinguir. También corregí las uniones de Mientras y
-Espacio. En los anexos reúno las comprobaciones y mis notas de práctica.
 
-\subsection{Documentos y fuentes}
+\subsection*{Archivos}
 \begin{description}[style=standard,itemsep=2pt]
-\item[\texttt{KalaScript.tex}] Manual de referencia; historial y comprobaciones en anexos.
-\item[\texttt{atlas.tex}] Consulta de signos, trazado, reglas, catálogos y ejemplos.
-\item[\texttt{practica.tex}] Cuaderno de copia, lectura, producción y registro personal.
-\item[\texttt{lectura.tex}] Hoja de cuatro expresiones completas sin glosas resueltas.
-\item[\texttt{relectura.tex}] Texto M01 de seis enunciados, con espacio para la lectura diferida.
-\item[\texttt{simbolos/}] Formas y catálogo; K01--K22 son los signos vigentes.
-\item[\texttt{datos/}] Catálogos, ejemplos y expresiones compartidas por los documentos.
-\item[\texttt{docs/gramatica.tex}] Única gramática de referencia vigente.
-\item[\texttt{anexos/}] Historia, investigación, comprobaciones y copia inicial de M01.
+\item[\texttt{KalaScript.tex}] Este manual.
+\item[\texttt{atlas.tex}] Hoja de consulta de dos páginas para imprimir.
+\item[\texttt{practica.tex}] Cuaderno de práctica: copia, lectura, escritura y pruebas.
+\item[\texttt{preambulo.tex}] Configuración y comandos compartidos.
+\item[\texttt{simbolos/}] Dibujo de los signos activos, retirados y su trazado.
+\item[\texttt{docs/}] Capítulos del manual.
+\item[\texttt{anexos/}] Signos retirados e historia de los cambios.
 \end{description}
-
-\subsection{Compilación}
-Para compilar uso pdfLaTeX, TikZ y los paquetes de \path{preambulo.tex}.
-Desde la carpeta \texttt{kalascript}, ejecuto:
-\begin{Verbatim}[fontsize=\small,frame=single]
-latexmk -pdf -interaction=nonstopmode -halt-on-error \
-  -outdir=compilado KalaScript.tex
-\end{Verbatim}
-Para los demás documentos, cambio el nombre del archivo en ese comando.
-Los cinco PDF y sus auxiliares se guardan en \path{compilado/}.
-No se requieren imágenes externas, internet ni \texttt{shell-escape}.
-La compilación dibuja la escritura; no traduce ideas ni certifica afirmaciones.
+Para compilar todo basta con \texttt{make}; los PDF quedan en \path{compilado/}.

@@ -1,129 +1,188 @@
-% Compilar desde kalascript con latexmk -pdf -outdir=compilado practica.tex
+% Cuaderno de práctica. Compilar con: make practica
 \documentclass[11pt,a4paper]{article}
 \input{preambulo.tex}
 \hypersetup{pdftitle={KalaScript · Cuaderno de práctica}}
-\newcommand{\KalaRenglon}{\par\vspace{7mm}\noindent\textcolor{KalaLinea}{\rule{\linewidth}{.35pt}}\par}
-\newcommand{\KalaCopiar}[2]{%
-  \textbf{#2}\quad\KalaSimbolo[14mm]{#1}\par
-  \begin{tikzpicture}[x=\dimexpr\linewidth/10-0.1pt\relax,y=1mm]
-    \draw[draw=KalaLinea,step=1] (0,0) grid[xstep=1,ystep=14] (10,14);
-  \end{tikzpicture}\par
-  {\small Tiempo: \rule{17mm}{.3pt}\quad Correcciones: \rule{12mm}{.3pt}\quad
-  Comodidad (1--5): \rule{12mm}{.3pt}}\par\vspace{3mm}
-}
-\newcommand{\KalaLecturaPrueba}[1]{%
-  \subsection*{#1}
-  {\small\textbf{Contexto y leyenda.} \csname KalaContexto#1\endcsname}\par
-  \KalaMostrar{\csname KalaExpresion#1\endcsname}
-  \textbf{Mi lectura:}\KalaRenglon\KalaRenglon
-  {\small Duda o confusión: \rule{75mm}{.3pt}}\par
-}
-\newcommand{\KalaProduccionPrueba}[1]{%
-  \subsection*{Escribir #1}
-  \csname KalaIntencion#1\endcsname\par
-  {\small\csname KalaContexto#1\endcsname}\par
-  \KalaRenglon\KalaRenglon\KalaRenglon
-}
+\newcommand{\Renglon}{\par\vspace{8mm}\noindent\textcolor{KalaLinea}{\rule{\linewidth}{.35pt}}\par}
+\newcommand{\Copiar}[1]{%
+  \noindent\begin{minipage}[c]{24mm}\centering\KalaSimbolo[13mm]{#1}\par
+  {\scriptsize\sffamily\csname KalaNombre#1\endcsname}\end{minipage}%
+  \begin{tikzpicture}[x=\dimexpr(\linewidth-25mm)/9\relax,y=1mm,baseline=6mm]
+    \draw[draw=KalaLinea] (0,0) grid[xstep=1,ystep=13] (9,13);
+  \end{tikzpicture}\par\vspace{1.5mm}}
+\newcounter{ejercicio}
+\newcommand{\Escribir}[1]{\stepcounter{ejercicio}%
+  \par\textbf{\theejercicio.} #1\Renglon\vspace{1mm}}
+\newcommand{\Leer}[1]{\stepcounter{ejercicio}%
+  \par\needspace{32mm}\noindent\textbf{\theejercicio.}\par\vspace{-2mm}#1\vspace{-1mm}\Renglon\vspace{3mm}}
 \begin{document}
 \section*{KalaScript · Cuaderno de práctica}
-\textbf{Nombre o iniciales:} \rule{55mm}{.3pt}\quad
-\textbf{Fecha:} \rule{25mm}{.3pt}
+\textbf{Fecha de inicio:} \rule{30mm}{.3pt}
 
-En este cuaderno anoto mi práctica y las dificultades que encuentre. Dejo
-las casillas vacías hasta realizar cada ejercicio y puedo repartirlo en varias
-sesiones. Ya elegí las formas B de Colección y Fuente; conservo la comparación
-A/B como parte del proceso de diseño.
+Este cuaderno tiene cinco partes. No hace falta hacerlo de una vez: lo mejor es
+una sesión corta por día durante una semana, y después usar KalaScript en un
+curso real.
 
 \begin{enumerate}
-\item \textbf{Copia.} Escribo un signo en cada casilla y uso el mismo instrumento
- y tamaño. Valoro la comodidad de 1 (muy incómodo) a 5 (muy cómodo). Si comparo
- formas, alterno A/B para reducir el efecto del orden de práctica.
-\item \textbf{Reconocimiento.} Después de copiar, tapo las etiquetas e intento
- identificar los signos. Anoto los que confunda para volver a probarlos otro día.
-\item \textbf{Lectura.} Uso los catálogos del atlas cuando los necesito y oculto
- las fichas resueltas. Anoto si consulté el catálogo para distinguir la lectura
- con ayuda de la lectura de memoria.
-\item \textbf{Producción.} Escribo las ideas de la última parte sin copiar las
- soluciones. Después comparo referentes, relaciones, argumentos, alcance y contexto.
+\item \textbf{Copiar.} Una fila por signo, diciendo en voz baja su nombre. Primero
+ despacio y después rápido.
+\item \textbf{Distinguir.} Los pares que más se parecen, uno al lado del otro.
+\item \textbf{Escribir.} Pasar frases en español a KalaScript.
+\item \textbf{Leer.} Leer líneas en KalaScript sin mirar el manual.
+\item \textbf{Medir.} Velocidad y relectura, para repetir cada mes.
 \end{enumerate}
-
-\textbf{Hojas breves:} con \path{lectura.pdf} practico T02/T03 y T04/T05 sin
- glosas; en \path{relectura.pdf} tengo el texto M01. Puedo usarlas en sesiones
- separadas y consultar sus claves en los anexos del manual.
-
-\subsection*{Resultado de reconocimiento}
-Signos confundidos hoy: \KalaRenglon
-Signos confundidos al día siguiente: \KalaRenglon
-¿Consulté el atlas durante la lectura?: \rule{35mm}{.3pt}
+Las soluciones están al final. Una solución distinta puede estar bien si
+respeta las distinciones del manual.
 
 \clearpage
-\section*{Comparación de Colección y Fuente}
-\KalaCopiar{H06}{Colección A: anterior}
-\KalaCopiar{V06}{Colección B: habitual}
-\KalaCopiar{V16}{Fuente B: habitual}
-\KalaCopiar{H16}{Fuente A: anterior}
-\textbf{Registro opcional:}\quad Colección A / B / ninguna\quad Fuente A / B / ninguna
-\KalaRenglon
+\section*{1 · Copiar: conectores}
+\Copiar{K23}\Copiar{K21}\Copiar{K24}\Copiar{K03}\Copiar{K26}
+\Copiar{K27}\Copiar{K25}\Copiar{K28}\Copiar{K29}
+\clearpage
+\section*{1 · Copiar: categorías}
+\Copiar{K30}\Copiar{K08}\Copiar{K07}\Copiar{K04}
+\Copiar{K01}\Copiar{K02}\Copiar{K05}\Copiar{K06}
+\clearpage
+\section*{1 · Copiar: marcadores y margen}
+\Copiar{K09}\Copiar{K16}\Copiar{K19}\Copiar{K10}\Copiar{K31}
+\Copiar{K35}\Copiar{K32}\Copiar{K33}\Copiar{K34}
 
 \clearpage
-\section*{Las variantes dentro de expresiones}
-Cada pareja muestra primero la forma anterior y después la habitual. En la
-primera, los referentes 1 y 2 son los objetos A y B. En la segunda,
-el referente 2 es un informe identificado y \(P\) una proposición.
-
-\subsection*{Mismo conjunto, dos perfiles gráficos}
-\KalaMostrar{\KalaColeccionAnterior{1}{\KalaReferencia{1}\KalaSeparador\KalaReferencia{2}}}
-\KalaRenglon
-\KalaMostrar{\KalaColeccionB{1}{\KalaReferencia{1}\KalaSeparador\KalaReferencia{2}}}
-\KalaRenglon
-\subsection*{Misma atribución, dos perfiles gráficos}
-\KalaMostrar{\KalaFuenteAnterior{\KalaReferencia{2}}{\KalaMat{P}}}
-\KalaRenglon
-\KalaMostrar{\KalaFuenteB{\KalaReferencia{2}}{\KalaMat{P}}}
-\KalaRenglon
-Comodidad, legibilidad o confusión con el índice: \KalaRenglon
+\section*{2 · Distinguir}
+Escribo cada par alternando: primero uno, luego el otro, cada vez más rápido.
+Al final, rodeo las casillas en que ya no se distinguen bien.
+\par\vspace{2mm}
+\newcommand{\ParCopiar}[2]{%
+  \noindent\begin{minipage}[c]{30mm}\centering\KalaPar{#1}{#2}\par
+  {\scriptsize\sffamily\csname KalaNombre#1\endcsname\ / \csname KalaNombre#2\endcsname}\end{minipage}%
+  \begin{tikzpicture}[x=\dimexpr(\linewidth-31mm)/8\relax,y=1mm,baseline=6mm]
+    \draw[draw=KalaLinea] (0,0) grid[xstep=1,ystep=13] (8,13);
+  \end{tikzpicture}\par\vspace{1.5mm}}
+\ParCopiar{K23}{K21}\ParCopiar{K24}{K03}\ParCopiar{K25}{K29}
+\ParCopiar{K26}{K27}\ParCopiar{K30}{K26}\ParCopiar{K34}{K16}
+\ParCopiar{K10}{K02}\ParCopiar{K05}{K09}\ParCopiar{K28}{K25}
+\par\vspace{2mm}
+\textbf{Pares que todavía confundo:} \Renglon
 
 \clearpage
-\section*{Aprender las seis funciones nuevas}
-\KalaCopiar{K17}{Alternativa inclusiva}
-\KalaCopiar{K18}{Posibilidad en un modelo}
-\KalaCopiar{K19}{Pregunta polar}
+\section*{3 · Escribir en KalaScript}
+Uso los signos donde ayudan y el español abreviado para lo demás.
+\setcounter{ejercicio}{0}
+\Escribir{La fricción produce calor.}
+\Escribir{Primero fue la Edad Media y después el Renacimiento.}
+\Escribir{El agua líquida se convierte en vapor.}
+\Escribir{El núcleo es parte de la célula.}
+\Escribir{Los triángulos son un tipo de polígono.}
+\Escribir{Marte es uno de los planetas del sistema solar.}
+\Escribir{El consumo de helado y los ahogamientos van juntos, pero eso no prueba que uno cause el otro.}
+\Escribir{Según Freud, los sueños expresan deseos reprimidos.}
+\Escribir{Si un número es divisible por 4, entonces es par.}
+\Escribir{Rico y pobre son extremos opuestos; ser no rico no significa ser pobre.}
+\Escribir{Idea mía: la inflación afecta más a quienes ganan menos.}
+\Escribir{En 1914, en Sarajevo, el asesinato de Francisco Fernando fue seguido del inicio de la Primera Guerra Mundial.}
+\Escribir{Pendiente: preguntar al profesor qué es un autómata de pila.}
+\Escribir{Hipótesis: la falta de sueño reduce la memoria.}
+\Escribir{Definición: una función es inyectiva si a elementos distintos les asigna imágenes distintas.}
+
 \clearpage
-\section*{Aprender las seis funciones nuevas · continuación}
-\KalaCopiar{K20}{Selección de un concepto}
-\KalaCopiar{K21}{Secuencia de programas}
-\KalaCopiar{K22}{Mientras: prueba antes de ejecutar}
+\section*{4 · Leer sin el manual}
+Escribo en español lo que dice cada línea. Si tuve que mirar el manual, marco
+la línea con \kss{K19}.
+\setcounter{ejercicio}{0}
+\newcommand{\LineaKala}[1]{\begin{apunte}#1\end{apunte}}
+\Leer{\LineaKala{\linea{}{deforestacn \ks{K23} erosión \ks{K23} \(\downarrow\) fertilidad del suelo}}}
+\Leer{\LineaKala{\linea{}{\ks{K16} \ks{K30} Darwin: variacn \(\wedge\) selección \ks{K23} nuevas especies}}}
+\Leer{\LineaKala{\linea{}{capitalismo \ks{K25} socialismo: quién es dueño de los medios de producción}}}
+\Leer{\LineaKala{\linea{\ks{K31}}{\(\neg\)[correlacn \(\to\) causalidad]}}}
+\Leer{\LineaKala{\linea{}{ADN \ks{K21} ARN \ks{K21} proteína \quad \ks{K26} insulina}}}
+\Leer{\LineaKala{\linea{\ks{K33}}{\(\uparrow\) salario mínimo \ks{K23} \(\downarrow\) empleo formal}}}
+\Leer{\LineaKala{\linea{}{pila \(\subset\) estructura de datos \quad LIFO \ks{K25} cola: FIFO}}}
+\Leer{\LineaKala{\linea{\ks{K32}}{\ks{K30} Kant \(\approx\) \ks{K30} Confucio: el deber antes que el placer}}}
+\Leer{\LineaKala{\linea{}{\ks{K07} 1532 \ks{K08} Cajamarca: captura de Atahualpa \ks{K21} caída del Tahuantinsuyo}}}
+\Leer{\LineaKala{\linea{\ks{K34}}{\ks{K19}[teorema de Rice \(\to\) indecidible?] \ks{K10}\(_{\text{p.212}}\)}}}
 
-\clearpage\section*{Lectura sin soluciones}
-\KalaLecturaPrueba{T01}\vspace{3mm}\KalaLecturaPrueba{T02}
-\clearpage\KalaLecturaPrueba{T03}\vspace{3mm}\KalaLecturaPrueba{T04}
-\clearpage\KalaLecturaPrueba{T05}\vspace{3mm}\KalaLecturaPrueba{T06}
-\clearpage\KalaLecturaPrueba{T07}\vspace{3mm}\KalaLecturaPrueba{T08}
-\clearpage\KalaLecturaPrueba{T09}\vspace{3mm}\KalaLecturaPrueba{T10}
-\clearpage\KalaLecturaPrueba{T11}\vspace{3mm}\KalaLecturaPrueba{T12}
-\clearpage\KalaLecturaPrueba{T13}\vspace{3mm}\KalaLecturaPrueba{T14}
-\clearpage\KalaLecturaPrueba{T15}\vspace{3mm}\KalaLecturaPrueba{T16}
-\clearpage\KalaLecturaPrueba{T17}\vspace{3mm}\KalaLecturaPrueba{T18}
-\clearpage\KalaLecturaPrueba{T19}\vspace{3mm}\KalaLecturaPrueba{T20}
+\clearpage
+\section*{5 · Medir}
+\subsection*{Velocidad}
+Copio este párrafo dos veces con cronómetro: primero en español normal y luego
+en KalaScript. Repito cada mes con el mismo párrafo.
+\begin{quote}\small
+Según el profesor, la Revolución Industrial comenzó en Inglaterra en el siglo
+XVIII. La máquina de vapor aumentó la producción, y eso causó la migración del
+campo a la ciudad. Primero se mecanizó la industria textil y después la
+siderurgia. Ojo: el crecimiento de las ciudades y la mortalidad infantil van
+juntos, pero no está claro que uno cause el otro. Pendiente: revisar las cifras
+de población del capítulo 5.
+\end{quote}
+\begin{center}
+\begin{tabular}{@{}lp{24mm}p{24mm}p{24mm}p{40mm}@{}}
+\toprule Fecha & Español & KalaScript & Diferencia & Observaciones \\ \midrule
+\rule{0pt}{9mm} & & & & \\ \hline
+\rule{0pt}{9mm} & & & & \\ \hline
+\rule{0pt}{9mm} & & & & \\ \hline
+\rule{0pt}{9mm} & & & & \\ \bottomrule
+\end{tabular}
+\end{center}
 
-\clearpage\section*{Producción sin copiar}
-\KalaProduccionPrueba{T04}\KalaProduccionPrueba{T05}
-\clearpage\KalaProduccionPrueba{T12}\KalaProduccionPrueba{T15}
-\clearpage\KalaProduccionPrueba{T16}\KalaProduccionPrueba{T20}
+\subsection*{Relectura}
+Dos semanas después de una clase, releo mis apuntes sin el manual.
+\begin{center}
+\begin{tabular}{@{}lp{20mm}>{\raggedright\arraybackslash}p{30mm}p{60mm}@{}}
+\toprule Fecha & Curso & Líneas que no entendí & Signo o regla responsable \\ \midrule
+\rule{0pt}{9mm} & & & \\ \hline
+\rule{0pt}{9mm} & & & \\ \hline
+\rule{0pt}{9mm} & & & \\ \hline
+\rule{0pt}{9mm} & & & \\ \bottomrule
+\end{tabular}
+\end{center}
 
-\clearpage\section*{Registro para la siguiente revisión}
-Comparo mis respuestas con las fichas T01--T20 del manual y anoto el tipo de
-diferencia: signo, referente, relación, orden, alcance o contexto.
-\begin{longtable}{@{}p{19mm}p{34mm}p{\dimexpr\linewidth-53mm-4\tabcolsep\relax}@{}}
-\toprule Caso & Tipo de diferencia & Qué leí o escribí y qué necesitaba expresar \\ \midrule\endhead
-\rule{0pt}{13mm} & & \\ \hline
-\rule{0pt}{13mm} & & \\ \hline
-\rule{0pt}{13mm} & & \\ \hline
-\rule{0pt}{13mm} & & \\ \hline
-\rule{0pt}{13mm} & & \\ \hline
-\rule{0pt}{13mm} & & \\ \bottomrule
-\end{longtable}
-Colección elegida y motivo: \KalaRenglon
-Fuente elegida y motivo: \KalaRenglon
-Otra idea que quise escribir y no pude: \KalaRenglon
+\clearpage
+\subsection*{Candidatos a signo nuevo}
+Palabras que subrayé con línea ondulada muchas veces:
+\begin{center}
+\begin{tabular}{@{}p{45mm}>{\raggedright\arraybackslash}p{25mm}p{35mm}p{35mm}@{}}
+\toprule Palabra o idea & Veces por semana & Cursos & Forma propuesta \\ \midrule
+\rule{0pt}{11mm} & & & \\ \hline
+\rule{0pt}{11mm} & & & \\ \hline
+\rule{0pt}{11mm} & & & \\ \bottomrule
+\end{tabular}
+\end{center}
+
+\clearpage
+\section*{Soluciones}
+\subsection*{3 · Escribir}
+\begin{apunte}
+\linea{}{\textbf{1.}\enspace fricción \ks{K23} calor}
+\linea{}{\textbf{2.}\enspace Edad Media \ks{K21} Renacimiento}
+\linea{}{\textbf{3.}\enspace agua líquida \ks{K24} vapor}
+\linea{}{\textbf{4.}\enspace núcleo \ks{K27} célula}
+\linea{}{\textbf{5.}\enspace triángulos \(\subset\) polígonos}
+\linea{}{\textbf{6.}\enspace Marte \(\in\) planetas del sist solar}
+\linea{}{\textbf{7.}\enspace helado \ks{K28} ahogamientos \quad \ks{K28} \(\neq\) \ks{K23}}
+\linea{}{\textbf{8.}\enspace \ks{K16} \ks{K30} Freud: sueños \ks{K03} deseos reprimidos}
+\linea{}{\textbf{9.}\enspace \(n\) divisible x 4 \(\to\) \(n\) par}
+\linea{}{\textbf{10.}\enspace rico \ks{K29} pobre \quad \(\neg\) rico \(\neq\) pobre}
+\linea{\ks{K32}}{\textbf{11.}\enspace inflacn afecta + a quienes ganan \(-\)}
+\linea{}{\textbf{12.}\enspace \ks{K07} 1914 \ks{K08} Sarajevo: asesinato de \ks{K30} F. Fernando \ks{K21} 1.ª Guerra Mundial}
+\linea{\ks{K34}}{\textbf{13.}\enspace preguntar al prof: ¿autómata de pila?}
+\linea{\ks{K33}}{\textbf{14.}\enspace \(\downarrow\) sueño \ks{K23} \(\downarrow\) memoria}
+\linea{}{\textbf{15.}\enspace \ks{K09} \(f\) inyectiva: \(a\neq b\) \(\to\) \(f(a)\neq f(b)\)}
+\end{apunte}
+{\small En 8, «expresan» no tiene signo propio: Relación \kss{K03} con la palabra
+encima, o simplemente la palabra. En 12, el enunciado dice «fue seguido», no
+«causó»: por eso Luego y no Causa. En 7, «\kss{K28} \(\neq\) \kss{K23}» se lee
+«ir juntos no es causar».}
+
+\subsection*{4 · Leer}
+\begin{enumerate}\small
+\item La deforestación causa erosión, y la erosión causa que disminuya la fertilidad del suelo.
+\item Según Darwin, la variación junto con la selección causan nuevas especies.
+\item Capitalismo y socialismo se diferencian en quién es dueño de los medios de producción.
+\item Importante: que haya correlación no implica que haya causalidad.
+\item Primero el ADN, luego el ARN y después la proteína; por ejemplo, la insulina.
+\item Hipótesis: si sube el salario mínimo, baja el empleo formal.
+\item La pila es un tipo de estructura de datos; es LIFO, a diferencia de la cola, que es FIFO.
+\item Idea mía: Kant se parece a Confucio en poner el deber antes que el placer.
+\item En 1532, en Cajamarca, capturaron a Atahualpa; después vino la caída del Tahuantinsuyo.
+\item Pendiente, con duda: ¿el teorema de Rice implica que es indecidible? Ver p.~212.
+\end{enumerate}
 \end{document}
