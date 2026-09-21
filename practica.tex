@@ -3,6 +3,7 @@
 \input{preambulo.tex}
 \hypersetup{pdftitle={KalaScript · Cuaderno de práctica}}
 \newcommand{\Renglon}{\par\vspace{8mm}\noindent\textcolor{KalaLinea}{\rule{\linewidth}{.35pt}}\par}
+\newcommand{\RenglonCon}[1]{\par\vspace{7mm}\noindent{\small\color{KalaSuave}#1}\enspace\textcolor{KalaLinea}{\hrulefill}\par}
 \newcommand{\Copiar}[1]{%
   \noindent\begin{minipage}[c]{24mm}\centering\KalaSimbolo[13mm]{#1}\par
   {\scriptsize\sffamily\csname KalaNombre#1\endcsname}\end{minipage}%
@@ -10,31 +11,62 @@
     \draw[draw=KalaLinea] (0,0) grid[xstep=1,ystep=13] (9,13);
   \end{tikzpicture}\par\vspace{1.5mm}}
 \newcounter{ejercicio}
-\newcommand{\Escribir}[1]{\stepcounter{ejercicio}%
-  \par\textbf{\theejercicio.} #1\Renglon\vspace{1mm}}
-\newcommand{\Leer}[1]{\stepcounter{ejercicio}%
-  \par\needspace{32mm}\noindent\textbf{\theejercicio.}\par\vspace{-2mm}#1\vspace{-1mm}\Renglon\vspace{3mm}}
+\newcommand{\Numero}{\stepcounter{ejercicio}\textbf{\theejercicio.}}
+\newcommand{\Escribir}[1]{\par\needspace{16mm}\Numero\ #1\Renglon\vspace{1mm}}
+\newcommand{\LineaKala}[1]{\begin{apunte}#1\end{apunte}}
+\newcommand{\Leer}[1]{%
+  \par\needspace{32mm}\noindent\Numero\par\vspace{-2mm}#1\vspace{-1mm}\Renglon\vspace{3mm}}
+\newcommand{\Hueco}{\tikz[baseline=-.7ex]\draw[KalaAcento,dashed,line width=.5pt] (0,-2.2mm) rectangle (8mm,3.2mm);}
+\newcommand{\Reconocer}[1]{%
+  \begin{minipage}[t]{.158\linewidth}\centering
+  \Numero\par\KalaSimbolo[12mm]{#1}\par\vspace{1mm}
+  \textcolor{KalaLinea}{\rule{.8\linewidth}{.35pt}}
+  \end{minipage}}
+\newcommand{\Elegir}[4]{%
+  \par\needspace{12mm}\noindent\Numero\ #1\par
+  \hspace*{8mm}(a)~#2\qquad(b)~#3\qquad(c)~#4\par\vspace{3mm}}
+\newcommand{\Completar}[1]{%
+  \par\needspace{16mm}\noindent\Numero\par\vspace{-2mm}\LineaKala{#1}\vspace{1mm}}
+\newcommand{\Marcar}[1]{%
+  \par\needspace{10mm}\noindent\Numero\enspace\Hueco\enspace #1\par\vspace{3mm}}
+\newcommand{\Telegrafiar}[1]{%
+  \par\needspace{28mm}\noindent\Numero\ #1
+  \RenglonCon{telegráfico:}\RenglonCon{KalaScript:}\vspace{3mm}}
+\newcommand{\Error}[1]{%
+  \par\needspace{30mm}\noindent\Numero\par\vspace{-2mm}\LineaKala{#1}\vspace{-1mm}
+  \RenglonCon{error:}\RenglonCon{corrección:}\vspace{3mm}}
+\newcommand{\HojaVacia}[1]{%
+  \par\noindent\begin{tikzpicture}[x=1mm,y=-1mm]
+    \foreach \i in {1,...,#1} {\draw[KalaLinea] (0,\i*8) -- (\linewidth-1pt,\i*8);}
+    \draw[KalaAcento,line width=.6pt] (11,0) -- (11,#1*8+2);
+  \end{tikzpicture}\par}
+\newcommand{\Sol}[1]{\textbf{#1}}
 \begin{document}
 \section*{KalaScript · Cuaderno de práctica}
 \textbf{Fecha de inicio:} \rule{30mm}{.3pt}
 
-Este cuaderno tiene cinco partes. No hace falta hacerlo de una vez: lo mejor es
-una sesión corta por día durante una semana, y después usar KalaScript en un
-curso real.
+No hace falta hacer este cuaderno de una vez. Lo mejor es una sesión corta por
+día: primero copiar y reconocer, después elegir y completar, y al final escribir,
+leer y tomar apuntes de verdad. Las soluciones están al final; una respuesta
+distinta puede estar bien si respeta las distinciones del manual.
 
-\begin{enumerate}
-\item \textbf{Copiar.} Una fila por signo, diciendo en voz baja su nombre. Primero
- despacio y después rápido.
-\item \textbf{Distinguir.} Los pares que más se parecen, uno al lado del otro.
-\item \textbf{Escribir.} Pasar frases en español a KalaScript.
-\item \textbf{Leer.} Leer líneas en KalaScript sin mirar el manual.
-\item \textbf{Medir.} Velocidad y relectura, para repetir cada mes.
-\end{enumerate}
-Las soluciones están al final. Una solución distinta puede estar bien si
-respeta las distinciones del manual.
+\begin{center}\small
+\begin{tabular}{@{}rl@{\qquad}rl@{}}
+1 & Copiar & 9 & Compuestos \\
+2 & Distinguir pares & 10 & Telegrafiar \\
+3 & Reconocer & 11 & Escribir en KalaScript \\
+4 & Emparejar & 12 & Leer sin el manual \\
+5 & Elegir el signo & 13 & Encontrar el error \\
+6 & Completar & 14 & Tomar apuntes de un texto \\
+7 & Corchetes y alcance & 15 & Medir \\
+8 & Marcas de margen & & Soluciones \\
+\end{tabular}
+\end{center}
 
 \clearpage
 \section*{1 · Copiar: conectores}
+Una fila por signo, diciendo en voz baja su nombre. Primero despacio, después rápido.
+\par\vspace{2mm}
 \Copiar{K23}\Copiar{K21}\Copiar{K24}\Copiar{K26}\Copiar{K27}
 \Copiar{K25}\Copiar{K28}\Copiar{K29}\Copiar{K36}
 \clearpage
@@ -62,9 +94,9 @@ respeta las distinciones del manual.
 \Copiar{R23}\Copiar{R24}\Copiar{R19}\Copiar{R18}\Copiar{R29}
 
 \clearpage
-\section*{2 · Distinguir}
-Escribo cada par alternando: primero uno, luego el otro, cada vez más rápido.
-Al final, rodeo las casillas en que ya no se distinguen bien.
+\section*{2 · Distinguir pares}
+Escribo cada par alternando, cada vez más rápido. Al final rodeo las casillas en
+que ya no se distinguen bien.
 \par\vspace{2mm}
 \newcommand{\ParCopiar}[2]{%
   \noindent\begin{minipage}[c]{30mm}\centering\KalaPar{#1}{#2}\par
@@ -75,31 +107,237 @@ Al final, rodeo las casillas en que ya no se distinguen bien.
 \ParCopiar{K23}{K21}\ParCopiar{K37}{K08}\ParCopiar{K25}{K29}
 \ParCopiar{K26}{K27}\ParCopiar{K30}{K26}\ParCopiar{K34}{K16}
 \ParCopiar{R01}{R02}\ParCopiar{R21}{R22}\ParCopiar{R26}{K27}
+\ParCopiar{R07}{R08}\ParCopiar{R04}{R05}\ParCopiar{K39}{K24}
 \par\vspace{2mm}
-\textbf{Pares que todavía confundo:} \Renglon
+\textbf{Pares que todavía confundo:} \rule{95mm}{.3pt}
 
+% ------------------------------------------------------------------
 \clearpage
-\section*{3 · Compuestos}
-Sin mirar el diccionario, escribo el compuesto de cada palabra. En la segunda
-parte invento compuestos nuevos: no hay una única respuesta correcta, pero el
-núcleo debe ir primero.
-\par\vspace{2mm}\textbf{Del diccionario}\par
-\begin{tabular}{@{}p{.3\linewidth}p{.3\linewidth}p{.3\linewidth}@{}}
-a. sociedad \rule{20mm}{.3pt} & b. historia \rule{20mm}{.3pt} & c. idea \rule{20mm}{.3pt} \\[6mm]
-d. enfermedad \rule{20mm}{.3pt} & e. algoritmo \rule{20mm}{.3pt} & f. guerra \rule{20mm}{.3pt} \\[6mm]
-g. memoria \rule{20mm}{.3pt} & h. evolución \rule{20mm}{.3pt} & i. precio \rule{20mm}{.3pt} \\
-\end{tabular}
-\par\vspace{5mm}\textbf{Inventar}\par
-\begin{tabular}{@{}p{.3\linewidth}p{.3\linewidth}p{.3\linewidth}@{}}
-j. hambre \rule{20mm}{.3pt} & k. educación \rule{20mm}{.3pt} & l. ley física \rule{20mm}{.3pt} \\[6mm]
-m. poeta \rule{20mm}{.3pt} & n. ecuación \rule{20mm}{.3pt} & o. dictadura \rule{20mm}{.3pt} \\
+\section*{3 · Reconocer}
+Escribo el nombre de cada signo o raíz sin mirar el manual. Si dudo, lo marco
+con \kss{K19} y sigo.
+\setcounter{ejercicio}{0}
+\par\vspace{3mm}\noindent
+\Reconocer{K24}\hfill\Reconocer{K29}\hfill\Reconocer{K09}\hfill\Reconocer{K35}\hfill\Reconocer{K27}\hfill\Reconocer{K39}\par\vspace{5mm}\noindent
+\Reconocer{K33}\hfill\Reconocer{K21}\hfill\Reconocer{K36}\hfill\Reconocer{K16}\hfill\Reconocer{K28}\hfill\Reconocer{K02}\par\vspace{5mm}\noindent
+\Reconocer{K38}\hfill\Reconocer{K10}\hfill\Reconocer{K26}\hfill\Reconocer{K32}\hfill\Reconocer{K05}\hfill\Reconocer{K25}\par\vspace{5mm}\noindent
+\Reconocer{R02}\hfill\Reconocer{R09}\hfill\Reconocer{R26}\hfill\Reconocer{R15}\hfill\Reconocer{R11}\hfill\Reconocer{R05}\par\vspace{5mm}\noindent
+\Reconocer{R17}\hfill\Reconocer{R24}\hfill\Reconocer{R27}\hfill\Reconocer{R08}\hfill\Reconocer{R14}\hfill\Reconocer{R10}\par\vspace{5mm}\noindent
+\Reconocer{R20}\hfill\Reconocer{R16}\hfill\Reconocer{R03}\hfill\Reconocer{R22}\hfill\Reconocer{R29}\hfill\Reconocer{R13}\par
+
+\vspace{6mm}
+\textbf{Aciertos:} \rule{15mm}{.3pt} de 36 \qquad \textbf{Los que confundí:} \rule{60mm}{.3pt}
+
+% ------------------------------------------------------------------
+\clearpage
+\section*{4 · Emparejar}
+Uno cada signo con su significado escribiendo la letra en el hueco.
+\newcommand{\Fila}[3]{\kss{#1} & \Hueco & & #2) #3 \\[3mm]}
+\newcommand{\Tabla}[1]{\begin{center}\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}cc@{\hspace{16mm}}l>{\raggedright\arraybackslash}p{.5\linewidth}@{}}#1\end{tabular}\end{center}}
+\subsection*{A · Conectores}
+\Tabla{
+\Fila{K23}{a}{lo de la izquierda se transforma en lo de la derecha}
+\Fila{K21}{b}{los dos cambian a la vez, sin decir si hay causa}
+\Fila{K24}{c}{lo de la izquierda es una pieza de lo de la derecha}
+\Fila{K26}{d}{extremos contrarios de una misma escala}
+\Fila{K27}{e}{lo de la izquierda produce lo de la derecha}
+\Fila{K25}{f}{un caso concreto de lo anterior}
+\Fila{K28}{g}{una cosa viene después de la otra}
+\Fila{K29}{h}{contraste: «pero», «en cambio»}
+}
+\subsection*{B · Marcadores y margen}
+\Tabla{
+\Fila{K31}{a}{lo pienso yo, no la fuente}
+\Fila{K35}{b}{pendiente: completar o verificar}
+\Fila{K32}{c}{lo dice una fuente; no por eso es verdad}
+\Fila{K33}{d}{idea clave, entra en el examen}
+\Fila{K34}{e}{fija el significado de un término}
+\Fila{K19}{f}{la línea resume o concluye}
+\Fila{K16}{g}{podría ser cierto, falta probarlo}
+\Fila{K09}{h}{duda, no lo entendí}
+}
+\clearpage
+\subsection*{C · Gramática}
+\Tabla{
+\Fila{K36}{a}{debe, tiene que}
+\Fila{K37}{b}{sirve para}
+\Fila{K38}{c}{tiene, posee}
+\Fila{K39}{d}{puede, es posible}
+}
+\subsection*{D · Raíces}
+\Tabla{
+\Fila{R09}{a}{información, dato}
+\Fila{R10}{b}{movimiento}
+\Fila{R11}{c}{lo sagrado}
+\Fila{R15}{d}{poder, autoridad}
+\Fila{R16}{e}{ley, regla}
+\Fila{R17}{f}{materia, sustancia}
+\Fila{R24}{g}{dinero, valor}
+\Fila{R27}{h}{energía}
+}
+\subsection*{E · Raíces}
+\Tabla{
+\Fila{R01}{a}{origen, inicio}
+\Fila{R02}{b}{naturaleza, la Tierra}
+\Fila{R19}{c}{mente, pensar}
+\Fila{R20}{d}{belleza, arte}
+\Fila{R26}{e}{saber, conocimiento}
+\Fila{R28}{f}{ver, imagen}
+\Fila{R29}{g}{hacer, acción}
+\Fila{R25}{h}{conflicto, «contra»}
+}
+
+% ------------------------------------------------------------------
+\clearpage
+\section*{5 · Elegir el signo}
+Rodeo la opción que dice exactamente lo que quiere decir la frase.
+\setcounter{ejercicio}{0}
+\par\vspace{2mm}
+\Elegir{El calor dilata los metales.}{\kss{K23}}{\kss{K21}}{\kss{K28}}
+\Elegir{Después del invierno viene la primavera.}{\kss{K23}}{\kss{K24}}{\kss{K21}}
+\Elegir{Si \(x>2\), entonces \(x^2>4\).}{\kss{K23}}{\(\Rightarrow\)}{\kss{K21}}
+\Elegir{La oruga se convierte en mariposa.}{\kss{K24}}{\kss{K23}}{\kss{K21}}
+\Elegir{La estatura de padres e hijos suele ir junta.}{\kss{K23}}{\kss{K28}}{\(=\)}
+\Elegir{Frío y calor son los extremos de la temperatura.}{\(\neg\)}{\kss{K25}}{\kss{K29}}
+\Elegir{Me gusta el café; en cambio, mi hermana prefiere el té.}{\kss{K25}}{\kss{K29}}{\kss{R25}}
+\Elegir{El corazón es una pieza del sistema circulatorio.}{\(\in\)}{\kss{K27}}{\(\subset\)}
+\Elegir{Los perros son un tipo de mamífero.}{\(\subset\)}{\(\in\)}{\kss{K27}}
+\Elegir{Lima es una de las capitales de Sudamérica.}{\kss{K27}}{\(\subset\)}{\(\in\)}
+\Elegir{Metales conductores; por ejemplo, el cobre.}{\kss{K26}}{\(\in\)}{\kss{K10}}
+\Elegir{Los pulmones sirven para respirar.}{\kss{K23}}{\kss{K39}}{\kss{K24}}
+\Elegir{El Perú tiene cobre.}{\kss{K27}}{\kss{K36}}{\(\in\)}
+\Elegir{Puede llover mañana.}{\kss{K37}}{\kss{K38}}{\kss{K19}}
+\Elegir{Los ciudadanos deben votar.}{\kss{K36}}{\kss{K37}}{\kss{K38}}
+\Elegir{Según Piaget, el niño construye su conocimiento.}{\kss{K32}}{\kss{K16}}{\kss{K09}}
+\Elegir{(Margen) Yo creo que Piaget exagera.}{\kss{K32}}{\kss{K33}}{\kss{K31}}
+\Elegir{(Margen) No entendí la demostración.}{\kss{K34}}{\kss{K19}}{\kss{K33}}
+\Elegir{De todo lo anterior deduzco que la serie converge.}{\kss{K23}}{\(\Rightarrow\)}{\(\therefore\)}
+\Elegir{La sal no es un metal.}{\(\neg\)}{\kss{K29}}{\kss{K25}}
+\Elegir{Roma contra Cartago en las guerras púnicas.}{\kss{K25}}{\kss{K29}}{\kss{R25}}
+\Elegir{La palabra «álgebra» viene del árabe.}{\kss{K21}}{\kss{R26}}{\kss{K23}}
+\Elegir{El estudio lleva al examen (sin precisar la relación).}{\(\to\)}{\(\Rightarrow\)}{\kss{K23}}
+\Elegir{El agua es igual a \(\mathrm{H_2O}\).}{\(\approx\)}{\(=\)}{\(\in\)}
+
+% ------------------------------------------------------------------
+\clearpage
+\section*{6 · Completar}
+Dibujo en el hueco el signo que falta.
+\setcounter{ejercicio}{0}
+\Completar{\linea{}{fotosíntesis: \(\mathrm{CO_2}\) + agua \Hueco\ glucosa + \(\mathrm{O_2}\)}}
+\Completar{\linea{}{Estados Generales \Hueco\ toma de la Bastilla \ks{K21} Declaración de Derechos}}
+\Completar{\linea{}{deforestación \Hueco\ \(\downarrow\) lluvias}}
+\Completar{\linea{}{ribosoma \Hueco\ \cp{K01}{R07}}}
+\Completar{\linea{}{\Hueco\ \ks{K30} Aristóteles: virtud = término medio}}
+\Completar{\linea{}{búsqueda binaria \Hueco\ arreglo ordenado}}
+\Completar{\linea{}{\ks{K07} 1879 Chile \Hueco\ Perú \(\wedge\) Bolivia}}
+\Completar{\linea{}{ingresos \Hueco\ años de estudio (encuesta, sin controles)}}
+\Completar{\linea{}{ácido \Hueco\ base}}
+\Completar{\linea{}{vacuna \Hueco\ prevenir \cp{R06}{R22}}}
+\Completar{\linea{}{\(n\) par \Hueco\ \(n^2\) par}}
+\Completar{\linea{}{Sócrates \Hueco\ filósofos griegos}}
+\Completar{\linea{}{triángulos \Hueco\ polígonos}}
+\Completar{\linea{}{\cp{K06}{K30} \Hueco\ \cp{K06}{R09} \ks{K39} \cp{R21}{R11}}}
+\Completar{\linea{\Hueco}{repasar capítulo 4 antes del jueves}}
+\Completar{\linea{}{\cp{K08}{R28} \Hueco\ satélite: Luna}}
+
+% ------------------------------------------------------------------
+\clearpage
+\section*{7 · Corchetes y alcance}
+Añado los corchetes necesarios para que la línea diga lo que pide el enunciado.
+Si no hacen falta, lo escribo.
+\setcounter{ejercicio}{0}
+\newcommand{\Alcance}[2]{\par\needspace{24mm}\noindent\Numero\ #1\par\vspace{-2mm}\LineaKala{\linea{}{#2}}\vspace{-1mm}\RenglonCon{con corchetes:}\vspace{3mm}}
+\Alcance{La pobreza y la desnutrición, juntas, causan bajo rendimiento.}{pobreza \(\wedge\) desnutrición \ks{K23} bajo rendimiento}
+\Alcance{Hay pobreza; y, aparte, la desnutrición causa bajo rendimiento.}{pobreza \(\wedge\) desnutrición \ks{K23} bajo rendimiento}
+\Alcance{No es verdad que llueva y haga frío a la vez.}{\(\neg\) llueve \(\wedge\) frío}
+\Alcance{No llueve, pero hace frío.}{\(\neg\) llueve \(\wedge\) frío}
+\Alcance{Según Kant, la razón tiene límites; que la fe los supere lo digo yo.}{\ks{K16} Kant: \cp{R01}{R11} \ks{K36} límites \(\wedge\) fe \(>\) \cp{R01}{R11}}
+\Alcance{Me pregunto si A causa B; que van juntos ya lo sé.}{\ks{K19} A \ks{K23} B \quad A \ks{K28} B}
+\Alcance{Primero la crisis y la guerra; después, ambas juntas causaron la revolución.}{crisis \(\wedge\) \cp{R25}{K06} \ks{K23} \cp{K04}{R09}}
+\Alcance{Es falso que todo número primo sea impar.}{\(\neg\) \(\forall\) primo: impar}
+
+% ------------------------------------------------------------------
+\clearpage
+\section*{8 · Marcas de margen}
+Escribo en el hueco la marca de margen que corresponde. Cuidado: en alguna frase
+no va ninguna marca de margen, sino un marcador dentro de la línea.
+\setcounter{ejercicio}{0}
+\par\vspace{2mm}
+\Marcar{Esto entra en el examen: la ley de Ohm.}
+\Marcar{No entendí por qué el determinante da cero.}
+\Marcar{Creo que esto se parece a lo que vimos en economía.}
+\Marcar{Tengo que terminar la guía para el lunes.}
+\Marcar{En resumen: la oferta y la demanda fijan el precio.}
+\Marcar{Quizá el cambio climático aumente las migraciones; aún no está probado.}
+\Marcar{Derivada: el límite del cociente incremental.}
+\Marcar{El profe dijo que es lo más importante del curso.}
+\Marcar{Buscar el artículo que citó la profesora.}
+\Marcar{Mi hipótesis para el trabajo final: el ruido reduce la concentración.}
+\Marcar{Según el libro, la Luna se formó por un gran impacto.}
+\Marcar{Conclusión de la clase: todo lenguaje regular es libre de contexto.}
+
+% ------------------------------------------------------------------
+\clearpage
+\section*{9 · Compuestos}
+\subsection*{Leer}
+Escribo qué significa cada compuesto.
+\setcounter{ejercicio}{0}
+\newcommand{\LeerCp}[1]{\Numero~#1\enspace\rule{24mm}{.3pt}}
+\par\vspace{2mm}
+\begin{tabular}{@{}p{.31\linewidth}p{.31\linewidth}p{.31\linewidth}@{}}
+\LeerCp{\cp{R02}{R16}} & \LeerCp{\cp{K08}{R10}} & \LeerCp{\cp{R06}{R07}} \\[7mm]
+\LeerCp{\cp{R25}{K08}} & \LeerCp{\cp{R01}{R11}} & \LeerCp{\cp{R11}{R23}} \\[7mm]
+\LeerCp{\cp{K04}{R09}} & \LeerCp{\cp{R26}{R12}} & \LeerCp{\cp{R18}{R29}} \\[7mm]
+\LeerCp{\cp{K07}{R28}} & \LeerCp{\cp{R09}{R17}} & \LeerCp{\cp{R02}{R04}} \\[7mm]
+\LeerCp{\cp{K06}{R27}} & \LeerCp{\cp{R20}{K07}} & \LeerCp{\cp{K01}{R03}} \\[7mm]
+\LeerCp{\cp{R04}{R22}} & \LeerCp{\cp{K30}{R09}} & \LeerCp{\cp{R25}{R12}} \\
 \end{tabular}
 
+\subsection*{Formar}
+Escribo el compuesto del diccionario.
+\par\vspace{2mm}
+\newcommand{\Formar}[1]{\Numero~#1\enspace\rule{20mm}{.3pt}}
+\begin{tabular}{@{}p{.31\linewidth}p{.31\linewidth}p{.31\linewidth}@{}}
+\Formar{sociedad} & \Formar{historia} & \Formar{idea} \\[7mm]
+\Formar{enfermedad} & \Formar{algoritmo} & \Formar{guerra} \\[7mm]
+\Formar{memoria} & \Formar{evolución} & \Formar{precio} \\[7mm]
+\Formar{psicología} & \Formar{computadora} & \Formar{gobierno} \\[7mm]
+\Formar{velocidad} & \Formar{justicia} & \Formar{literatura} \\
+\end{tabular}
+
+\subsection*{Inventar}
+No están en el diccionario. Invento un compuesto con el núcleo primero.
+\par\vspace{2mm}
+\begin{tabular}{@{}p{.31\linewidth}p{.31\linewidth}p{.31\linewidth}@{}}
+\Formar{hambre} & \Formar{educación} & \Formar{ley física} \\[7mm]
+\Formar{poeta} & \Formar{tecnología} & \Formar{dictadura} \\[7mm]
+\Formar{hospital} & \Formar{maestro} & \Formar{cementerio} \\[7mm]
+\Formar{enemigo} & \Formar{biblioteca} & \Formar{alegría} \\
+\end{tabular}
+
+% ------------------------------------------------------------------
 \clearpage
-\section*{4 · Escribir en KalaScript}
+\section*{10 · Telegrafiar}
+Primero quito todo lo que sobra, sin usar signos. Después escribo la línea en
+KalaScript.
+\setcounter{ejercicio}{0}
+\Telegrafiar{La mitocondria es la parte de la célula en la que se produce la energía.}
+\Telegrafiar{Los estudiantes que duermen poco tienden a tener peores notas.}
+\Telegrafiar{La Revolución Industrial comenzó en Inglaterra a finales del siglo XVIII.}
+\Telegrafiar{Un algoritmo es una secuencia finita de pasos que sirve para resolver un problema.}
+\Telegrafiar{Es posible que el universo se siga expandiendo para siempre.}
+\Telegrafiar{El Estado debe garantizar la salud de todos los ciudadanos.}
+\Telegrafiar{Muchos filósofos creen que la mente no es lo mismo que el cuerpo.}
+\Telegrafiar{Cuando sube la temperatura del agua, el azúcar se disuelve más rápido.}
+
+% ------------------------------------------------------------------
+\clearpage
+\section*{11 · Escribir en KalaScript}
 Estilo telegráfico: signos y raíces donde se pueda, español solo para nombres
 y términos técnicos.
 \setcounter{ejercicio}{0}
+\subsection*{Distinciones básicas}
 \Escribir{La fricción produce calor.}
 \Escribir{Primero fue la Edad Media y después el Renacimiento.}
 \Escribir{El agua líquida se convierte en vapor.}
@@ -115,13 +353,29 @@ y términos técnicos.
 \Escribir{Pendiente: preguntar al profesor qué es un autómata de pila.}
 \Escribir{Hipótesis: la falta de sueño reduce la memoria.}
 \Escribir{Definición: una función es inyectiva si a elementos distintos les asigna imágenes distintas.}
+\subsection*{Con raíces, por materia}
+\Escribir{(Historia) La Revolución Francesa comenzó en 1789 y causó el fin del absolutismo en Francia.}
+\Escribir{(Economía) Si sube la oferta y la demanda no cambia, baja el precio.}
+\Escribir{(Biología) Según muchos biólogos, los virus no son seres vivos.}
+\Escribir{(Física) La energía no se crea ni se destruye: solo se transforma.}
+\Escribir{(Psicología) La memoria de corto plazo puede guardar unos siete elementos.}
+\Escribir{(Filosofía) Para Platón, el alma no muere.}
+\Escribir{(Computación) Un compilador traduce un lenguaje de programación a código de máquina.}
+\Escribir{(Derecho) Toda persona tiene derecho a la educación.}
+\Escribir{(Geografía) La cordillera de los Andes es parte de Sudamérica.}
+\Escribir{(Música) Bach compuso muchas fugas; por ejemplo, \emph{El arte de la fuga}.}
+\Escribir{(Matemática) Toda función derivable es continua, pero no al revés.}
+\Escribir{(Medicina) Fumar causa cáncer de pulmón.}
+\Escribir{(Literatura) El \emph{Quijote} es una novela que critica los libros de caballería.}
+\Escribir{(Ética) Según Kant, mentir está mal aunque tenga buenas consecuencias.}
+\Escribir{(Química) Una reacción exotérmica libera energía en forma de calor.}
 
+% ------------------------------------------------------------------
 \clearpage
-\section*{5 · Leer sin el manual}
+\section*{12 · Leer sin el manual}
 Escribo en español lo que dice cada línea. Si tuve que mirar el manual, marco
 la línea con \kss{K19}.
 \setcounter{ejercicio}{0}
-\newcommand{\LineaKala}[1]{\begin{apunte}#1\end{apunte}}
 \Leer{\LineaKala{\linea{}{deforestacn \ks{K23} erosión \ks{K23} \(\downarrow\) fertilidad del suelo}}}
 \Leer{\LineaKala{\linea{}{\ks{K16} \ks{K30} Darwin: variacn \(\wedge\) selección \ks{K23} nuevas especies}}}
 \Leer{\LineaKala{\linea{}{capitalismo \ks{K25} socialismo: quién es dueño de los medios de producción}}}
@@ -131,10 +385,80 @@ la línea con \kss{K19}.
 \Leer{\LineaKala{\linea{}{pila \(\subset\) estructura de datos \quad LIFO \ks{K25} cola: FIFO}}}
 \Leer{\LineaKala{\linea{\ks{K32}}{\ks{K30} Kant \(\approx\) \ks{K30} Confucio: el deber antes que el placer}}}
 \Leer{\LineaKala{\linea{}{\ks{K07} 1532 \ks{K08} Cajamarca: captura de Atahualpa \ks{K21} caída del Tahuantinsuyo}}}
-\Leer{\LineaKala{\linea{\ks{K34}}{\ks{K19}[teorema de Rice \(\Rightarrow\) indecidible?] \ks{K10}\(_{\text{p.212}}\)}}}
+\Leer{\LineaKala{\linea{\ks{K34}}{\ks{K19}[teorema de Rice \(\Rightarrow\) indecidible] \ks{K10}\(_{\text{p.212}}\)}}}
+\Leer{\LineaKala{\linea{}{\cp{K06}{K30} \ks{K36} \cp{K06}{R09} \ks{K39} \cp{R21}{R11}}}}
+\Leer{\LineaKala{\linea{}{\(\uparrow\)\cp{K05}{R15} \ks{K23} hielo \ks{K24} agua}}}
+\Leer{\LineaKala{\linea{}{\ks{K16} \ks{K30} Aristóteles: \(\forall\)\ks{K30} \ks{R05} \ks{R02}}}}
+\Leer{\LineaKala{\linea{}{\cp{R25}{K06} \ks{K23} \(\downarrow\)\cp{K06}{R10} \(\wedge\) \(\uparrow\)\cp{K05}{R10}}}}
+\Leer{\LineaKala{\linea{\ks{K33}}{\cp{R04}{R22} \ks{K28} \(\downarrow\)\cp{R06}{R21}}}}
+\Leer{\LineaKala{\linea{}{\cp{R11}{R20} \ks{K38} terminar \(\wedge\) \ks{K02}\ks{R12}}}}
+\Leer{\LineaKala{\linea{}{\cp{K01}{R07} \ks{K36} ADN; virus \(\neg\)\ks{K36} \cp{K01}{R07}}}}
+\Leer{\LineaKala{\linea{}{\ks{K16} \ks{K30} Darwin: \cp{K04}{R07} \ks{R26} selección natural}}}
+\Leer{\LineaKala{\linea{}{\cp{R01}{R11} \ks{K25} \cp{R02}{R04} \quad racionalismo \ks{K25} empirismo}}}
+\Leer{\LineaKala{\linea{}{\cp{R18}{R29} barroca \ks{K21} clásica \ks{K21} romántica}}}
+\Leer{\LineaKala{\linea{\ks{K19}}{\cp{R23}{R24} \ks{K37} \ks{R01}}}}
+\Leer{\LineaKala{\linea{\ks{K35}}{\cp{R06}{R07} \ks{K38} \ks{R15} \ks{K39} \ks{R07}}}}
 
+% ------------------------------------------------------------------
 \clearpage
-\section*{6 · Medir}
+\section*{13 · Encontrar el error}
+Cada línea tiene un error de KalaScript. Digo cuál es y la escribo bien.
+\setcounter{ejercicio}{0}
+\Error{\linea{}{Edad Media \ks{K23} Renacimiento}}
+\Error{\linea{}{\ks{K16} teorema de Pitágoras: \(a^2+b^2=c^2\)}}
+\Error{\linea{}{\(\neg\) frío \(=\) caliente}}
+\Error{\linea{}{ribosoma \(\in\) célula}}
+\Error{\linea{}{perros \(\in\) mamíferos}}
+\Error{\linea{}{helado \ks{K23} ahogamientos}}
+\Error{\linea{}{pulmones \ks{K23} respirar}}
+\Error{\linea{}{calor \ks{K24} dilatación del metal}}
+\Error{\linea{}{\cp{K30}{K06} (quiero decir «sociedad»)}}
+\Error{\linea{}{\ks{K07} 1879 Chile \ks{K25} Perú}}
+\Error{\linea{}{\(n\) par \(\to\) \(n^2\) par \quad (quiero decir implicación lógica)}}
+\Error{\linea{\ks{K19}}{¿por qué el cielo es azul?}}
+\Error{\linea{}{la \ks{K23} principal fue el salitre \ks{K23} guerra}}
+\Error{\linea{}{\(\neg\)\ks{R07} \(=\) \ks{R08}}}
+
+% ------------------------------------------------------------------
+\clearpage
+\section*{14 · Tomar apuntes de un texto}
+Leo el texto una vez, lo tapo y tomo apuntes como si fuera una clase: margen,
+signos, raíces y estilo telegráfico. Después comparo con la solución.
+\setcounter{ejercicio}{0}
+\newcommand{\Texto}[2]{\subsection*{\Numero\ #1}{\small\begin{quote}#2\end{quote}}\HojaVacia{9}}
+\Texto{Biología · la fotosíntesis}{La fotosíntesis es el proceso por el cual
+las plantas convierten la energía de la luz en energía química. Ocurre en los
+cloroplastos, que son parte de las células vegetales. La planta toma dióxido de
+carbono del aire y agua del suelo, y produce glucosa y oxígeno. Sin luz no hay
+fotosíntesis, pero la luz sola no basta: también se necesita clorofila. El
+profesor comentó que las algas marinas producen más de la mitad del oxígeno del
+planeta, aunque no dio la fuente. Para el examen hay que saber la ecuación general.}
+\clearpage
+\Texto{Historia · la caída de Roma}{El Imperio romano de Occidente cayó en el
+año 476, cuando Odoacro depuso al último emperador, Rómulo Augústulo. Los
+historiadores discuten sus causas. Algunos, como Gibbon, destacaron la decadencia
+moral y el cristianismo; otros señalan la crisis económica, la presión de los
+pueblos germánicos y la división del imperio en dos partes. Es probable que
+ninguna causa por sí sola explique la caída. El Imperio de Oriente, en cambio,
+sobrevivió casi mil años más, hasta 1453.}
+\clearpage
+\Texto{Computación · pilas y colas}{Una pila es una estructura de datos en la que
+el último elemento que entra es el primero que sale. Una cola funciona al revés:
+el primero que entra es el primero que sale. Las pilas se usan, por ejemplo, para
+deshacer acciones en un editor o para las llamadas a funciones; las colas, para
+atender tareas en orden de llegada. Ambas pueden implementarse con arreglos o con
+listas enlazadas. Ojo: si la pila está vacía, sacar un elemento es un error.}
+\clearpage
+\Texto{Ética · el utilitarismo}{El utilitarismo, defendido por Bentham y Mill,
+sostiene que una acción es correcta si produce la mayor felicidad para el mayor
+número de personas. Para Bentham todos los placeres valen lo mismo; Mill, en
+cambio, distingue placeres superiores e inferiores. Una objeción frecuente es que
+el utilitarismo podría justificar sacrificar a un inocente si eso beneficia a
+muchos. Personalmente, me pregunto cómo se mide la felicidad.}
+
+% ------------------------------------------------------------------
+\clearpage
+\section*{15 · Medir}
 \subsection*{Velocidad}
 Copio este párrafo dos veces con cronómetro: primero en español normal y luego
 en KalaScript. Repito cada mes con el mismo párrafo.
@@ -169,6 +493,21 @@ Dos semanas después de una clase, releo mis apuntes sin el manual.
 \end{center}
 
 \clearpage
+\subsection*{Registro de ejercicios}
+\begin{center}
+\begin{tabular}{@{}p{36mm}p{20mm}p{20mm}p{60mm}@{}}
+\toprule Ejercicio & Fecha & Aciertos & Qué me costó \\ \midrule
+3 · Reconocer & & \phantom{0}/36 & \\ \hline
+4 · Emparejar & & \phantom{0}/36 & \\ \hline
+5 · Elegir & & \phantom{0}/24 & \\ \hline
+6 · Completar & & \phantom{0}/16 & \\ \hline
+7 · Corchetes & & \phantom{0}/8 & \\ \hline
+8 · Margen & & \phantom{0}/12 & \\ \hline
+9 · Compuestos & & \phantom{0}/33 & \\ \hline
+13 · Errores & & \phantom{0}/14 & \\ \bottomrule
+\end{tabular}
+\end{center}
+
 \subsection*{Candidatos a signo nuevo}
 Palabras que subrayé con línea ondulada muchas veces:
 \begin{center}
@@ -180,50 +519,157 @@ Palabras que subrayé con línea ondulada muchas veces:
 \end{tabular}
 \end{center}
 
+% ==================================================================
 \clearpage
 \section*{Soluciones}
-\subsection*{3 · Compuestos}
-\begin{tabular}{@{}lll@{}}
-a.~\cp{K06}{K30} & b.~\cp{R02}{K07} & c.~\cp{K01}{R01} \\[2mm]
-d.~\cp{R06}{R22} & e.~\cp{R11}{R20} & f.~\cp{R25}{K06} \\[2mm]
-g.~\cp{R01}{K07} & h.~\cp{K04}{R07} & i.~\cp{K05}{R10} \\
+
+\subsection*{3 · Reconocer}
+\newcommand{\Nom}[1]{\csname KalaNombre#1\endcsname}
+{\small
+1~\Nom{K24} · 2~\Nom{K29} · 3~\Nom{K09} · 4~\Nom{K35} · 5~\Nom{K27} · 6~\Nom{K39} ·
+7~\Nom{K33} · 8~\Nom{K21} · 9~\Nom{K36} · 10~\Nom{K16} · 11~\Nom{K28} · 12~\Nom{K02} ·
+13~\Nom{K38} · 14~\Nom{K10} · 15~\Nom{K26} · 16~\Nom{K32} · 17~\Nom{K05} · 18~\Nom{K25} ·
+19~\Nom{R02} · 20~\Nom{R09} · 21~\Nom{R26} · 22~\Nom{R15} · 23~\Nom{R11} · 24~\Nom{R05} ·
+25~\Nom{R17} · 26~\Nom{R24} · 27~\Nom{R27} · 28~\Nom{R08} · 29~\Nom{R14} · 30~\Nom{R10} ·
+31~\Nom{R20} · 32~\Nom{R16} · 33~\Nom{R03} · 34~\Nom{R22} · 35~\Nom{R29} · 36~\Nom{R13}.}
+
+\subsection*{4 · Emparejar}
+{\small
+\Sol{A.} \kss{K23}~e · \kss{K21}~g · \kss{K24}~a · \kss{K26}~f · \kss{K27}~c · \kss{K25}~h · \kss{K28}~b · \kss{K29}~d\par
+\Sol{B.} \kss{K31}~d · \kss{K35}~f · \kss{K32}~a · \kss{K33}~g · \kss{K34}~b · \kss{K19}~h · \kss{K16}~c · \kss{K09}~e\par
+\Sol{C.} \kss{K36}~c · \kss{K37}~d · \kss{K38}~a · \kss{K39}~b\par
+\Sol{D.} \kss{R09}~d · \kss{R10}~g · \kss{R11}~e · \kss{R15}~h · \kss{R16}~f · \kss{R17}~b · \kss{R24}~a · \kss{R27}~c\par
+\Sol{E.} \kss{R01}~c · \kss{R02}~e · \kss{R19}~f · \kss{R20}~g · \kss{R26}~a · \kss{R28}~b · \kss{R29}~d · \kss{R25}~h\par}
+
+\subsection*{5 · Elegir el signo}
+{\small
+1~a · 2~c · 3~b · 4~a · 5~b · 6~c · 7~a · 8~b · 9~a · 10~c · 11~a · 12~b ·
+13~b · 14~a · 15~c · 16~b · 17~a · 18~b · 19~c · 20~a · 21~c · 22~b · 23~a · 24~b.\par
+En 3, la relación es lógica, no física: \(\Rightarrow\). En 5, «suele ir junta» no
+dice causa. En 9 hablamos de la clase entera (todo perro es mamífero): \(\subset\);
+un perro concreto sería \(\in\). En 13, el cobre no es una pieza del Perú: Tiene.
+En 19, «deduzco» es \(\therefore\); \(\Rightarrow\) sería «si\ldots{} entonces».}
+
+\subsection*{6 · Completar}
+{\small
+1~\kss{K24} · 2~\kss{K21} · 3~\kss{K23} · 4~\kss{K27} · 5~\kss{K16} · 6~\kss{K38} ·
+7~\kss{R25} · 8~\kss{K28} · 9~\kss{K29} · 10~\kss{K39} · 11~\(\Rightarrow\) · 12~\(\in\) ·
+13~\(\subset\) · 14~\kss{K36} · 15~\kss{K34} (en el margen) · 16~\kss{K36}.\par
+En 2, los sucesos se ordenan en el tiempo; decir que uno causó al otro exige más.
+En 6, la búsqueda binaria necesita (debe tener) un arreglo ordenado.}
+
+\subsection*{7 · Corchetes y alcance}
+\begin{apunte}
+\linea{1}{[pobreza \(\wedge\) desnutrición] \ks{K23} bajo rendimiento}
+\linea{2}{pobreza \(\wedge\) [desnutrición \ks{K23} bajo rendimiento]}
+\linea{3}{\(\neg\)[llueve \(\wedge\) frío]}
+\linea{4}{\(\neg\) llueve \(\wedge\) frío \quad (sin corchetes: \(\neg\) solo toma a su vecino)}
+\linea{5}{\ks{K16} Kant: [\cp{R01}{R11} \ks{K36} límites] \(\wedge\) fe \(>\) \cp{R01}{R11} \quad (mejor aún: la segunda parte en otra línea con \ks{K32})}
+\linea{6}{\ks{K19}[A \ks{K23} B] \quad A \ks{K28} B}
+\linea{7}{[crisis \(\wedge\) \cp{R25}{K06}] \ks{K23} \cp{K04}{R09}}
+\linea{8}{\(\neg\)[\(\forall\) primo: impar] \quad (el 2 es primo y par)}
+\end{apunte}
+
+\subsection*{8 · Marcas de margen}
+{\small
+1~\kss{K31} · 2~\kss{K19} · 3~\kss{K32} · 4~\kss{K34} · 5~\kss{K35} · 6~\kss{K33} ·
+7~ninguna: es una definición, \kss{K09} va dentro de la línea · 8~\kss{K31} ·
+9~\kss{K34} · 10~\kss{K33} (también vale \kss{K32}: es una hipótesis mía) ·
+11~ninguna: \kss{K16} va dentro de la línea · 12~\kss{K35}.}
+
+\subsection*{9 · Compuestos}
+{\small
+\Sol{Leer:} 1~química · 2~mercado · 3~organismo · 4~batalla · 5~razón ·
+6~programa · 7~revolución · 8~axioma · 9~música · 10~clima · 11~fuerza ·
+12~experiencia · 13~religión · 14~hábito · 15~palabra · 16~dolor, sufrimiento ·
+17~gobernante · 18~contradicción.\par\vspace{2mm}
+\Sol{Formar:}\par}
+\begin{tabular}{@{}lllll@{}}
+19~\cps{K06}{K30} & 20~\cps{R02}{K07} & 21~\cps{K01}{R01} & 22~\cps{R06}{R22} & 23~\cps{R11}{R20} \\[1.5mm]
+24~\cps{R25}{K06} & 25~\cps{R01}{K07} & 26~\cps{K04}{R07} & 27~\cps{K05}{R10} & 28~\cps{R02}{R01} \\[1.5mm]
+29~\cps{R23}{R24} & 30~\cps{K06}{R09} & 31~\cps{K05}{R17} & 32~\cps{R21}{R11} & 33~\cps{R03}{R29} \\
 \end{tabular}
 \par\vspace{2mm}
-{\small Propuestas para inventar: j.~hambre \cps{R06}{R05} (el cuerpo que quiere);
-k.~educación \cps{K04}{R02} es «aprendizaje»; para la institución,
-\cps{K06}{R02}; l.~ley física \cps{R11}{R28} (regla de la naturaleza);
-m.~poeta \cps{K30}{R29} y, si hace falta precisar, \cpp{K30}{R03}{R29};
-n.~ecuación \cps{R12}{R13} (verdad de números: una igualdad);
-o.~dictadura \cps{K06}{R09} con \(\neg\)\cps{R21}{R11} al lado, o
-\cps{K30}{R09} \(\wedge\) \(\neg\)\cps{R21}{R11}. Cualquier otra vale si el
-núcleo va primero y la anotas en la leyenda.}
+{\small\Sol{Inventar} (propuestas; cualquier otra vale si el núcleo va primero y
+la anotas en la leyenda):
+34~hambre \cps{R06}{R05}, el cuerpo que quiere ·
+35~educación \cps{K04}{R02} («aprendizaje»); la institución, \cps{K06}{R02} ·
+36~ley física \cps{R11}{R28} ·
+37~poeta \cps{K30}{R29}, o \cpp{K30}{R03}{R29} ·
+38~tecnología \cps{R02}{R23} ·
+39~dictadura \cps{K06}{R09} con \(\neg\)\cps{R21}{R11} ·
+40~hospital \cpp{K08}{R06}{R21}, lugar de la salud ·
+41~maestro \cps{K30}{R02} ·
+42~cementerio \cps{K08}{R08} ·
+43~enemigo \cps{K30}{R25} ·
+44~biblioteca \cps{K08}{R03} (ojo: \cps{K08}{R24} ya es «memoria de máquina») ·
+45~alegría \cps{R04}{R21}, que en el diccionario es «placer»: si quieres
+distinguirlas, declara una de las dos.}
 
-\subsection*{4 · Escribir}
+\subsection*{10 · Telegrafiar}
+\begin{apunte}
+\linea{1}{mitocondria: parte célula dnd se produce energía}
+\linea{}{mitocondria \ks{K27} \cp{K01}{R07} \ks{K39} producir \ks{R15}}
+\linea{2}{estudiantes q duermen poco: peores notas (tendencia)}
+\linea{}{\(\downarrow\) sueño \ks{K28} \(\downarrow\) notas}
+\linea{3}{Rev. Industrial: comienza Inglaterra, fines s.~XVIII}
+\linea{}{Rev. Industrial \ks{R26} \ks{K08} Inglaterra, \ks{K07} fines s.~XVIII}
+\linea{4}{algoritmo: secuencia finita pasos p/ resolver problema}
+\linea{}{\cp{R11}{R20} \ks{K09} pasos finitos \ks{K21}\ldots \ks{K39} resolver problema}
+\linea{5}{posible: universo se expande siempre}
+\linea{}{universo \ks{K37} \(\uparrow\) tamaño \(\forall\)\ks{K07}}
+\linea{6}{Estado debe garantizar salud todos ciudadanos}
+\linea{}{\cp{K08}{R09} \ks{K38} garantizar \cp{R06}{R21} \(\forall\) ciudadano}
+\linea{7}{muchos filósofos: mente \(\neq\) cuerpo}
+\linea{}{\ks{K16} muchos filósofos: \ks{R01} \(\neq\) \ks{R06}}
+\linea{8}{sube temp. agua \(\to\) azúcar se disuelve + rápido}
+\linea{}{\(\uparrow\)\cp{K05}{R15} agua \ks{K23} \(\uparrow\) velocidad disolución azúcar}
+\end{apunte}
+{\small En 2, «tienden a» es una correlación: Van juntos, no Causa. En 3 también
+vale escribir «inicio» en español; Origen es más corto.}
+
+\clearpage
+\subsection*{11 · Escribir}
 \begin{apunte}
 \linea{}{\textbf{1.}\enspace fricción \ks{K23} calor}
 \linea{}{\textbf{2.}\enspace Edad Media \ks{K21} Renacimiento}
 \linea{}{\textbf{3.}\enspace agua líquida \ks{K24} vapor}
-\linea{}{\textbf{4.}\enspace núcleo \ks{K27} célula}
+\linea{}{\textbf{4.}\enspace núcleo \ks{K27} \cp{K01}{R07}}
 \linea{}{\textbf{5.}\enspace triángulos \(\subset\) polígonos}
-\linea{}{\textbf{6.}\enspace Marte \(\in\) planetas del sist solar}
+\linea{}{\textbf{6.}\enspace Marte \(\in\) planetas sist solar}
 \linea{}{\textbf{7.}\enspace helado \ks{K28} ahogamientos \quad \ks{K28} \(\neq\) \ks{K23}}
 \linea{}{\textbf{8.}\enspace \ks{K16} \ks{K30} Freud: sueños \(\overset{\text{\tiny expresan}}{\longrightarrow}\) \ks{R05} reprimidos}
 \linea{}{\textbf{9.}\enspace \(n\) divisible x 4 \(\Rightarrow\) \(n\) par}
 \linea{}{\textbf{10.}\enspace rico \ks{K29} pobre \quad \(\neg\) rico \(\neq\) pobre}
 \linea{\ks{K32}}{\textbf{11.}\enspace inflacn \ks{K23} \ks{R22} + a quienes \(\downarrow\)\cps{R20}{R10}}
-\linea{}{\textbf{12.}\enspace \ks{K07} 1914 \ks{K08} Sarajevo: asesinato de \ks{K30} F. Fernando \ks{K21} 1.ª Guerra Mundial}
-\linea{\ks{K34}}{\textbf{13.}\enspace preguntar al prof: ¿autómata de pila?}
-\linea{\ks{K33}}{\textbf{14.}\enspace \(\downarrow\) sueño \ks{K23} \(\downarrow\) memoria}
+\linea{}{\textbf{12.}\enspace \ks{K07} 1914 \ks{K08} Sarajevo: asesinato \ks{K30} F. Fernando \ks{K21} 1.ª \cp{R25}{K06} Mundial}
+\linea{\ks{K34}}{\textbf{13.}\enspace preguntar prof: autómata de pila}
+\linea{\ks{K33}}{\textbf{14.}\enspace \(\downarrow\) sueño \ks{K23} \(\downarrow\)\cp{R01}{K07}}
 \linea{}{\textbf{15.}\enspace \ks{K09} \(f\) inyectiva: \(a\neq b\) \(\Rightarrow\) \(f(a)\neq f(b)\)}
+\linea{}{\textbf{16.}\enspace \ks{K07} 1789 \cp{K04}{R09} francesa \ks{K23} fin absolutismo \ks{K08} Francia}
+\linea{}{\textbf{17.}\enspace \(\uparrow\) oferta \(\wedge\) demanda fija \(\Rightarrow\) \(\downarrow\)\cp{K05}{R10}}
+\linea{}{\textbf{18.}\enspace \ks{K16} muchos biólogos: virus \(\neg\)\ks{R07}}
+\linea{}{\textbf{19.}\enspace \ks{R15} \(\neg\) se crea \(\wedge\) \(\neg\) se destruye; \ks{R15} \ks{K24} \ks{R15}}
+\linea{}{\textbf{20.}\enspace \cp{R01}{K07} corto plazo \ks{K37} \ks{K05} \(\sim\)7 elementos}
+\linea{}{\textbf{21.}\enspace \ks{K16} \ks{K30} Platón: \cp{R01}{R27} \(\neg\)\ks{R08}}
+\linea{}{\textbf{22.}\enspace compilador: \cp{R03}{R23} \(\overset{\text{\tiny traduce}}{\longrightarrow}\) código \ks{R23}}
+\linea{}{\textbf{23.}\enspace \(\forall\)\ks{K30} \ks{K36} derecho a \cp{K04}{R02}}
+\linea{}{\textbf{24.}\enspace Andes \ks{K27} Sudamérica}
+\linea{}{\textbf{25.}\enspace \ks{K30} Bach: fugas \ks{K26} \emph{El arte de la fuga}}
+\linea{}{\textbf{26.}\enspace \cp{R11}{R13} derivable \(\Rightarrow\) continua \ks{K25} \(\neg\)[continua \(\Rightarrow\) derivable]}
+\linea{}{\textbf{27.}\enspace fumar \ks{K23} cáncer de pulmón}
+\linea{}{\textbf{28.}\enspace \emph{Quijote} \(\in\) novelas \(\overset{\text{\tiny critica}}{\longrightarrow}\) libros de caballería}
+\linea{}{\textbf{29.}\enspace \ks{K16} \ks{K30} Kant: \cp{R03}{R22} \ks{K02}\ks{R22}, aunq consecuencias \ks{R21}}
+\linea{}{\textbf{30.}\enspace exotérmica: \cp{K04}{R16} \(\overset{\text{\tiny libera}}{\longrightarrow}\) \ks{R15} (calor)}
 \end{apunte}
-{\small En 8, «expresan» no tiene signo propio: flecha con la palabra encima.
-«Deseos» es la raíz Querer. En 12, el enunciado dice «fue seguido», no
-«causó»: por eso Después y no Causa. En 7, «\kss{K28} \(\neq\) \kss{K23}» se lee
-«ir juntos no es causar».}
+{\small En 8, «deseos» es la raíz Querer. En 12, «fue seguido» no dice «causó»:
+Después. En 18 va Según porque es una posición discutida, no un hecho
+demostrado. En 22, un compilador no transforma el programa en otra cosa del
+mundo, lo traduce: flecha con palabra; Se vuelve también se acepta.}
 
-\subsection*{4 · Leer}
+\subsection*{12 · Leer}
 \begin{enumerate}\small
-\item La deforestación causa erosión, y la erosión causa que disminuya la fertilidad del suelo.
+\item La deforestación causa erosión, y la erosión, que baje la fertilidad del suelo.
 \item Según Darwin, la variación junto con la selección causan nuevas especies.
 \item Capitalismo y socialismo se diferencian en quién es dueño de los medios de producción.
 \item Importante: que haya correlación no implica que haya causalidad.
@@ -233,5 +679,72 @@ núcleo va primero y la anotas en la leyenda.}
 \item Idea mía: Kant se parece a Confucio en poner el deber antes que el placer.
 \item En 1532, en Cajamarca, capturaron a Atahualpa; después vino la caída del Tahuantinsuyo.
 \item Pendiente, con duda: ¿el teorema de Rice implica que es indecidible? Ver p.~212.
+\item La sociedad tiene un gobierno, que sirve para la justicia.
+\item Sube la temperatura, y eso hace que el hielo se convierta en agua.
+\item Según Aristóteles, toda persona quiere saber.
+\item La guerra causó que hubiera menos empresas y precios más altos.
+\item Hipótesis: el sufrimiento va junto con una peor salud.
+\item Un algoritmo debe terminar y ser correcto.
+\item La célula tiene ADN; el virus no tiene células.
+\item Según Darwin, la evolución viene de la selección natural.
+\item Razón frente a experiencia: racionalismo frente a empirismo.
+\item La música barroca, después la clásica y después la romántica.
+\item Duda: ¿puede pensar una computadora?
+\item Resumen: un organismo debe tener energía para vivir.
 \end{enumerate}
+
+\clearpage
+\subsection*{13 · Encontrar el error}
+\begin{enumerate}\small
+\item Sucesión escrita como causa. \(\to\) Edad Media \kss{K21} Renacimiento.
+\item Según para un teorema demostrado. \(\to\) teorema de Pitágoras: \(a^2+b^2=c^2\).
+\item Negar no es oponer: «no frío» incluye «tibio». \(\to\) frío \kss{K29} caliente, y \(\neg\) frío \(\neq\) caliente.
+\item Una pieza no es un elemento de un conjunto. \(\to\) ribosoma \kss{K27} \cps{K01}{R07}.
+\item Hablamos de la clase entera. \(\to\) perros \(\subset\) mamíferos (un perro concreto: Firulais \(\in\) perros).
+\item Correlación escrita como causa. \(\to\) helado \kss{K28} ahogamientos (los dos suben con el calor).
+\item Finalidad escrita como causa. \(\to\) pulmones \kss{K39} respirar.
+\item El calor no se convierte en dilatación: la provoca. \(\to\) calor \kss{K23} dilatación del metal.
+\item El núcleo va primero: \cps{K30}{K06} sería «persona del grupo, miembro». \(\to\) \cps{K06}{K30}.
+\item Pero es contraste, no enfrentamiento. \(\to\) Chile \kss{R25} Perú.
+\item La flecha simple es la flecha común. \(\to\) \(n\) par \(\Rightarrow\) \(n^2\) par.
+\item Pregunta en el margen ya reemplaza a «¿?». \(\to\) por qué cielo azul, con \kss{K19} en el margen.
+\item El primer \kss{K23} es un sustantivo y puede leerse como conector. \(\to\) [\kss{K23}] principal: salitre.
+\item «No vivo» no es «muerto»: una piedra no está viva ni muerta. \(\to\) \kss{R08} \(\Rightarrow\) \(\neg\)\kss{R07}, pero no al revés.
+\end{enumerate}
+
+\subsection*{14 · Tomar apuntes}
+{\small Son apuntes posibles, no los únicos. Compara sobre todo los signos:
+¿usaste Causa donde era Después, o Según donde era Idea mía?}
+\begin{apunte}[1 · Fotosíntesis]
+\linea{}{\ks{K09} fotosíntesis: \ks{K04} \ks{R15} luz \ks{K24} \ks{R15} química}
+\linea{}{cloroplastos \ks{K27} \cp{K01}{R07} vegetal}
+\linea{}{\(\mathrm{CO_2}\) (aire) + \(\mathrm{H_2O}\) (suelo) \ks{K24} glucosa + \(\mathrm{O_2}\)}
+\linea{}{\(\neg\) luz \(\Rightarrow\) \(\neg\) fotosíntesis; luz \(\neg\) basta: \ks{K38} clorofila}
+\linea{\ks{K34}}{\ks{K16} prof: algas marinas \(\to\) \(>\)50\,\% \(\mathrm{O_2}\) \cp{K08}{R28} (\(\neg\) fuente: buscarla)}
+\linea{\ks{K31}}{\(\mathrm{6\,CO_2+6\,H_2O}\) \ks{K24} \(\mathrm{C_6H_{12}O_6+6\,O_2}\)}
+\end{apunte}
+\begin{apunte}[2 · Caída de Roma]
+\linea{}{\ks{K07} 476: \ks{K30} Odoacro depone \ks{K30} Rómulo Augústulo: fin Imperio Occidente}
+\linea{}{\ks{K16} \ks{K30} Gibbon: decadencia moral \(\wedge\) cristianismo \ks{K23} caída}
+\linea{}{\ks{K16} otros: \ks{K06} crisis económica | presión germánica | división del imperio}
+\linea{\ks{K33}}{\(\neg\) 1 sola [\ks{K23}] basta}
+\linea{}{Imperio Oriente \ks{K25} sobrevive hasta \ks{K07} 1453 (\(\sim\)1000 años +)}
+\end{apunte}
+\begin{apunte}[3 · Pilas y colas]
+\linea{}{\ks{K09} pila: último entra \(=\) primero sale (LIFO)}
+\linea{}{cola \ks{K25} primero entra \(=\) primero sale (FIFO)}
+\linea{}{pila \ks{K39} deshacer (editor), llamadas a \cp{R11}{R13}; cola \ks{K39} tareas en orden}
+\linea{}{pila \(\wedge\) cola \ks{K37} implementarse c/ arreglos \(\vee\) listas enlazadas}
+\linea{\ks{K31}}{pila vacía \(\Rightarrow\) sacar \(=\) error}
+\end{apunte}
+\begin{apunte}[4 · Utilitarismo]
+\linea{}{\ks{K16} \ks{K30} Bentham \(\wedge\) \ks{K30} Mill: utilitarismo}
+\linea{}{\ks{R20} \ks{K02}\ks{R12} \(\Leftrightarrow\) máx. felicidad p/ máx. \# \ks{K30}}
+\linea{}{\ks{K16} Bentham: \(\forall\) \cp{R04}{R21} valen igual \ks{K25} Mill: superiores \(\wedge\) inferiores}
+\linea{}{objeción: utilitarismo \ks{K37} justificar sacrificar inocente si \(\uparrow\)\ks{R21} p/ muchos}
+\linea{\ks{K19}}{cómo medir felicidad}
+\end{apunte}
+{\small En 2, «es probable» es una hipótesis de los historiadores, no mía: por
+eso Hipótesis y no Idea mía. En 4, la pregunta final es del autor del texto;
+si fuera tuya, irían Pregunta e Idea mía.}
 \end{document}
