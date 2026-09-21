@@ -8,13 +8,13 @@ página anoto el curso, la fecha y el tema.
 
 \begin{apunte}[Teoría de la computación · 20/09 · lenguajes regulares]
 \linea{}{\ks{K09} lenguaje regular: lo acepta algún AFD}
-\linea{\ks{K31}}{AFD \(\approx\) AFN \(\approx\) expr. regular (mismo poder)}
+\linea{\ks{K31}}{AFD, AFN, expr. regular: mismo poder}
 \linea{}{\(\{a^nb^n\}\) \(\notin\) regulares \ks{K10}\(_3\)}
 \linea{\ks{K34}}{repasar lema de bombeo}
 \end{apunte}
 \lectura{Definición: un lenguaje es regular si lo acepta algún autómata finito
-determinista. Importante: AFD, AFN y expresiones regulares son equivalentes,
-tienen el mismo poder. El lenguaje \(a^nb^n\) no es regular; ver nota 3.
+determinista. Importante: AFD, AFN y expresiones regulares tienen el mismo
+poder. El lenguaje \(a^nb^n\) no es regular; ver nota 3.
 Pendiente: repasar el lema de bombeo.}
 
 \subsection{Conectores}
@@ -76,8 +76,10 @@ línea, o en la misma línea separados por barras:
  \kss{K09} al principio de la línea, seguido de «término:».
 \item \textbf{Según} \kss{K16}: «\kss{K16} Piaget: \ldots» atribuye a Piaget todo
  lo que sigue hasta el final de la línea, o solo el grupo entre corchetes que
- va detrás. Es para lo que se puede discutir: un teorema demostrado no va
- con Según, se escribe por su nombre («teorema de Cook--Levin»).
+ va detrás. Según dice \emph{de dónde} viene una afirmación, no \emph{qué tan
+ segura} es: sirve igual para una opinión discutible y para un teorema
+ demostrado («\kss{K16} apuntes del prof: teorema de Rice\ldots»). Si solo
+ quiero nombrar el teorema, basta su nombre.
 \item \textbf{Pregunta} \kss{K19}: delante de un grupo, duda de ese grupo; en el
  margen, duda de la línea entera.
 \item \textbf{Ver} \kss{K10}: con un número abajo a la derecha, remite a la idea
@@ -95,6 +97,23 @@ Pregunta en el margen reemplaza a los signos «¿?»: no hace falta escribir las
 dos cosas. Cuando resuelvo un pendiente \kss{K34}, lo tacho con una diagonal;
 cuando resuelvo una duda \kss{K19}, escribo la respuesta a continuación, en
 lápiz o con otro color.
+
+\subsection{Negar Puede y Debe}
+Con Puede y Debe el lugar de la negación cambia el sentido. \(\neg\) pegado
+delante del signo niega el signo; para negar lo que viene después, se usan
+corchetes:
+\begin{center}\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}ll@{}}
+A \(\neg\)\kss{K37} B & A no puede B \\
+A \kss{K37} [\(\neg\)B] & A puede no B (es posible que no) \\
+A \(\neg\)\kss{K38} B & A no necesita B, no está obligado \\
+A \kss{K38} [\(\neg\)B] & A debe no B: está prohibido \\
+\end{tabular}
+\end{center}
+«No debe» del español suele significar prohibición: se escribe
+A \kss{K38} [\(\neg\)B], no A \(\neg\)\kss{K38} B. Puede junta posibilidad,
+capacidad y permiso, y Debe junta obligación y necesidad; si esa diferencia es
+el tema de la clase (lógica modal, derecho, ética), la escribo en letras.
 
 \subsection{Referencias entre clases}
 Marco las líneas clave con un número en un círculo al final. Para remitir a una
@@ -140,7 +159,7 @@ habituales de su materia.
 \(\neg\) & no & \(\neg\) democracia plena \\
 \(\wedge\), \(\vee\) & y, o (opcional) & las palabras «y», «o» también valen \\
 \(=\), \(\neq\) & es igual, es distinto & velocidad \(\neq\) rapidez \\
-\(\approx\) & se parece, aproximadamente & \(\pi\approx3{,}14\); AFD \(\approx\) AFN \\
+\(\approx\) & se parece, aproximadamente & \(\pi\approx3{,}14\); ballena \(\approx\) pez (solo en la forma) \\
 \(<\), \(>\) & menor, mayor & oferta \(<\) demanda \\
 \(\in\), \(\notin\) & es uno de, no es uno de & Perú \(\in\) países andinos \\
 \(\subset\) & es un tipo de & mamíferos \(\subset\) vertebrados \\
@@ -151,8 +170,14 @@ habituales de su materia.
 \(\uparrow\), \(\downarrow\) & aumenta, disminuye & \(\uparrow\) precio \kss{K23} \(\downarrow\) demanda \\
 \(\Delta\) & cambio de & \(\Delta\) temperatura \\
 \(\forall\), \(\exists\) & para todo, existe & \(\forall\) célula \(\exists\) membrana \\
-\(\#\) & número de, cantidad de & \# habitantes \\
+\(\#\) & número, número de & \# habitantes (es la misma raíz Número) \\
 \end{longtable}
+
+\textbf{Frontera con las fórmulas.} Varios signos se parecen a símbolos
+matemáticos: Bien, Mal y Origen a \(\oplus\), \(\ominus\) y \(\odot\); Van juntos
+a \(/\!/\); Forma a \(\angle\). Una fórmula se escribe completa, y si en una línea
+mixta una raíz pudiera confundirse con la notación de la materia, escribo esa
+raíz en letras.
 
 \textbf{Dos flechas, dos trabajos.} La flecha simple \(\to\) es la de siempre: «lleva
 a», «hacia», «da». La uso cuando la relación no importa o todavía no la sé. La
@@ -206,8 +231,8 @@ es la idea clave & \kss{K31} & (margen) \\
 \subsection{Lo que no hago}
 \begin{itemize}
 \item No uso \(\to\) cuando sé qué relación es: uso su conector.
-\item No doy significado al tamaño, al color, a la inclinación ni a la posición
- de un signo, salvo la regla de margen y contenido.
+\item No doy significado al tamaño ni al color. La posición solo cuenta según
+ las reglas de la línea (margen, categoría delante, conector entre ideas, lazo).
 \item No convierto todo en signos: si la palabra es clara y corta, la escribo.
 \item No invento un signo en medio de una clase. Si me falta uno, escribo la
  palabra y lo anoto como candidato (sección~\ref{sec:crecer}).

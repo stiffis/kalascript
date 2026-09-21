@@ -8,17 +8,22 @@
   \KalaSimbolo[12mm]{#1}\par\vspace{-.5mm}
   {\footnotesize\sffamily\csname KalaNombre#1\endcsname}
   \end{minipage}}
+\newcommand{\MiniN}[1]{%
+  \begin{minipage}[t]{.158\linewidth}\centering
+  \KalaSimbolo[12mm]{#1}\par\vspace{-.5mm}
+  {\footnotesize\sffamily\textcolor{KalaAcento}{\textbullet}\,\csname KalaNombre#1\endcsname}
+  \end{minipage}}
 \newcommand{\MiniVacia}{\begin{minipage}[t]{.158\linewidth}\mbox{}\end{minipage}}
 \newcommand{\Familia}[1]{\par\vspace{2.5mm}{\small\sffamily\color{KalaAcento}\MakeUppercase{#1}}\par\vspace{1mm}\noindent}
 \begin{document}
 \thispagestyle{empty}
-{\Large\sffamily\color{KalaTinta}KalaScript}\hfill{\small\sffamily\color{KalaSuave}hoja de consulta · versión 2}\par
+{\Large\sffamily\color{KalaTinta}KalaScript}\hfill{\small\sffamily\color{KalaSuave}hoja de consulta · versión 3.1}\par
 \vspace{1mm}\textcolor{KalaLinea}{\rule{\linewidth}{.5pt}}
 
 \Familia{Conectores · van entre dos ideas, de izquierda a derecha}
-{\footnotesize\color{KalaSuave}Con punta: tienen dirección y la causa va primero. Sin punta: dicen lo mismo en cualquier orden.}\par\vspace{1mm}\noindent
-\Mini{K23}\hfill\Mini{K21}\hfill\Mini{K24}\hfill\Mini{K26}\hfill\Mini{K27}\hfill\Mini{K25}\par\vspace{2mm}\noindent
-\Mini{K28}\hfill\Mini{K29}\hfill\MiniVacia\hfill\MiniVacia\hfill\MiniVacia\hfill\MiniVacia
+{\footnotesize\color{KalaSuave}Todos tienen dirección (la causa va primero), salvo tres simétricos: Pero, Van juntos y Opuesto.}\par\vspace{1mm}\noindent
+\MiniN{K23}\hfill\MiniN{K21}\hfill\MiniN{K24}\hfill\MiniN{K26}\hfill\MiniN{K27}\hfill\MiniN{K25}\par\vspace{2mm}\noindent
+\MiniN{K28}\hfill\Mini{K29}\hfill\MiniVacia\hfill\MiniVacia\hfill\MiniVacia\hfill\MiniVacia
 
 \Familia{Gramática · entre dos ideas}
 \Mini{K36}\hfill\Mini{K37}\hfill\Mini{K38}\hfill\Mini{K39}\hfill\MiniVacia\hfill\MiniVacia
@@ -28,12 +33,14 @@
 \Mini{K05}\hfill\Mini{K06}\hfill\MiniVacia\hfill\MiniVacia\hfill\MiniVacia\hfill\MiniVacia
 
 \Familia{Marcadores · dentro de la línea, delante de lo que marcan}
-\Mini{K09}\hfill\Mini{K16}\hfill\Mini{K19}\hfill\Mini{K10}\hfill\MiniVacia\hfill\MiniVacia
+\MiniN{K09}\hfill\MiniN{K16}\hfill\MiniN{K19}\hfill\MiniN{K10}\hfill\MiniVacia\hfill\MiniVacia
 
 \Familia{Margen · afectan a toda la línea}
-\Mini{K31}\hfill\Mini{K35}\hfill\Mini{K32}\hfill\Mini{K33}\hfill\Mini{K34}\hfill\Mini{K19}
+\MiniN{K31}\hfill\Mini{K35}\hfill\Mini{K32}\hfill\Mini{K33}\hfill\MiniN{K34}\hfill\MiniN{K19}
 
-\vspace{4mm}
+{\footnotesize\color{KalaSuave}\textcolor{KalaAcento}{\textbullet}\ núcleo: los trece signos para las dos primeras semanas.}
+
+\vspace{3mm}
 \begin{apunte}[Así se ve una página]
 \linea{}{\ks{K07} 1929 \ks{K08} Nueva York: [especulacn \(\wedge\) crédito fácil] \ks{K23} burbuja \ks{K21} crac}
 \linea{\ks{K31}}{crac \ks{K23} quiebra de bancos \ks{K23} \(\uparrow\) desempleo}
@@ -124,15 +131,15 @@ s/ & sin & prof & profesor \\
 \Mini{R23}\hfill\Mini{R24}\hfill\Mini{R19}\hfill\Mini{R18}\hfill\Mini{R29}\hfill\MiniVacia
 
 \vspace{2mm}
-{\small También son raíces: \kss{K30} persona · \kss{K08} lugar · \kss{K07} tiempo · \kss{K01} cosa · \kss{K05} cantidad · \kss{K04} cambio · \kss{K06} grupo · \kss{K19} lo desconocido}
+{\small Sonido, Sagrado y Belleza son de módulo. También son raíces: \kss{K30} persona · \kss{K08} lugar · \kss{K07} tiempo · \kss{K01} cosa · \kss{K05} cantidad · \kss{K04} cambio · \kss{K06} grupo · \kss{K19} lo desconocido}
 
 \vspace{3mm}
 {\small\sffamily\color{KalaAcento}COMPUESTOS FRECUENTES}\par\vspace{1mm}
 \begin{multicols}{3}\small\renewcommand{\arraystretch}{1.5}
 \begin{tabular}{@{}l@{\enspace}l@{}}
-\cps{R02}{R13} & matemática \\ \cps{R02}{R07} & biología \\ \cps{R02}{R01} & psicología \\
-\cps{R02}{K07} & historia \\ \cps{R02}{R24} & computación \\ \cps{R02}{R12} & filosofía \\
-\cps{K01}{R01} & idea \\ \cps{R01}{K07} & memoria \\
+\cps{K01}{R01} & idea \\ \cps{R02}{K19} & duda \\ \cps{K04}{R02} & aprendizaje \\
+\cps{R02}{R19} & ciencia \\ \cps{R11}{R13} & función \\ \cps{R25}{R12} & contradicción \\
+\cps{R01}{K07} & memoria \\ \cps{R01}{R03} & significado \\
 \end{tabular}
 \columnbreak
 \begin{tabular}{@{}l@{\enspace}l@{}}
@@ -144,7 +151,7 @@ s/ & sin & prof & profesor \\
 \begin{tabular}{@{}l@{\enspace}l@{}}
 \cps{R06}{R07} & organismo \\ \cps{K04}{R07} & evolución \\ \cps{R06}{R22} & enfermedad \\
 \cps{K04}{R16} & reacción \\ \cps{R09}{R17} & fuerza \\ \cps{R11}{R20} & algoritmo \\
-\cps{R23}{R24} & computadora \\ \cps{K04}{R12} & demostración \\
+\cps{R23}{R24} & computadora \\ \cps{R20}{K07} & hábito \\
 \end{tabular}
 \end{multicols}
 \end{document}
