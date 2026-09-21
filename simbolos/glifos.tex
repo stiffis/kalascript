@@ -1,0 +1,102 @@
+% Inventario base de KalaScript, con las revisiones gráficas aceptadas.
+% Coordenadas: cuadrícula 64 × 64, origen superior izquierdo.
+% Editar directamente en LaTeX; no depende de SVG ni JSON.
+
+\KalaRegistrar{K01}{Entidad}{Categoría}
+  {Un objeto del dominio del que se habla; no identifica por sí solo un objeto particular.}{2}{%
+  \draw (18,18) -- (18,40) .. controls (18,46) and (21.333333,49) .. (28,49) -- (44,49);
+  \draw (30,15) -- (46,15) -- (46,31);
+}
+
+\KalaRegistrar{K02}{Propiedad}{Categoría}
+  {Una característica atribuible a una entidad dentro de un dominio definido.}{2}{%
+  \draw (16,44) .. controls (16,28) and (22,20) .. (34,20) .. controls (42,20) and (46,24.666667) .. (46,34) -- (32,34);
+  \draw (32,34) -- (32,49);
+}
+
+\KalaRegistrar{K03}{Relación}{Categoría}
+  {Con un índice y argumentos, aplica una relación del catálogo. El orden de los argumentos es significativo.}{2}{%
+  \draw (13,42) .. controls (19,42) and (23.333333,38.333333) .. (26,31) .. controls (28.666667,23.666667) and (33,20) .. (39,20) -- (51,20);
+  \draw (42,12) -- (51,20) -- (43,29);
+}
+
+\KalaRegistrar{K04}{Proceso}{Categoría}
+  {Una actividad o transformación considerada en un dominio. No implica automáticamente causalidad.}{2}{%
+  \draw (14,43) .. controls (14,26) and (30,26) .. (30,43) .. controls (30,58) and (47,49) .. (47,25);
+  \draw (40,30) -- (47,22) -- (54,29);
+}
+
+\KalaRegistrar{K05}{Cantidad}{Categoría}
+  {Una magnitud expresable mediante un valor y, cuando corresponde, una unidad.}{3}{%
+  \draw (19,15) -- (19,48) -- (47,48);
+  \draw (19,26) -- (36,26);
+  \draw (19,37) -- (43,37);
+}
+
+\KalaRegistrar{K06}{Colección}{Categoría}
+  {Una agrupación cuya naturaleza se declara: conjunto, lista u otra estructura. No impone orden ni unicidad por sí sola.}{2}{%
+  \draw (24,14) .. controls (8,14) and (8,50) .. (24,50);
+  \draw (34,22) -- (47,22) -- (34,42) -- (47,42);
+}
+
+\KalaRegistrar{K07}{Tiempo}{Categoría}
+  {Un aspecto temporal, como instante o intervalo, con referencia temporal declarada cuando sea necesaria.}{2}{%
+  \draw (17,16) .. controls (38.333333,16) and (49,21.333333) .. (49,32) .. controls (49,42.666667) and (38.333333,48) .. (17,48);
+  \draw (18,25) -- (18,39) -- (29,39);
+}
+
+\KalaRegistrar{K08}{Espacio}{Categoría}
+  {Un aspecto espacial cuya interpretación requiere dominio, escala o marco de referencia cuando corresponda.}{2}{%
+  \draw (15,36) -- (32,15) -- (49,36) -- (32,49) -- cycle;
+  % La barra termina en el centro del lado oblicuo, sin sobresalir.
+  \draw (32,32) -- (45.761905,32);
+}
+
+\KalaRegistrar{K09}{Definición}{Marcador}
+  {Introduce una definición nombrada. No afirma haber demostrado un resultado.}{3}{%
+  \draw (14,18) -- (25,18) -- (25,46) -- (14,46);
+  \draw (34,25) -- (51,25);
+  \draw (34,39) -- (51,39);
+}
+
+\KalaRegistrar{K10}{Referencia}{Marcador}
+  {Seguida de un índice, remite al referente definido en la leyenda del documento.}{1}{%
+  \draw (17,44) -- (17,20) .. controls (17,16) and (19,14) .. (23,14) -- (41,14) -- (41,35) -- (29,35);
+}
+
+\KalaRegistrar{K11}{Negación}{Operador}
+  {Niega la proposición de su grupo. No forma antónimos ni indica desconocimiento.}{2}{%
+  \draw (15,19) .. controls (31,11) and (49,21) .. (49,36) .. controls (49,44) and (44.666667,48.333333) .. (36,49);
+  \draw (19,50) -- (43,13);
+}
+
+\KalaRegistrar{K12}{Conjunción}{Operador}
+  {Afirma conjuntamente dos proposiciones, sin afirmar un orden temporal entre ellas.}{2}{%
+  \draw (14,20) -- (32,45) -- (50,20);
+  \draw (32,45) -- (32,53);
+}
+
+\KalaRegistrar{K13}{Condicional}{Operador}
+  {Implicación material clásica entre antecedente y consecuente. No significa causa ni ejecución.}{2}{%
+  \draw (14,19) -- (32,32) -- (14,45);
+  \draw (32,32) -- (50,32) -- (44,24);
+}
+
+\KalaRegistrar{K14}{Universal}{Operador}
+  {Para cada elemento del dominio indicado se cumple el cuerpo agrupado.}{3}{%
+  \draw (15,18) -- (15,45) .. controls (26.333333,51.666667) and (37.666667,51.666667) .. (49,45) -- (49,18);
+  \draw (15,28) -- (49,28);
+  \draw (32,12) -- (32,41);
+}
+
+\KalaRegistrar{K15}{Existencia}{Operador}
+  {Existe al menos un elemento del dominio indicado para el que se cumple el cuerpo agrupado.}{2}{%
+  \draw (15,18) -- (15,45) .. controls (26.333333,51.666667) and (37.666667,51.666667) .. (49,45) -- (49,18);
+  \draw (25,28) -- (39,28);
+}
+
+\KalaRegistrar{K16}{Fuente}{Marcador}
+  {Atribuye una proposición a una fuente identificada. No certifica su verdad ni cuantifica confianza.}{2}{%
+  \draw (16,48) -- (16,16) -- (38,16) -- (49,27) -- (49,48) -- cycle;
+  \draw (25,32) -- (39,32);
+}

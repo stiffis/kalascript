@@ -1,0 +1,82 @@
+% Documento principal. Compilar desde esta carpeta:
+% latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=compilado KalaScript.tex
+\documentclass[11pt,a4paper]{article}
+\input{preambulo.tex}
+\hypersetup{pdftitle={KalaScript · Manual de referencia},bookmarksdepth=2}
+\setcounter{tocdepth}{1}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{12mm}
+{\sffamily\small\color{KalaAcento}\MakeUppercase{Una escritura personal}}\par
+\vspace{15mm}
+{\fontsize{51}{58}\selectfont\color{KalaTinta}KalaScript}\par
+\vspace{5mm}
+{\Large\color{KalaSuave}Manual de referencia}\par
+\vspace{16mm}
+\KalaSimbolo[43mm]{K09}\par
+\vfill
+\begin{minipage}{.78\textwidth}
+Un sistema visual para componer conceptos, relaciones y afirmaciones.\par
+Veintidós signos, gramática, trazado y ejemplos completos.\par
+Historial de pruebas y decisiones en anexos.\par
+\textbf{Exclusivamente escrito.} Los nombres explicativos no son pronunciaciones.
+\end{minipage}
+\vspace{15mm}\par
+{\small\sffamily\color{KalaSuave}Edición de referencia}
+\end{titlepage}
+\pagenumbering{roman}
+\hypersetup{pageanchor=true}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+\input{README.tex}
+\clearpage
+\input{docs/01-fundamentos.tex}
+\clearpage
+\section{Atlas de símbolos}\label{sec:atlas}
+\input{simbolos/lamina.tex}
+\clearpage
+\input{simbolos/lamina-02.tex}
+\clearpage
+\subsection{Definiciones del inventario}\label{sec:catalogo}
+\input{simbolos/catalogo.tex}
+\clearpage
+\input{docs/03-escritura.tex}
+\clearpage
+\input{docs/gramatica.tex}
+\clearpage
+\input{datos/relaciones.tex}
+\clearpage
+\input{datos/vocabulario-02.tex}
+\clearpage
+\input{docs/07-composicion.tex}
+\clearpage
+\input{docs/texto-integrado.tex}
+\clearpage
+\input{datos/corpus-02.tex}
+\clearpage
+\input{docs/06-escribir-en-latex.tex}
+\clearpage
+\appendix
+\part*{Anexos}
+\addcontentsline{toc}{part}{Anexos}
+En las secciones siguientes conservo comprobaciones, decisiones y material
+histórico. La gramática vigente es la del cuerpo del manual; las fuentes
+anteriores se archivan para consulta y no añaden reglas implícitas.
+\clearpage
+\input{anexos/comprobaciones.tex}
+\clearpage
+\input{anexos/revision-grafica.tex}
+\clearpage
+\input{anexos/cambios-anteriores.tex}
+\clearpage
+\input{anexos/validacion-anterior.tex}
+\clearpage
+\input{datos/ejemplos.tex}
+\clearpage
+\input{anexos/investigacion.tex}
+\clearpage
+\input{anexos/desarrollo.tex}
+\end{document}

@@ -1,0 +1,48 @@
+\section{Registro de validación anterior}
+Conservo aquí los resultados técnicos del banco T01--T20 anteriores a la consolidación del manual.
+Las nuevas comprobaciones y la relectura de M01 tienen su registro propio.
+\subsection{Estructura y compatibilidad}
+Se comprobaron las veinte expresiones del banco: cantidad de argumentos,
+referentes declarados, variables vinculadas y tipos externos de los constructores.
+Cinco expresiones alteradas deliberadamente fueron rechazadas: R2 incompleta,
+pertenencia a lista, negación de pregunta, variables libres y negación de programa.
+El comprobador puntual no interpreta el interior de toda fórmula convencional,
+ni es un compilador del lenguaje. Los archivos de los diez ejemplos E01--E10
+se conservan sin cambios. La comprobación inicial verificó los dieciséis trazados
+contra el respaldo 0.1. La revisión gráfica posterior adoptó las formas B de
+Colección y Fuente y corrigió el extremo de la barra de Espacio; los ejemplos
+heredan estos nuevos dibujos sin cambiar su estructura ni su significado.
+
+\subsection{Contrastes reproducibles}
+V significa verdadero y F falso. Se enumeraron las cuatro combinaciones:
+\begin{center}\begin{tabular}{ccccc}
+\toprule P & Q & T02 & T03 & T12 \\ \midrule
+F & F & V & F & F \\
+F & V & V & V & V \\
+V & F & V & F & V \\
+V & V & F & F & V \\ \bottomrule
+\end{tabular}\end{center}
+La tabla también confirma la expansión de K17 mediante negación y conjunción.
+
+Para T04/T05 se enumeraron las 16 relaciones binarias posibles entre dos personas
+y dos libros. T05 implica T04 en esos modelos; el recíproco falla. El contraejemplo
+es el gusto separado: persona a solo por libro u, persona b solo por libro v.
+Las dos personas tienen algún libro, pero no hay uno común.
+
+Se comprobaron además estos modelos pequeños, que pueden reproducirse a mano:
+\begin{itemize}
+\item T08: $\{a,b,a\}=\{b,a\}$; $[a,b]\ne[b,a]$ y $[a,a]\ne[a]$.
+\item T13: $A=\{(w_0,w_1)\}$, P solo verdadera en $w_1$. En $w_0$, P es falsa
+y la posibilidad de P es verdadera. Desde $w_1$ no hay sucesores y la posibilidad es falsa.
+\item T15: la expresión del archivo fue interpretada en un modelo entero reducido;
+produjo la traza $0,1,2,3$. Con $x=3$ al entrar al bucle no ejecutó incrementos.
+Para límites $n=0,\ldots,10$ se contaron $n$ incrementos y $n+1$ comprobaciones.
+\item T10: en $X:=U$, $Y:=X$, para el mismo U, intervenir con X igual a 0
+produce Y igual a 0; intervenir con X igual a 1 produce Y igual a 1.
+\item T17: la ecuación escrita tiene cuatro átomos de H y dos de O a cada lado.
+\end{itemize}
+Estas comprobaciones respaldan los ejemplos concretos. No prueban una cobertura
+universal, la consistencia de futuras extensiones ni la comodidad de los signos.
+En mi práctica, las formas B de Colección y Fuente me resultaron más fáciles
+de escribir y distinguir. Todavía me queda comprobar la lectura de expresiones
+completas y su recuerdo después de un tiempo.

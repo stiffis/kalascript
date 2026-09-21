@@ -1,0 +1,129 @@
+% Compilar desde kalascript con latexmk -pdf -outdir=compilado practica.tex
+\documentclass[11pt,a4paper]{article}
+\input{preambulo.tex}
+\hypersetup{pdftitle={KalaScript · Cuaderno de práctica}}
+\newcommand{\KalaRenglon}{\par\vspace{7mm}\noindent\textcolor{KalaLinea}{\rule{\linewidth}{.35pt}}\par}
+\newcommand{\KalaCopiar}[2]{%
+  \textbf{#2}\quad\KalaSimbolo[14mm]{#1}\par
+  \begin{tikzpicture}[x=\dimexpr\linewidth/10-0.1pt\relax,y=1mm]
+    \draw[draw=KalaLinea,step=1] (0,0) grid[xstep=1,ystep=14] (10,14);
+  \end{tikzpicture}\par
+  {\small Tiempo: \rule{17mm}{.3pt}\quad Correcciones: \rule{12mm}{.3pt}\quad
+  Comodidad (1--5): \rule{12mm}{.3pt}}\par\vspace{3mm}
+}
+\newcommand{\KalaLecturaPrueba}[1]{%
+  \subsection*{#1}
+  {\small\textbf{Contexto y leyenda.} \csname KalaContexto#1\endcsname}\par
+  \KalaMostrar{\csname KalaExpresion#1\endcsname}
+  \textbf{Mi lectura:}\KalaRenglon\KalaRenglon
+  {\small Duda o confusión: \rule{75mm}{.3pt}}\par
+}
+\newcommand{\KalaProduccionPrueba}[1]{%
+  \subsection*{Escribir #1}
+  \csname KalaIntencion#1\endcsname\par
+  {\small\csname KalaContexto#1\endcsname}\par
+  \KalaRenglon\KalaRenglon\KalaRenglon
+}
+\begin{document}
+\section*{KalaScript · Cuaderno de práctica}
+\textbf{Nombre o iniciales:} \rule{55mm}{.3pt}\quad
+\textbf{Fecha:} \rule{25mm}{.3pt}
+
+En este cuaderno anoto mi práctica y las dificultades que encuentre. Dejo
+las casillas vacías hasta realizar cada ejercicio y puedo repartirlo en varias
+sesiones. Ya elegí las formas B de Colección y Fuente; conservo la comparación
+A/B como parte del proceso de diseño.
+
+\begin{enumerate}
+\item \textbf{Copia.} Escribo un signo en cada casilla y uso el mismo instrumento
+ y tamaño. Valoro la comodidad de 1 (muy incómodo) a 5 (muy cómodo). Si comparo
+ formas, alterno A/B para reducir el efecto del orden de práctica.
+\item \textbf{Reconocimiento.} Después de copiar, tapo las etiquetas e intento
+ identificar los signos. Anoto los que confunda para volver a probarlos otro día.
+\item \textbf{Lectura.} Uso los catálogos del atlas cuando los necesito y oculto
+ las fichas resueltas. Anoto si consulté el catálogo para distinguir la lectura
+ con ayuda de la lectura de memoria.
+\item \textbf{Producción.} Escribo las ideas de la última parte sin copiar las
+ soluciones. Después comparo referentes, relaciones, argumentos, alcance y contexto.
+\end{enumerate}
+
+\textbf{Hojas breves:} con \path{lectura.pdf} practico T02/T03 y T04/T05 sin
+ glosas; en \path{relectura.pdf} tengo el texto M01. Puedo usarlas en sesiones
+ separadas y consultar sus claves en los anexos del manual.
+
+\subsection*{Resultado de reconocimiento}
+Signos confundidos hoy: \KalaRenglon
+Signos confundidos al día siguiente: \KalaRenglon
+¿Consulté el atlas durante la lectura?: \rule{35mm}{.3pt}
+
+\clearpage
+\section*{Comparación de Colección y Fuente}
+\KalaCopiar{H06}{Colección A: anterior}
+\KalaCopiar{V06}{Colección B: habitual}
+\KalaCopiar{V16}{Fuente B: habitual}
+\KalaCopiar{H16}{Fuente A: anterior}
+\textbf{Registro opcional:}\quad Colección A / B / ninguna\quad Fuente A / B / ninguna
+\KalaRenglon
+
+\clearpage
+\section*{Las variantes dentro de expresiones}
+Cada pareja muestra primero la forma anterior y después la habitual. En la
+primera, los referentes 1 y 2 son los objetos A y B. En la segunda,
+el referente 2 es un informe identificado y \(P\) una proposición.
+
+\subsection*{Mismo conjunto, dos perfiles gráficos}
+\KalaMostrar{\KalaColeccionAnterior{1}{\KalaReferencia{1}\KalaSeparador\KalaReferencia{2}}}
+\KalaRenglon
+\KalaMostrar{\KalaColeccionB{1}{\KalaReferencia{1}\KalaSeparador\KalaReferencia{2}}}
+\KalaRenglon
+\subsection*{Misma atribución, dos perfiles gráficos}
+\KalaMostrar{\KalaFuenteAnterior{\KalaReferencia{2}}{\KalaMat{P}}}
+\KalaRenglon
+\KalaMostrar{\KalaFuenteB{\KalaReferencia{2}}{\KalaMat{P}}}
+\KalaRenglon
+Comodidad, legibilidad o confusión con el índice: \KalaRenglon
+
+\clearpage
+\section*{Aprender las seis funciones nuevas}
+\KalaCopiar{K17}{Alternativa inclusiva}
+\KalaCopiar{K18}{Posibilidad en un modelo}
+\KalaCopiar{K19}{Pregunta polar}
+\clearpage
+\section*{Aprender las seis funciones nuevas · continuación}
+\KalaCopiar{K20}{Selección de un concepto}
+\KalaCopiar{K21}{Secuencia de programas}
+\KalaCopiar{K22}{Mientras: prueba antes de ejecutar}
+
+\clearpage\section*{Lectura sin soluciones}
+\KalaLecturaPrueba{T01}\vspace{3mm}\KalaLecturaPrueba{T02}
+\clearpage\KalaLecturaPrueba{T03}\vspace{3mm}\KalaLecturaPrueba{T04}
+\clearpage\KalaLecturaPrueba{T05}\vspace{3mm}\KalaLecturaPrueba{T06}
+\clearpage\KalaLecturaPrueba{T07}\vspace{3mm}\KalaLecturaPrueba{T08}
+\clearpage\KalaLecturaPrueba{T09}\vspace{3mm}\KalaLecturaPrueba{T10}
+\clearpage\KalaLecturaPrueba{T11}\vspace{3mm}\KalaLecturaPrueba{T12}
+\clearpage\KalaLecturaPrueba{T13}\vspace{3mm}\KalaLecturaPrueba{T14}
+\clearpage\KalaLecturaPrueba{T15}\vspace{3mm}\KalaLecturaPrueba{T16}
+\clearpage\KalaLecturaPrueba{T17}\vspace{3mm}\KalaLecturaPrueba{T18}
+\clearpage\KalaLecturaPrueba{T19}\vspace{3mm}\KalaLecturaPrueba{T20}
+
+\clearpage\section*{Producción sin copiar}
+\KalaProduccionPrueba{T04}\KalaProduccionPrueba{T05}
+\clearpage\KalaProduccionPrueba{T12}\KalaProduccionPrueba{T15}
+\clearpage\KalaProduccionPrueba{T16}\KalaProduccionPrueba{T20}
+
+\clearpage\section*{Registro para la siguiente revisión}
+Comparo mis respuestas con las fichas T01--T20 del manual y anoto el tipo de
+diferencia: signo, referente, relación, orden, alcance o contexto.
+\begin{longtable}{@{}p{19mm}p{34mm}p{\dimexpr\linewidth-53mm-4\tabcolsep\relax}@{}}
+\toprule Caso & Tipo de diferencia & Qué leí o escribí y qué necesitaba expresar \\ \midrule\endhead
+\rule{0pt}{13mm} & & \\ \hline
+\rule{0pt}{13mm} & & \\ \hline
+\rule{0pt}{13mm} & & \\ \hline
+\rule{0pt}{13mm} & & \\ \hline
+\rule{0pt}{13mm} & & \\ \hline
+\rule{0pt}{13mm} & & \\ \bottomrule
+\end{longtable}
+Colección elegida y motivo: \KalaRenglon
+Fuente elegida y motivo: \KalaRenglon
+Otra idea que quise escribir y no pude: \KalaRenglon
+\end{document}

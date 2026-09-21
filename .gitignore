@@ -1,0 +1,9 @@
+compilado/
+.nvimlog
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.toc
+*.synctex.gz

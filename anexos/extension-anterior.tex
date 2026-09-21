@@ -1,0 +1,106 @@
+\section{Extensión de la gramática}\label{sec:extension}
+
+\subsection{Tipos de expresión}
+La versión añade constructores conservando los usos anteriores. Esta clasificación
+es normativa para escribir; LaTeX dibuja expresiones y no verifica sus tipos.
+\begin{longtable}{@{}p{29mm}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-29mm-2\tabcolsep\relax}@{}}
+\toprule Tipo & Construcciones y usos \\ \midrule\endhead
+Término & Referente, variable, dato convencional, concepto, propiedad o colección.
+Los subtipos importan: una propiedad no es una proposición y una lista no es un conjunto. \\[4pt]
+Proposición & Relación aplicada a términos; fórmula convencional; negación,
+conjunción, condicional, alternativa, cuantificación y posibilidad bien formada. \\[4pt]
+Programa & Asignación, secuencia y mientras. Solo tienen la interpretación de
+ejecución descrita en este capítulo. \\[4pt]
+Unidad superior & Proposición afirmada, término mostrado, programa escrito,
+definición, atribución o pregunta. Se separan por párrafos explícitos. \\[4pt]
+\bottomrule
+\end{longtable}
+Las referencias deben existir en la leyenda. Los argumentos deben respetar la
+cantidad, el orden y el tipo del catálogo. Un cuantificador recorre un conjunto;
+su cuerpo es una proposición. No se puede pasar un programa a K11 ni una pregunta
+a K12. Las atribuciones K16, preguntas K19 y definiciones K09 permanecen en el
+nivel superior. Una fuente identificada puede atribuir una proposición modal;
+el modelo correspondiente también debe estar declarado.
+
+\subsection{Gramática abstracta de los añadidos}
+En este esquema los nombres son metanotación. \(t\) es término, \(D\) un
+conjunto, \(\varphi\) una proposición, \(\alpha\) un programa y \(x\) variable.
+La agrupación escrita es siempre explícita; no hay precedencia implícita entre
+operadores prefijos.
+\begin{align*}
+D &::= C_i\mid\operatorname{conjunto}(t_1,\ldots,t_n)
+       \mid\operatorname{seleccion}(x,D,\varphi)\mid D_{\rm conv}\\
+\varphi &::= R_i(t_1,\ldots,t_n)\mid\varphi_{\rm conv}
+       \mid\neg\varphi\mid(\varphi\land\varphi)\mid(\varphi\to\varphi)\\
+ &\phantom{::=}\mid(\varphi\lor\varphi)\mid\forall x\in D:\varphi
+       \mid\exists x\in D:\varphi\mid\Diamond_m\varphi\\
+\alpha &::= x:=e\mid(\alpha;\alpha)\mid\operatorname{mientras}(b,\alpha).
+\end{align*}
+El caso modal tiene las restricciones que siguen. El booleano \(b\) de un programa
+es una combinación finita de comparaciones enteras con negación, conjunción o
+alternativa; no incluye preguntas, fuentes, cuantificadores ni modalidades.
+Los términos enteros \(e\) usan constantes, variables inicializadas, suma, resta
+y multiplicación. Se excluyen desbordamiento, división y efectos externos.
+
+\subsection{Alternativas y preguntas}
+K17 acepta dos proposiciones y expresa disyunción inclusiva. Es falsa únicamente
+cuando ambas son falsas. Su expansión clásica es
+\(P\lor Q\equiv\neg(\neg P\land\neg Q)\).
+La alternativa exclusiva se compone como
+\((P\lor Q)\land\neg(P\land Q)\); no requiere otro signo.
+
+K19 toma una proposición y solicita decidirla. Una respuesta afirmativa confirma
+el contenido y una negativa confirma su negación. La ausencia de respuesta o
+información no convierte la proposición en falsa. Esta versión no define todavía
+preguntas de «quién», «cuánto» o respuestas parciales con un signo propio.
+
+\subsection{Posibilidad con un modelo explícito}
+K18 lleva un índice \(m\) de modelo modal. El contexto especifica estados \(W\),
+estado actual \(w\), relación de accesibilidad \(A_m\) y valoración \(V\) de los
+átomos en cada estado. Su interpretación es:
+\[
+ w\models\Diamond_m P
+ \quad\Longleftrightarrow\quad
+ \exists v\in W:\ (w,v)\in A_m\ \text{y}\ v\models P.
+\]
+Solo se admite el fragmento proposicional: los átomos carecen de variables libres,
+y no se combinan cuantificadores con modalidades en una misma fórmula de 0.2.
+Todas las modalidades de una fórmula usan el mismo modelo; pueden anidarse.
+Si no hay estados accesibles, la posibilidad es falsa. La necesidad puede
+abreviarse con \(\neg\Diamond_m\neg P\), sin signo nuevo.
+
+El modelo determina qué significa «posible» en ese documento. No equivale a
+probable ni a demostrado. T13 da un modelo finito completamente especificado.
+Cambiar el modelo puede cambiar el resultado.
+
+\subsection{Ejecución y cambios de estado}
+Un estado asigna valores enteros a las variables del programa. La asignación
+actualiza una variable después de evaluar su expresión en el estado anterior.
+K21 ejecuta dos programas de izquierda a derecha. K22 comprueba el booleano
+antes del cuerpo, ejecuta el cuerpo si es verdadero y vuelve a comprobarlo.
+Si es falso al principio, el estado no cambia. Un programa puede no terminar;
+el segundo miembro de una secuencia no se ejecuta si el primero no termina.
+
+El condicional K13 conserva la implicación material entre proposiciones. No se
+reinterpreta como una instrucción de bifurcación. La repetición con comprobación
+final se deriva como \(\alpha;\operatorname{mientras}(\neg b,\alpha)\): ejecuta
+el cuerpo al menos una vez. Para ejecutarla a mano, deben conocerse los valores
+iniciales de toda variable leída.
+
+T15 termina en \(x=3\), tras tres incrementos. Una medida de progreso es
+\(3-x\) mientras \(x<3\); en esa traza es un entero positivo que disminuye.
+Para un límite variable \(n\geq0\), inicializar \(x=0\) y aumentar hasta \(n\)
+realiza \(n\) incrementos y \(n+1\) comprobaciones. Bajo coste unitario de estas
+operaciones, el tiempo es \(\Theta(n+1)\); con enteros arbitrariamente grandes
+debe declararse un modelo de coste de bits diferente.
+
+\subsection{Criterios de aceptación y casos inválidos}
+\begin{itemize}
+\item R2 necesita tres argumentos, con papeles agente, dirección y dato.
+\item R5 acepta un conjunto en su segundo lugar; una lista necesita otra operación.
+\item Una selección necesita un dominio de conjunto y un cuerpo proposicional.
+\item Una variable libre no declarada deja la expresión incompleta.
+\item Una afirmación causal R6 necesita el modelo; R1 no permite deducir R6.
+\item Una modalidad sin modelo o dentro de cuantificación queda fuera del fragmento.
+\item Una asignación no declara una verdad matemática; modifica un estado.
+\end{itemize}

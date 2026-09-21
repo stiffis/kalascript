@@ -1,0 +1,60 @@
+\section{Composición de conceptos}\label{sec:composicion}
+
+\subsection{Una operación productiva y explícita}
+Para componer conceptos uso la selección K20, que toma una variable \(x\), un dominio \(D\) y
+una condición \(\varphi(x)\). Produce el conjunto
+\[
+  \{x\in D\mid\varphi(x)\}.
+\]
+El dominio puede ser un concepto indexado, un conjunto enumerado, una selección
+anterior o un conjunto convencional declarado. Una lista no es un dominio de
+selección en este fragmento; antes debe declararse el conjunto de sus miembros.
+El cuerpo es una proposición. La variable queda vinculada solo dentro de él,
+no dentro del dominio. Los parámetros restantes deben estar definidos fuera.
+
+\KalaMostrar{\KalaSeleccion{x}{\KalaConcepto{3}}{\KalaPosee{\KalaVariable{x}}{2}}}
+Lectura: sensores activos. C3 es el inventario de sensores y P2 fija el estado
+operativo en un instante común. Se ha construido un concepto sin afirmar que
+tenga miembros. Para afirmar que existe alguno se escribe:
+\KalaMostrar{\KalaExiste{x}{\KalaConcepto{3}}{\KalaPosee{\KalaVariable{x}}{2}}}
+
+\subsection{Patrones de formación}
+\begin{description}[style=nextline]
+\item[Base más propiedad.] Sensores activos: seleccionar sensores que satisfacen P2.
+\item[Dos condiciones.] Sensores rojos y activos: unir dos predicados con K12 dentro
+de la selección. T16 muestra la expresión completa.
+\item[Exclusión dentro de un dominio.] Sensores que no son rojos: seleccionar
+sensores con la negación de P1. Esto no crea automáticamente el concepto «azul».
+\item[Restricción por relación.] Personas a las que les gusta el libro indicado:
+seleccionar \(x\) en C1 con R7(\(x\), referencia del libro).
+\item[Restricción cuantificada.] Personas a las que les gusta algún libro del
+estudio: selección sobre C1, con un existencial sobre C2 en el cuerpo.
+\end{description}
+
+\KalaMostrar{\KalaSeleccion{x}{\KalaConcepto{1}}{\KalaExiste{y}{\KalaConcepto{2}}{\KalaGusta{\KalaVariable{x}}{\KalaVariable{y}}}}}
+
+Otra disciplina usa la misma operación. Muestras líquidas bajo condiciones
+experimentales declaradas:
+\KalaMostrar{\KalaSeleccion{x}{\KalaConcepto{4}}{\KalaPosee{\KalaVariable{x}}{3}}}
+C4 identifica las muestras y P3 incluye temperatura, presión y criterio de fase.
+
+\subsection{Reglas de interpretación}
+Se lee la base, se identifica la variable y se aplica la condición completa.
+Dos signos pegados sin constructor no tienen una composición implícita. La
+posición, el giro o un trazo añadido tampoco crean una operación no documentada.
+El resultado puede ser vacío. Renombrar una variable vinculada conserva el
+significado si se evitan capturas de otras variables.
+
+\(\{x\in D\mid P(x)\land Q(x)\}\) y
+\(\{z\in D\mid Q(z)\land P(z)\}\) tienen los mismos miembros en el mismo
+contexto clásico. La definición del concepto y su nombre pueden conservar
+información adicional; la coincidencia de miembros no autoriza borrar sus
+identificadores de catálogo.
+
+\subsection{Cómo abreviar sin perder significado}
+Una definición K09 puede dar nombre a un término construido, además de las
+definiciones matemáticas convencionales. Debe indicar que el resultado es un conjunto.
+El nombre es una abreviatura local con expansión textual sin captura de variables.
+No se admite autorreferencia ni ciclos de definiciones en este fragmento.
+La introducción de un nuevo índice global exige registrar su expansión en el
+catálogo. El texto M01 muestra una definición local y su uso posterior.

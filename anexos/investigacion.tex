@@ -1,0 +1,81 @@
+% Capítulo incluido desde KalaScript.tex.
+\section{Base de investigación}
+
+Reúno aquí las fuentes que tomo como referencia para el proyecto. Me interesan
+sus aportes sobre escritura, notación, composición y legibilidad. Esta bibliografía
+recoge secciones relevantes; no supone una revisión exhaustiva de cada obra ni
+de todas las disciplinas que quiero abordar.
+
+\subsection{Referentes propuestos}
+
+\begingroup\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr 0.18\linewidth-1.3333333333333333\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.32\linewidth-1.3333333333333333\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.5\linewidth-1.3333333333333333\tabcolsep\relax}@{}}
+\toprule
+\textbf{Referente} & \textbf{Fuente} & \textbf{Aplicación y límite} \\ \midrule
+\endfirsthead
+\toprule
+\textbf{Referente} & \textbf{Fuente} & \textbf{Aplicación y límite} \\ \midrule
+\endhead
+\bottomrule\endfoot
+Hangul & \href{https://www.hangeul.go.kr/en/exhi/dailyExhibition.do}{National Hangeul Museum} & Relaciones sistemáticas entre formas. Sus mecanismos fonéticos no se trasladan automáticamente a conceptos. \\[4pt]
+Shavian & \href{https://www.unicode.org/versions/Unicode17.0.0/core-spec/chapter-8/}{Unicode 17, capítulo 8} & Contrastes de altura y pares relacionados. No garantizan una silueta única para cada palabra. \\[4pt]
+Blissymbolics & \href{https://www.blissymbolics.org/index.php/component/content/article?Itemid=0\&id=10}{BCI: composición y caracteres clave} & Reutilización y vocabulario ampliable mediante convenciones. La composición requiere definiciones compartidas. \\[4pt]
+Gregg & \href{https://greggshorthand.github.io/anunit01.html}{Manual, unidad 1} & Enlaces, curvas, longitud y formas abreviadas. La rapidez real depende del aprendizaje y de la legibilidad. \\[4pt]
+Grafonomía & \href{https://graphonomics.net/}{International Graphonomics Society} & Estudio experimental del proceso de escritura y otras habilidades gráficas. \\[4pt]
+Dutton & \href{https://kennaway.org.uk/conlang.dir/Speedwords.dict}{Diccionario transcrito por Richard Kennaway} & Afijos de oposición diferenciados de otros negativos; no implica que todos los conceptos formen pares. \\[4pt]
+Peirce & \href{https://gnusystems.ca/Lowell2.htm}{Lowell Lecture 2, manuscrito de 1903 transcrito} & Negación y alcance espacial. KalaScript usa un marcador explícito de negación; no implementa los grafos de Peirce. \\[4pt]
+RDF & \href{https://www.w3.org/TR/rdf12-concepts/}{RDF 1.2 Concepts}, \href{https://www.w3.org/TR/swbp-n-aryRelations/}{relaciones n-arias} & Entidades, relaciones y argumentos definidos. El esquema no garantiza por sí mismo comprensión universal. \\[4pt]
+APL / Iverson & \href{https://www.jsoftware.com/papers/tot1.htm}{Notation as a Tool of Thought, 1980} & Regularidad de operaciones, abstracción y capacidad de sugerir expresiones relacionadas. La compacidad no es el único objetivo. \\[4pt]
+\end{longtable}
+\endgroup
+
+\subsection{Fundamentos complementarios}
+
+\begin{itemize}
+\item \href{https://wals.info/chapter/s1}{WALS: organización de la gramática}, \href{https://wals.info/chapter/141}{sistemas de escritura}: separar escritura, estructuras lingüísticas y significado.
+\item \href{https://wals.info/chapter/77}{WALS: evidencialidad}: distinguir origen de evidencia de confianza en una afirmación.
+\item \href{https://aclanthology.org/J14-1005/}{Kuhn, 2014: A Survey and Classification of Controlled Natural Languages}: precisión, expresividad, naturalidad y simplicidad como dimensiones, no como puntuación de calidad.
+\item \href{https://lean-lang.org/theorem_proving_in_lean4/Dependent-Type-Theory/}{Lean: teoría de tipos}: tipos, términos y funciones como referencia de precisión formal.
+\item \href{https://www.w3.org/TR/mathml4/}{MathML} y \href{https://openmath.org/standard/om20-2019-07-01/omstd20.html}{OpenMath}: distinguir presentación y significado, con definiciones de símbolos extensibles.
+\item \href{https://www.w3.org/TR/skos-primer/}{SKOS}: conceptos, etiquetas, definiciones y notas de alcance.
+\item \href{https://www.w3.org/TR/prov-primer/}{PROV}: procedencia de información y procesos que producen resultados.
+\item \href{https://www.bipm.org/en/publications/si-brochure}{BIPM: SI}, \href{https://jcgm.bipm.org/vim/en/2.26.html}{VIM: incertidumbre}: cantidades, unidades e incertidumbre de medida.
+\item \href{https://sbml.org/documents/what-is-sbml/}{SBML}: representación de modelos biológicos mediante núcleo y extensiones especializadas.
+\item \href{https://www.unicode.org/faq/private_use.html}{Unicode: caracteres de uso privado}: posibilidad de codificar una escritura propia, con documentación y fuentes acordadas.
+\end{itemize}
+
+\subsection{Evidencia sobre legibilidad y aprendizaje}
+
+\textbf{Miton y Morin, 2021.} \href{https://pmc.ncbi.nlm.nih.gov/articles/PMC8346946/}{Graphic complexity in writing systems}. Análisis de más de 47 000 caracteres de 133 escrituras. La complejidad está relacionada con el tipo de escritura; el trabajo no establece un número universal de trazos óptimo para signos nuevos.
+
+\textbf{Zhang, Wang y Dai, 2026.} \href{https://link.springer.com/article/10.1007/s11145-026-10837-x}{The effect of motor sequence on written word production of a new script moderated by script experience and visual complexity}. Estudio con 78 participantes y copia diferida de caracteres de Hangul desconocidos. La presentación animada de trazos tuvo efectos diferentes sobre inicio, precisión y ejecución. No es una prueba del aprendizaje de un lenguaje completo.
+
+\subsection{Estado de las especificaciones consultadas}
+
+MathML 4 se consultó como \textbf{Working Draft del 4 de junio de 2026}. RDF 1.2 Concepts se consultó como \textbf{Candidate Recommendation Snapshot del 7 de abril de 2026}. No se presentan como recomendaciones finales. La página del SI enlazaba la novena edición actualizada en 2026.
+
+Las decisiones de KalaScript son propuestas de diseño derivadas de esta investigación; ninguna de estas fuentes valida por sí sola los signos del prototipo.
+
+\subsection{Consulta complementaria para la ampliación}
+Se consultaron fuentes primarias en internet para precisar las nuevas reglas.
+Las formas de los signos y la selección de funciones son decisiones propias de
+KalaScript, pendientes de evaluación de uso.
+\begin{itemize}
+\item \href{https://www.w3.org/TR/owl2-primer/}{W3C, OWL 2 Primer, segunda edición
+(Recomendación de 2012)}, secciones sobre clases complejas y restricciones:
+referencia para separar individuos, clases y composiciones con condiciones.
+KalaScript no implementa OWL ni sus motores de inferencia.
+\item \href{https://www.cs.cmu.edu/~fp/courses/15816-s10/lectures/19-PDL.pdf}{André
+Platzer, notas sobre lógica dinámica proposicional, CMU, 2010}, definición de
+estructura y accesibilidad: referencia para la interpretación de posibilidad.
+Se adopta aquí un fragmento proposicional con modelo explícito.
+\item \href{https://15316-cmu.github.io/2020/lectures/03-safety.pdf}{Matt Fredrikson,
+Semantics, Safety, \& Dynamic Logic, CMU, 2020}, definición de programas y
+ejecución: referencia para asignación, secuencia y comprobación del bucle antes
+del cuerpo. El modelo entero de KalaScript y su vocabulario están delimitados
+en la extensión de gramática.
+\item \href{https://ftp.cs.ucla.edu/pub/stat_ser/r350.pdf}{Judea Pearl, Causal
+inference in statistics: An overview, 2009}: referencia para distinguir
+intervención de observación. R6 se restringe a una influencia en modelos
+deterministas acíclicos; no es un procedimiento de descubrimiento causal.
+\end{itemize}

@@ -1,0 +1,24 @@
+\section{Un texto de varios enunciados}\label{sec:texto-integrado}
+\input{datos/texto-integrado.tex}
+Con este ejemplo exploro cómo mantener referencias y contexto en varios enunciados.
+\par\KalaContextoTexto
+\par\textbf{Convención de página:} M01 identifica todo el documento; U1--U6
+son números editoriales de enunciado. No son nuevos signos de KalaScript.
+El nombre local \(F\) se introduce en U4 y conserva esa definición en U5.
+
+\KalaMostrarEnunciado{M01 / U1}{\KalaEnunciadoUno}
+\KalaMostrarEnunciado{M01 / U2}{\KalaEnunciadoDos}
+\KalaMostrarEnunciado{M01 / U3}{\KalaEnunciadoTres}
+\clearpage
+\noindent{\small\sffamily M01 · continuación; se conserva la leyenda anterior.}
+\KalaMostrarEnunciado{M01 / U4}{\KalaEnunciadoCuatro}
+\KalaMostrarEnunciado{M01 / U5}{\KalaEnunciadoCinco}
+\KalaMostrarEnunciado{M01 / U6}{\KalaEnunciadoSeis}
+
+\subsection{Qué permite comprobar este texto}
+El mismo referente 3 se reutiliza en tres atribuciones; los referentes no se
+reinician al pasar de página. La negación de U2 afecta al estado activo de B,
+mientras que en U3 afecta solo a su propiedad de color. U4 define un conjunto
+y U5 formula una pregunta sobre él. U6 establece un orden temporal con eventos
+diferentes de los sensores. Conservo la clave detallada y mis notas de
+relectura en el anexo de comprobaciones del manual.

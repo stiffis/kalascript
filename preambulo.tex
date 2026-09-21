@@ -1,0 +1,121 @@
+% Configuración compartida por KalaScript.tex y atlas.tex.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{babel}
+\babelprovide[main,import]{spanish}
+\usepackage[a4paper,margin=22mm,headheight=16pt]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx,xcolor,tikz}
+\usepackage{booktabs,longtable,array,tabularx}
+\usepackage{enumitem,fancyvrb,fancyhdr,titlesec}
+\usepackage{xurl}
+\usepackage[unicode,hidelinks]{hyperref}
+
+\definecolor{KalaTinta}{HTML}{263B35}
+\definecolor{KalaSuave}{HTML}{616C66}
+\definecolor{KalaAcento}{HTML}{A75735}
+\definecolor{KalaLinea}{HTML}{D7DDD3}
+\definecolor{KalaPapel}{HTML}{F7F5EE}
+\definecolor{KalaVerde}{HTML}{E6EBE1}
+\hypersetup{pdftitle={KalaScript · Núcleo escrito},
+  pdfsubject={Escritura visual, gramática y ejemplos},
+  colorlinks=true,linkcolor=KalaTinta,urlcolor=KalaAcento,
+  bookmarksnumbered=true}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 1pt}
+\setlength{\emergencystretch}{2em}
+\setlist{itemsep=3pt,topsep=5pt,leftmargin=*}
+\renewcommand{\arraystretch}{1.15}
+\renewcommand{\contentsname}{Contenido}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\figurename}{Figura}
+\titleformat{\section}{\Large\sffamily\color{KalaTinta}}{\thesection}{.7em}{}
+\titleformat{\subsection}{\large\sffamily\color{KalaTinta}}{\thesubsection}{.7em}{}
+\titleformat{\subsubsection}{\normalsize\sffamily\bfseries\color{KalaTinta}}{\thesubsubsection}{.7em}{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily\color{KalaSuave}KalaScript}
+\fancyhead[R]{\small\sffamily\color{KalaSuave}Núcleo escrito}
+\fancyfoot[L]{\footnotesize\sffamily\color{KalaSuave}Escritura personal}
+\fancyfoot[R]{\small\sffamily\thepage}
+\renewcommand{\headrulewidth}{.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Registro único: código, nombre, familia, definición, trayectos, dibujo.
+\newcommand{\KalaRegistrar}[6]{%
+  \expandafter\def\csname KalaNombre#1\endcsname{#2}%
+  \expandafter\def\csname KalaFamilia#1\endcsname{#3}%
+  \expandafter\def\csname KalaDescripcion#1\endcsname{#4}%
+  \expandafter\def\csname KalaTrayectos#1\endcsname{#5}%
+  \expandafter\def\csname KalaDibujo#1\endcsname{#6}%
+}
+\newcommand{\KalaSimbolo}[2][9mm]{%
+  \begingroup
+  \ifcsname KalaDibujo#2\endcsname\else
+    \PackageError{KalaScript}{Simbolo desconocido: #2}{Use un codigo del catalogo.}%
+  \fi
+  \pgfmathsetlengthmacro{\KalaUnidad}{#1/64}%
+  \pgfmathsetlengthmacro{\KalaGrosor}{#1*2.6/64}%
+  \begin{tikzpicture}[x=\KalaUnidad,y=-\KalaUnidad,
+    baseline={([yshift=-.55ex]current bounding box.center)},
+    draw=KalaTinta,line width=\KalaGrosor,line cap=round,line join=round]
+    \path[use as bounding box] (0,0) rectangle (64,64);
+    \csname KalaDibujo#2\endcsname
+  \end{tikzpicture}%
+  \endgroup
+}
+\newcommand{\KalaGrupo}[1]{%
+  \tikz[baseline={([yshift=-.55ex]current bounding box.center)}]
+    \node[draw=KalaSuave,line width=.35pt,rounded corners=.6pt,
+      inner xsep=4pt,inner ysep=4pt]{#1};%
+}
+\newcommand{\KalaMat}[1]{%
+  \tikz[baseline={([yshift=-.55ex]current bounding box.center)}]
+    \node[draw=KalaSuave,dashed,line width=.35pt,fill=KalaPapel,
+      inner xsep=4pt,inner ysep=3pt]{\ensuremath{\displaystyle #1}};%
+}
+\newcommand{\KalaReferencia}[1]{\KalaSimbolo{K10}\kern-.8mm\textsubscript{#1}}
+\newcommand{\KalaSeparador}{\kern1.4mm\textcolor{KalaSuave}{\ensuremath{\mid}}\kern1.4mm}
+\newcommand{\KalaRelacion}[2]{\KalaSimbolo{K03}\kern-.8mm\textsubscript{#1}\kern1.5mm\KalaGrupo{#2}}
+\newcommand{\KalaNegacion}[1]{\KalaSimbolo{K11}\kern1mm\KalaGrupo{#1}}
+\newcommand{\KalaConjuncion}[2]{\KalaSimbolo{K12}\kern1mm\KalaGrupo{#1\KalaSeparador#2}}
+\newcommand{\KalaCondicional}[2]{\KalaSimbolo{K13}\kern1mm\KalaGrupo{#1\KalaSeparador#2}}
+\newcommand{\KalaUniversal}[3]{\KalaSimbolo{K14}\kern1mm\ensuremath{#1\in}\,\KalaMat{#2}\kern1mm\KalaGrupo{#3}}
+\newcommand{\KalaExistencia}[3]{\KalaSimbolo{K15}\kern1mm\ensuremath{#1\in}\,\KalaMat{#2}\kern1mm\KalaGrupo{#3}}
+\newcommand{\KalaFuente}[2]{\KalaSimbolo{K16}\kern1mm#1\kern1mm\KalaGrupo{#2}}
+\newcommand{\KalaDefinicion}[2]{\KalaSimbolo{K09}\kern1mm\ensuremath{#1}\kern1mm\KalaGrupo{#2}}
+\newsavebox{\KalaCajaExpresion}
+\newcommand{\KalaMostrar}[1]{%
+  \begin{center}
+  \sbox{\KalaCajaExpresion}{#1}%
+  \ifdim\wd\KalaCajaExpresion>\linewidth
+    \resizebox{\linewidth}{!}{\usebox{\KalaCajaExpresion}}%
+  \else\usebox{\KalaCajaExpresion}\fi
+  \end{center}%
+}
+\newcommand{\KalaTarjeta}[1]{%
+  \begin{minipage}[t]{.235\linewidth}
+  \setlength{\fboxsep}{3mm}%
+  \fcolorbox{KalaLinea}{KalaPapel}{%
+    \parbox[c][33mm][c]{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+      {\scriptsize\sffamily\color{KalaSuave}#1\hfill\csname KalaFamilia#1\endcsname}\par
+      \centering\vspace{1mm}\KalaSimbolo[16mm]{#1}\par\vspace{1mm}
+      {\small\sffamily\csname KalaNombre#1\endcsname}%
+    }}%
+  \end{minipage}%
+}
+\newcommand{\KalaCatalogoFila}[1]{%
+  \KalaSimbolo[10mm]{#1}\quad\texttt{#1}&
+  \textbf{\csname KalaNombre#1\endcsname}\par
+  \csname KalaDescripcion#1\endcsname\par
+  {\footnotesize\color{KalaSuave}\csname KalaFamilia#1\endcsname\;·\;
+   \csname KalaTrayectos#1\endcsname\
+   \ifnum\csname KalaTrayectos#1\endcsname=1 trayecto propuesto\else trayectos propuestos\fi.}\\[5pt]
+}
+\input{simbolos/glifos.tex}
+\input{simbolos/extension-02.tex}
+\input{simbolos/anteriores.tex}
+\input{comandos-02.tex}
+\input{datos/casos-02.tex}

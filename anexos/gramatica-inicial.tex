@@ -1,0 +1,93 @@
+% Capítulo incluido desde KalaScript.tex.
+\section{Base de la gramática}
+
+Este capítulo conserva el fragmento inicial para interpretar los textos de 0.1. La extensión normativa de 0.2 aparece en su capítulo propio y añade los usos que aquí se indican como todavía no definidos. Esta especificación define un fragmento escrito. Las expresiones entre comillas en español son glosas, es decir, explicaciones de significado.
+
+\subsection{Unidades y categorías}
+
+Los signos \texttt{K01}–\texttt{K08} nombran categorías: entidad, propiedad, relación, proceso, cantidad, colección, tiempo y espacio. Por sí solos no identifican una entidad concreta ni afirman una proposición.
+
+Una expresión tiene una estructura antes de dibujarse. En esta versión distingo términos, proposiciones, definiciones y atribuciones. No se intercambian libremente.
+
+\subsection{Referencias}
+
+El signo de referencia \texttt{K10}, seguido de un índice, identifica un objeto declarado en la leyenda de la página. Por ejemplo, la referencia 1 puede designar un procesador y la referencia 2 una dirección de memoria.
+
+\begin{itemize}
+\item Los índices son locales a cada ejemplo o documento.
+\item Repetir el mismo índice remite al mismo referente.
+\item Dos índices distintos no afirman por sí solos que sus referentes sean distintos.
+\item Una referencia sin definición es un texto incompleto.
+\end{itemize}
+
+En los archivos LaTeX, una referencia se escribe con el comando \texttt{\textbackslash{}KalaReferencia\{1\}}. El comando produce el signo con su índice; su nombre es una herramienta de edición y no una pronunciación.
+
+\subsection{Relaciones}
+
+El signo \texttt{K03}, acompañado de un índice de relación y un grupo de argumentos, forma una proposición. Los argumentos se separan con una barra vertical y ocupan posiciones definidas en el catálogo.
+
+Ejemplo de estructura, usando nombres explicativos:
+
+\KalaMostrar{\KalaRelacion{2}{\KalaReferencia{1}\KalaSeparador\KalaReferencia{2}\KalaSeparador\KalaReferencia{3}}}
+
+La relación 2 significa «el agente lee el dato de la dirección». Sus tres posiciones son \textbf{agente, dirección, dato}. Cambiar el orden cambia la afirmación. Este es un evento de lectura descrito de manera abstracta; no establece una semántica de concurrencia o de coherencia de caché.
+
+El catálogo actual está en \hyperref[sec:relaciones]{catálogo de relaciones}. Sus índices se distinguen de los de objetos por el signo que los precede.
+
+\subsection{Grupos y alcance}
+
+Un grupo delimita los argumentos o el cuerpo de un operador. En el atlas aparece como un rectángulo de borde continuo separado del signo operador; en una copia manual se usan corchetes completos.
+
+El borde del grupo \textbf{solo agrupa}. La negación requiere \texttt{K11}. No se interpreta como negación cualquier curva cerrada que forme parte de un glifo.
+
+Los operadores son prefijos. Se lee primero el signo, después sus argumentos, y se entra en los grupos anidados desde fuera hacia dentro. Los saltos de línea no alteran la estructura.
+
+\subsection{Operadores del fragmento lógico}
+
+\begingroup\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr 0.18\linewidth-1.3333333333333333\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.32\linewidth-1.3333333333333333\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.5\linewidth-1.3333333333333333\tabcolsep\relax}@{}}
+\toprule
+\textbf{Signo} & \textbf{Argumentos} & \textbf{Interpretación} \\ \midrule
+\endfirsthead
+\toprule
+\textbf{Signo} & \textbf{Argumentos} & \textbf{Interpretación} \\ \midrule
+\endhead
+\bottomrule\endfoot
+\texttt{K11} Negación & Una proposición agrupada & La proposición es falsa. \\[4pt]
+\texttt{K12} Conjunción & Dos proposiciones agrupadas & Ambas son verdaderas. \\[4pt]
+\texttt{K13} Condicional & Antecedente y consecuente agrupados & Implicación material clásica. No expresa causalidad ni secuencia de ejecución. \\[4pt]
+\texttt{K14} Universal & Variable, dominio y cuerpo & El cuerpo se cumple para cada elemento del dominio. \\[4pt]
+\texttt{K15} Existencia & Variable, dominio y cuerpo & Hay al menos un elemento del dominio para el que se cumple el cuerpo. \\[4pt]
+\end{longtable}
+\endgroup
+
+Una variable se vincula al cuantificador más cercano que la declare. Su alcance es exclusivamente el cuerpo de ese cuantificador. En los ejemplos evito reutilizar nombres de variables en grupos anidados. La declaración se presenta como \texttt{variable \ensuremath{\in} dominio}; el nombre de variable y el signo \ensuremath{\in} son convenciones matemáticas adoptadas para esta versión.
+
+Comparación esencial:
+
+\KalaMostrar{\KalaNegacion{\KalaConjuncion{\KalaMat{P}}{\KalaMat{Q}}}}
+\KalaMostrar{\KalaConjuncion{\KalaNegacion{\KalaMat{P}}}{\KalaMat{Q}}}
+
+La primera niega que P y Q sean ambas verdaderas. La segunda afirma que P es falsa y Q verdadera. El atlas representa las dos expresiones por separado.
+
+También distingo «para cada x existe algún y» de «existe un mismo y para todos los x». El orden y el alcance de los cuantificadores contienen esa diferencia.
+
+\subsection{Definición y fuente}
+
+\texttt{K09} introduce una definición identificada por un nombre y un cuerpo. La versión inicial permite mostrar definiciones matemáticas convencionales; no incluye un evaluador automático ni reglas de expansión de definiciones.
+
+\texttt{K16} atribuye una proposición a una referencia de fuente. Produce una \textbf{atribución}, no una demostración del contenido. En el fragmento inicial las atribuciones y definiciones solo aparecen en el nivel superior; no se mezclan con los conectivos lógicos.
+
+\subsection{Regiones de notación convencional}
+
+Las fórmulas se conservan dentro de un recinto con fondo claro y borde discontinuo. El fondo es una ayuda; \textbf{el borde discontinuo} diferencia este recinto de un grupo ordinario, también al imprimir en blanco y negro.
+
+Dentro se aplican las convenciones del dominio declarado: por ejemplo, \ensuremath{\mathbb{N}}, \ensuremath{\in}, \ensuremath{<} y la multiplicación usual. No se presupone que una letra tenga el mismo significado en todos los ejemplos.
+
+Las definiciones distinguen las regiones matemáticas que contienen términos y las que contienen proposiciones. Los comandos LaTeX dibujan ambas regiones con el mismo estilo. No comprueban la verdad, las unidades, los tipos de argumentos ni el contenido sintáctico interno de esas fórmulas; su revisión sigue siendo humana.
+
+\subsection{Extensión}
+
+Una relación nueva necesita índice, definición, cantidad y orden de argumentos, dominio de aplicación y ejemplo. Una nueva grafía necesita forma, significado, categoría y una revisión de semejanza con las existentes.
+
+Las versiones futuras podrán añadir alternativas de notación; deben documentar cómo se leen los textos de versiones anteriores. Esta versión no define todavía disyunción, lógica modal, antónimos gráficos ni un vocabulario general completo.
