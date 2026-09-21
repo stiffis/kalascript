@@ -5,7 +5,11 @@
 \newunicodechar{ü}{\accent4 u}
 \newunicodechar{Ó}{\accent1 O}
 \newunicodechar{Í}{\accent1 I}
-\definecolor{KalaTinta}{HTML}{1E3A8A}
+\definecolor{Boligrafo}{HTML}{1E3A8A}
+\definecolor{KalaTinta}{HTML}{0F766E}
+\definecolor{Titulo}{HTML}{B42318}
+\definecolor{ResaltaDef}{HTML}{C9F2D8}
+\definecolor{ResaltaRes}{HTML}{FFD8B8}
 \definecolor{Cuadricula}{HTML}{BCD3EA}
 \definecolor{Margen}{HTML}{D9534F}
 \definecolor{Lapiz}{HTML}{6B6B6B}
@@ -34,7 +38,7 @@
 \newlength{\SubirFila}\setlength{\SubirFila}{0pt}
 \newcommand{\EnFila}[3]{%
   \tikz[remember picture,overlay]
-    \node[anchor=base west,inner sep=0pt,text=KalaTinta,font=\Mano]
+    \node[anchor=base west,inner sep=0pt,text=Boligrafo,font=\Mano]
       at ($(current page.north west)+(#1,-\value{fila}\Celda+1.2mm+\SubirFila)$) {#2#3};}
 
 \newcommand{\AvanzarFila}[1][1]{%
@@ -69,15 +73,17 @@
 \newcommand{\lapiz}[1]{{\color{Lapiz}#1}}
 % Tachado a mano
 \newcommand{\tachar}[1]{\tikz[baseline=(t.base)]{\node[inner sep=0pt](t){#1};
-  \draw[KalaTinta,line width=.6pt,decorate,decoration={random steps,segment length=2pt,amplitude=.4pt}]
+  \draw[Boligrafo,line width=.6pt,decorate,decoration={random steps,segment length=2pt,amplitude=.4pt}]
   (t.west) -- (t.east);}}
 % Subrayado ondulado: palabra candidata a signo
 \newcommand{\candidata}[1]{\tikz[baseline=(t.base)]{\node[inner sep=0pt](t){#1};
-  \draw[KalaTinta,line width=.4pt,decorate,decoration={snake,amplitude=.5pt,segment length=3pt}]
+  \draw[Boligrafo,line width=.4pt,decorate,decoration={snake,amplitude=.5pt,segment length=3pt}]
   ([yshift=-1.2pt]t.south west) -- ([yshift=-1.2pt]t.south east);}}
 % Número en círculo para referencias con Ver
-\newcommand{\nota}[1]{\tikz[baseline=(n.base)]\node[draw=KalaTinta,circle,inner sep=.6pt,font=\scriptsize\Mano,text=KalaTinta](n){#1};}
+\newcommand{\nota}[1]{\tikz[baseline=(n.base)]\node[draw=Boligrafo,circle,inner sep=.6pt,font=\scriptsize\Mano,text=Boligrafo](n){#1};}
 \newcommand{\resaltar}[1]{\tikz[baseline=(t.base)]\node[fill=Resaltador,inner sep=1pt](t){#1};}
+\newcommand{\definido}[1]{\tikz[baseline=(t.base)]\node[fill=ResaltaDef,inner sep=1pt,rounded corners=1pt](t){#1};}
+\newcommand{\resumen}[1]{\tikz[baseline=(t.base)]\node[fill=ResaltaRes,inner sep=1.2pt,rounded corners=1pt](t){#1};}
 
 % \Dibujo{filas}{código tikz}: origen arriba a la izquierda del área de texto, unidades en mm
 \newcommand{\Dibujo}[2]{%
@@ -85,7 +91,7 @@
     \clearpage\mbox{}\setcounter{fila}{\PrimeraFila}\fi
   \begin{tikzpicture}[remember picture,overlay,x=1mm,y=-1mm,
       shift={($(current page.north west)+(\XTexto,-\value{fila}\Celda-1mm)$)},
-      KalaTinta,line width=.6pt,line cap=round,font=\Mano]
+      Boligrafo,line width=.6pt,line cap=round,font=\Mano]
     #2
   \end{tikzpicture}%
   \addtocounter{fila}{#1}}
@@ -94,9 +100,9 @@
 \newcommand{\Clase}[3]{%
   \clearpage\mbox{}%
   \setcounter{fila}{3}%
-  \EnFila{\XTexto}{}{\Large #1}%
-  \tikz[remember picture,overlay]\node[anchor=base east,inner sep=0pt,text=KalaTinta,font=\Mano]
+  \EnFila{\XTexto}{}{\Large\color{Titulo}#1}%
+  \tikz[remember picture,overlay]\node[anchor=base east,inner sep=0pt,text=Titulo,font=\Mano]
     at ($(current page.north east)+(-12mm,-3\Celda+1.2mm)$) {#2};%
   \setcounter{fila}{4}%
-  \EnFila{\XTexto}{}{\underline{#3}}%
+  \EnFila{\XTexto}{}{\color{Titulo}\underline{#3}}%
   \setcounter{fila}{5}}
