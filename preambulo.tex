@@ -136,4 +136,12 @@
 \newcommand{\lectura}[1]{\par{\small\color{KalaSuave}\textit{Se lee:} #1}\par}
 
 \input{simbolos/glifos.tex}
+\input{simbolos/raices.tex}
 \input{simbolos/archivo.tex}
+\newcommand{\KalaUnir}[2][1.75em]{%
+  \tikz[baseline=(u.base)]{\node[inner sep=0pt](u){#2};
+  \draw[KalaTinta,line width=.045*#1,line cap=round]
+    ([xshift=.2*#1,yshift=.16*#1]u.south west) -- ([xshift=-.2*#1,yshift=.16*#1]u.south east);}}
+\newcommand{\cp}[2]{\KalaUnir{\ks{#1}\kern-.32em\ks{#2}}}
+\newcommand{\cpp}[3]{\KalaUnir{\ks{#1}\kern-.32em\ks{#2}\kern-.32em\ks{#3}}}
+\newcommand{\cps}[2]{\KalaUnir[1.35em]{\kss{#1}\kern-.25em\kss{#2}}}

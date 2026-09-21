@@ -23,9 +23,9 @@ tiene inmediatamente a la derecha. Una \emph{idea} es una palabra, una frase
 breve o un grupo entre corchetes.
 
 \begin{itemize}
-\item \textbf{Con dirección.} Causa \kss{K23}, Luego \kss{K21}, Se vuelve
- \kss{K24}, Relación \kss{K03}, Ejemplo \kss{K26} y Parte de \kss{K27} se leen
- de izquierda a derecha. «A \kss{K23} B» es «A causa B»; «B \kss{K23} A» dice
+\item \textbf{Con dirección.} Causa \kss{K23}, Después \kss{K21}, Se vuelve
+ \kss{K24}, Ejemplo \kss{K26}, Parte de \kss{K27}, Tiene \kss{K36}, Para
+ \kss{K39} y la flecha \(\to\) se leen de izquierda a derecha. «A \kss{K23} B» es «A causa B»; «B \kss{K23} A» dice
  lo contrario.
 \item \textbf{Simétricos.} Pero \kss{K25}, Van juntos \kss{K28} y Opuesto
  \kss{K29} dicen lo mismo en cualquier orden.
@@ -35,8 +35,15 @@ breve o un grupo entre corchetes.
 \item \textbf{Siempre la causa primero.} En español digo «Y porque X»; en
  KalaScript escribo «X \kss{K23} Y». Así la flecha siempre apunta hacia el efecto.
 \item \textbf{Relación con nombre.} Si conozco la relación pero no tiene signo,
- escribo una palabra breve sobre Relación \kss{K03}: «hormona
- \(\overset{\text{\tiny regula}}{\text{\kss{K03}}}\) glucosa».
+ escribo una palabra breve sobre la flecha: «hormona
+ \(\overset{\text{\tiny regula}}{\longrightarrow}\) glucosa».
+\item \textbf{Al principio de una línea}, un conector une la línea anterior con
+ la actual. Así una secuencia puede ocupar varias líneas:
+ «Ca entra» / «\kss{K23} exocitosis».
+\item \textbf{Un conector también es un sustantivo.} Solo, sin ideas a los lados,
+ nombra la relación: «¿de dónde sale la idea de \kss{K23}?», «la \kss{K23}
+ principal fue el salitre». Si pudiera leerse como conector, va entre
+ corchetes: «idea [\kss{K23}]».
 \end{itemize}
 
 \subsection{Corchetes: qué va con qué}
@@ -69,7 +76,8 @@ línea, o en la misma línea separados por barras:
  \kss{K09} al principio de la línea, seguido de «término:».
 \item \textbf{Según} \kss{K16}: «\kss{K16} Piaget: \ldots» atribuye a Piaget todo
  lo que sigue hasta el final de la línea, o solo el grupo entre corchetes que
- va detrás.
+ va detrás. Es para lo que se puede discutir: un teorema demostrado no va
+ con Según, se escribe por su nombre («teorema de Cook--Levin»).
 \item \textbf{Pregunta} \kss{K19}: delante de un grupo, duda de ese grupo; en el
  margen, duda de la línea entera.
 \item \textbf{Ver} \kss{K10}: con un número abajo a la derecha, remite a la idea
@@ -83,8 +91,43 @@ Revisar \kss{K34} y Pregunta \kss{K19} se escriben en el margen y afectan a toda
 la línea. Si una marca debe cubrir varias líneas, dibujo una llave vertical en el
 margen que las abarque y escribo la marca una vez.
 
-Cuando resuelvo un pendiente \kss{K34}, lo tacho con una diagonal; cuando
-resuelvo una duda \kss{K19}, escribo la respuesta en la línea siguiente.
+Pregunta en el margen reemplaza a los signos «¿?»: no hace falta escribir las
+dos cosas. Cuando resuelvo un pendiente \kss{K34}, lo tacho con una diagonal;
+cuando resuelvo una duda \kss{K19}, escribo la respuesta a continuación, en
+lápiz o con otro color.
+
+\subsection{Referencias entre clases}
+Marco las líneas clave con un número en un círculo al final. Para remitir a una
+línea de otra clase escribo Ver, la materia abreviada, la fecha y el número:
+«\kss{K10} filo 14/9 \textcircled{\scriptsize 2}».
+
+\subsection{Estilo telegráfico}\label{sec:telegrafico}
+Los signos ya dicen cómo se relacionan las palabras, así que casi toda la
+gramática del español sobra. Tres reglas:
+\begin{enumerate}
+\item \textbf{Fuera artículos y preposiciones} cuando no hacen falta: «el»,
+ «la», «los», «de», «en», «a», «se», «lo». Son más de un cuarto de las palabras
+ de un apunte normal.
+\item \textbf{Los verbos frecuentes se vuelven signos:}
+ \begin{center}\small\renewcommand{\arraystretch}{1.45}
+ \begin{tabular}{@{}ll@{\qquad}ll@{}}
+ es (uno de) & \(\in\) & tiene & \kss{K36} \\
+ es (un tipo de) & \(\subset\) & puede & \kss{K37} \\
+ es (lo mismo que) & \(=\) & debe, tiene que & \kss{K38} \\
+ es (así, tiene la propiedad) & \kss{K02} & sirve para & \kss{K39} \\
+ hay, existe & \(\exists\) & viene de & \kss{R26} \\
+ cada, todo & \(\forall\) & contra, enfrenta a & \kss{R25} \\
+ \end{tabular}
+ \end{center}
+\item \textbf{Las ideas generales se escriben con raíces} (sección~\ref{sec:raices});
+ el español queda para nombres propios, términos técnicos y matices.
+\end{enumerate}
+\begin{apunte}[El mismo apunte, antes y después]
+\linea{}{la idea de causa viene de la costumbre de ver q una cosa sigue a otra}
+\linea{}{\cp{K01}{R01}[\ks{K23}] \ks{R26} \cp{R20}{K07}: \ks{R19} A \ks{K21} B}
+\end{apunte}
+\lectura{«La idea de causa viene del hábito: ver A y después B». La primera línea
+tiene dieciséis palabras en español; la segunda, ninguna.}
 
 \subsection{Símbolos matemáticos adoptados}\label{sec:matematica}
 Dentro de KalaScript estos símbolos tienen un único significado, también
@@ -101,7 +144,8 @@ habituales de su materia.
 \(<\), \(>\) & menor, mayor & oferta \(<\) demanda \\
 \(\in\), \(\notin\) & es uno de, no es uno de & Perú \(\in\) países andinos \\
 \(\subset\) & es un tipo de & mamíferos \(\subset\) vertebrados \\
-\(\to\) & si\ldots{} entonces, implica & llueve \(\to\) suelo mojado \\
+\(\to\) & lleva a, hacia (sin precisar) & estudio \(\to\) examen \\
+\(\Rightarrow\) & si\ldots{} entonces, implica & llueve \(\Rightarrow\) suelo mojado \\
 \(\Leftrightarrow\) & si y solo si & \\
 \(\therefore\) & por lo tanto (deduzco) & premisas\ldots{} \(\therefore\) conclusión \\
 \(\uparrow\), \(\downarrow\) & aumenta, disminuye & \(\uparrow\) precio \kss{K23} \(\downarrow\) demanda \\
@@ -110,8 +154,12 @@ habituales de su materia.
 \(\#\) & número de, cantidad de & \# habitantes \\
 \end{longtable}
 
-\textbf{La flecha \(\to\) ya no es comodín.} Solo significa implicación lógica.
-Para unir ideas de cualquier otra manera uso el conector que corresponde.
+\textbf{Dos flechas, dos trabajos.} La flecha simple \(\to\) es la de siempre: «lleva
+a», «hacia», «da». La uso cuando la relación no importa o todavía no la sé. La
+doble \(\Rightarrow\) es la implicación lógica. Si sé que es una causa, una
+sucesión o una transformación, uso su conector: la flecha es el último recurso,
+no el primero. Dentro de una fórmula (\(x\to a\), \(f\colon A\to B\)) manda la
+matemática. En los dibujos, las flechas son parte del dibujo.
 
 \subsection{Distinciones que no se mezclan}\label{sec:distinciones}
 Este es el corazón del sistema. Antes de escribir un conector me pregunto qué
@@ -124,7 +172,7 @@ quiero decir exactamente.
 A provoca B en el mundo & \kss{K23} & fricción \kss{K23} calor \\
 A pasa antes que B & \kss{K21} & Edad Media \kss{K21} Renacimiento \\
 A se convierte en B & \kss{K24} & glucosa \kss{K24} piruvato \\
-si A es verdad, B también & \(\to\) & \(n\) par \(\to\) \(n^2\) par \\
+si A es verdad, B también & \(\Rightarrow\) & \(n\) par \(\Rightarrow\) \(n^2\) par \\
 de lo anterior deduzco B & \(\therefore\) & \(\therefore\) el algoritmo termina \\
 A y B cambian a la vez & \kss{K28} & ingresos \kss{K28} años de estudio \\[3pt]
 \multicolumn{3}{@{}l}{\textit{Algo no es, o es distinto}}\\
@@ -147,7 +195,7 @@ es la idea clave & \kss{K31} & (margen) \\
 
 \needspace{8\baselineskip}\textbf{Tres errores que KalaScript evita:}
 \begin{itemize}
-\item Leer «Luego» como «Causa». Que la Revolución Industrial viniera después
+\item Leer «Después» como «Causa». Que la Revolución Industrial viniera después
  del Renacimiento no dice que este la causara.
 \item Leer «Opuesto» como negación. «\(\neg\) caliente» incluye «tibio»;
  «caliente \kss{K29} frío» habla de los extremos de una escala.
@@ -157,7 +205,7 @@ es la idea clave & \kss{K31} & (margen) \\
 
 \subsection{Lo que no hago}
 \begin{itemize}
-\item No uso \(\to\) como flecha para todo.
+\item No uso \(\to\) cuando sé qué relación es: uso su conector.
 \item No doy significado al tamaño, al color, a la inclinación ni a la posición
  de un signo, salvo la regla de margen y contenido.
 \item No convierto todo en signos: si la palabra es clara y corta, la escribo.

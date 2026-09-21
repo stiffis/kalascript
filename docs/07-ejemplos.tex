@@ -1,13 +1,15 @@
 \section{Ejemplos por materia}\label{sec:ejemplos}
 
 El mismo inventario sirve para cualquier curso. En cada ejemplo aparecen primero
-el apunte y después su lectura en español.
+el apunte y después su lectura en español. Estos ejemplos usan sobre todo
+conectores, para que se lean con facilidad; el estilo completo, con raíces y
+estilo telegráfico, está en las diez clases de \path{compilado/apuntes.pdf}.
 
 \subsection{Matemática}
 \begin{apunte}[Cálculo · límites]
 \linea{}{\ks{K09} \(f\) continua en \(a\): \(\lim_{x\to a}f(x)=f(a)\)}
-\linea{\ks{K31}}{derivable \(\to\) continua}
-\linea{}{\(\neg\)[continua \(\to\) derivable] \quad \ks{K26} \(|x|\) en 0}
+\linea{\ks{K31}}{derivable \(\Rightarrow\) continua}
+\linea{}{\(\neg\)[continua \(\Rightarrow\) derivable] \quad \ks{K26} \(|x|\) en 0}
 \end{apunte}
 \lectura{Una función es continua en \(a\) si su límite en \(a\) coincide con su
 valor. Importante: si es derivable, es continua. Lo contrario no se cumple; por
@@ -16,20 +18,20 @@ ejemplo, \(|x|\) en cero.}
 \subsection{Computación}
 \begin{apunte}[Teoría de la computación · jerarquía de Chomsky]
 \linea{}{regulares \(\subset\) libres de contexto \(\subset\) decidibles}
-\linea{}{AFD \ks{K03} regulares \quad autómata de pila \ks{K03} libres de contexto}
+\linea{}{AFD \(\overset{\text{\tiny acepta}}{\longrightarrow}\) regulares \quad autómata de pila \(\overset{\text{\tiny acepta}}{\longrightarrow}\) libres de contexto}
 \linea{\ks{K31}}{\ks{K16} \ks{K30} Turing \ks{K07} 1936: problema de la parada \(\notin\) decidibles}
 \linea{\ks{K32}}{¿por eso ningún compilador detecta todos los bucles infinitos?}
 \end{apunte}
 \lectura{Todo lenguaje regular es libre de contexto, y todo libre de contexto es
-decidible. Los AFD se relacionan con los regulares; los autómatas de pila, con
-los libres de contexto. Importante: según Turing (1936), el problema de la parada
+decidible. Los AFD aceptan los regulares; los autómatas de pila, los libres
+de contexto. Importante: según Turing (1936), el problema de la parada
 no es decidible. Idea mía: por eso ningún compilador puede detectar todos los
 bucles infinitos.}
 
 \subsection{Física}
 \begin{apunte}[Dinámica]
 \linea{}{\ks{K16} Newton: \(F=ma\)}
-\linea{}{\(\uparrow F\) \(\wedge\) masa fija \(\to\) \(\uparrow a\)}
+\linea{}{\(\uparrow F\) \(\wedge\) masa fija \(\Rightarrow\) \(\uparrow a\)}
 \linea{}{fricción \ks{K23} calor \quad energía cinética \ks{K24} térmica}
 \linea{\ks{K34}}{ejercicios 4--9, cap.~3}
 \end{apunte}
@@ -81,7 +83,7 @@ iguales en todas las culturas?}
 \begin{apunte}[Mercado]
 \linea{}{\(\uparrow\) precio \ks{K23} \(\downarrow\) cantidad demandada}
 \linea{}{\ks{K09} equilibrio: oferta \(=\) demanda}
-\linea{\ks{K35}}{\(\uparrow\) demanda \(\wedge\) oferta fija \(\to\) \(\uparrow\) precio}
+\linea{\ks{K35}}{\(\uparrow\) demanda \(\wedge\) oferta fija \(\Rightarrow\) \(\uparrow\) precio}
 \end{apunte}
 \lectura{Si sube el precio, baja la cantidad demandada. El equilibrio es el punto
 donde la oferta y la demanda son iguales. Resumen: si la
@@ -111,11 +113,11 @@ que un decreto: los dicta un órgano distinto.}
 \begin{apunte}[Figuras retóricas]
 \linea{}{metáfora \(\subset\) figura retórica \quad \ks{K26} «tus ojos son luceros»}
 \linea{}{metáfora \ks{K25} símil: el símil usa «como»}
-\linea{}{\ks{K30} Vallejo \ks{K03} vanguardia \quad \ks{K26} \emph{Trilce}, \ks{K07} 1922}
+\linea{}{\ks{K30} Vallejo \(\in\) vanguardia \quad \ks{K26} \emph{Trilce}, \ks{K07} 1922}
 \end{apunte}
 \lectura{La metáfora es un tipo de figura retórica; por ejemplo, «tus ojos son
-luceros». Se diferencia del símil en que este usa «como». Vallejo se relaciona
-con la vanguardia; por ejemplo, \emph{Trilce}, de 1922.}
+luceros». Se diferencia del símil en que este usa «como». Vallejo es uno de los
+poetas de la vanguardia; por ejemplo, \emph{Trilce}, de 1922.}
 
 \subsection{Arte y música}
 \begin{apunte}[Armonía]

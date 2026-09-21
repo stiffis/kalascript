@@ -11,6 +11,14 @@ fricción \kss{K23} calor       % más pequeño, para párrafos
 \end{Verbatim}
 \KalaMostrar{fricción \ks{K23} calor \qquad fricción \kss{K23} calor \qquad \KalaSimbolo[20mm]{K23}}
 
+\subsection{Un compuesto}
+\begin{Verbatim}[fontsize=\small,frame=single]
+\cp{K06}{K30}          % dos raíces unidas: sociedad
+\cpp{K05}{K04}{R17}    % tres raíces: aceleración
+\cps{K06}{K30}         % versión pequeña, para párrafos
+\end{Verbatim}
+\KalaMostrar{\cp{K06}{K30} \qquad \cpp{K05}{K04}{R17} \qquad \cps{K06}{K30}}
+
 \subsection{Una hoja de apunte}
 El entorno \texttt{apunte} dibuja la hoja con su margen. Cada \verb|\linea| recibe
 dos argumentos: lo que va en el margen y lo que va en el contenido. El título
@@ -28,7 +36,7 @@ es opcional.
 \end{apunte}
 
 \subsection{Añadir un signo}
-Cada signo se registra una sola vez con \verb|\KalaRegistrar|: código, nombre,
+Cada signo o raíz se registra una sola vez con \verb|\KalaRegistrar|: código, nombre,
 familia, definición, número de trazos y dibujo. La cuadrícula es de
 \(64\times64\) con el origen arriba a la izquierda; el dibujo debe quedar
 aproximadamente entre 12 y 52.
@@ -46,8 +54,9 @@ cuaderno de práctica (\path{practica.tex}).
 \subsection{Compilar}
 Desde la carpeta del proyecto:
 \begin{Verbatim}[fontsize=\small,frame=single]
-make            # los tres PDF en compilado/
+make            # todos los PDF en compilado/
 make manual     # solo este manual
+make apuntes    # las clases de ejemplo
 make limpiar    # borra los archivos auxiliares
 \end{Verbatim}
 Se necesita pdf\LaTeX{} con TikZ y \texttt{latexmk}; no hace falta internet ni
