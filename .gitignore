@@ -2,6 +2,7 @@ compilado/*
 !compilado/*.pdf
 .nvimlog
 riscv_isa.*
+linkedin/
 *.aux
 *.log
 *.out
