@@ -1,5 +1,7 @@
-compilado/
+compilado/*
+!compilado/*.pdf
 .nvimlog
+riscv_isa.*
 *.aux
 *.log
 *.out

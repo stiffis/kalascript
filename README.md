@@ -1,33 +1,113 @@
 # KalaScript
 
-Escritura personal para tomar apuntes a mano en cualquier curso: español
-telegráfico, símbolos matemáticos con significado fijo, 29 signos que
-distinguen cómo se relacionan las ideas (causa, sucesión, transformación,
-correlación, contraste, finalidad…) y 29 raíces que se combinan para nombrar
-conceptos (mente + tiempo = memoria, grupo + poder = gobierno).
+**Una escritura personal para tomar apuntes a mano, en cualquier materia.**
+
+En un cuaderno común todo se une con la misma flecha «→», y una semana después
+ya no sé si quise decir *causa*, *después*, *implica* o *se convierte en*. Lo más
+importante de un apunte —cómo se relacionan las ideas— es justo lo que se pierde.
+KalaScript le da un signo distinto a cada una de esas relaciones.
+
+![Detalle de un apunte](img/detalle.png)
+
+> *Principio de copia: la idea viene de la impresión. Por lo tanto, una idea sin
+> impresión de origen es una palabra vacía. Hume: «A causa B» es el hábito de ver
+> A y después B, muchas veces.*
+
+No reemplaza al español ni a la notación de cada ciencia: se mezcla con ellos.
+
+## Cómo se ve
+
+| Hoja de consulta | Una clase de filosofía | Una de computación |
+|---|---|---|
+| ![](img/hoja-consulta.png) | ![](img/clase-hume.png) | ![](img/clase-busqueda-binaria.png) |
+
+Diez clases de ejemplo, de filosofía a química, escritas como si fueran en vivo:
+
+![Diez clases](img/diez-clases.png)
+
+## Qué incluye
+
+Los PDF están versionados en [`compilado/`](compilado); no hace falta LaTeX para leerlos.
+
+| Documento | Qué es |
+|---|---|
+| [`KalaScript.pdf`](compilado/KalaScript.pdf) | Manual: idea, signos, raíces, reglas, plantillas y ejemplos por materia |
+| [`atlas.pdf`](compilado/atlas.pdf) | Hoja de consulta de 3 páginas, para imprimir y tener al lado del cuaderno |
+| [`practica.pdf`](compilado/practica.pdf) | Cuaderno con ~290 ejercicios de 15 tipos, con soluciones |
+| [`apuntes.pdf`](compilado/apuntes.pdf) | Diez clases de ejemplo en hoja cuadriculada |
+
+## El sistema, en corto
+
+- **29 signos.** Conectores (causa, después, se vuelve, ejemplo, parte de, pero,
+  van juntos, opuesto), gramática (tiene, puede, debe, para), categorías,
+  marcadores y marcas de margen.
+- **29 raíces que se combinan**, con el núcleo primero y un lazo debajo:
+  grupo + persona = sociedad, mente + tiempo = memoria, conflicto + grupo = guerra.
+- **Símbolos matemáticos** con significado fijo: ¬ ∈ ⊂ → ⇒ ∴ ∀ ∃ ↑ ↓.
+- **Español telegráfico** para lo que no tiene signo: nombres propios, términos
+  técnicos y datos.
+
+Distinciones que el sistema no mezcla nunca: causa ≠ sucesión ≠ implicación ≠
+transformación ≠ correlación; negar ≠ oponer; parte ≠ miembro; fuente ≠ certeza.
+
+## Por dónde empezar
+
+1. Imprime la página 1 de `atlas.pdf`. Los signos del **núcleo** llevan un punto.
+2. Sigue la **ruta de dos semanas** del cuaderno (`practica.pdf`, páginas 2–3):
+   trece signos, no los cincuenta y ocho.
+3. Úsalo en un curso real y mide con las pruebas de la sección 15 del cuaderno.
 
 ## Compilar
 
 ```sh
-make            # manual, hoja de consulta, práctica y apuntes de ejemplo
-make limpiar    # borra auxiliares
+make            # manual, hoja de consulta, cuaderno y apuntes -> compilado/
+make manual     # solo el manual
+make limpiar    # borra los auxiliares
 ```
 
-Requiere pdfLaTeX con TikZ y `latexmk`. Sin internet ni `shell-escape`.
+Requiere pdfLaTeX con TikZ y `latexmk`. Sin internet ni `shell-escape`. Los signos
+están dibujados en TikZ sobre una cuadrícula de 64×64
+([`simbolos/glifos.tex`](simbolos/glifos.tex) y
+[`simbolos/raices.tex`](simbolos/raices.tex)); no hace falta ninguna fuente especial.
 
-## Documentos
+## Estado honesto
 
-| Archivo | Contenido |
-|---|---|
-| `KalaScript.tex` | Manual: idea, signos, reglas, abreviaturas, plantillas, ejemplos por materia |
-| `atlas.tex` | Hoja de consulta de tres páginas para imprimir |
-| `apuntes.tex` | Diez clases de ejemplo en hoja cuadriculada |
-| `practica.tex` | Cuaderno: copiar, distinguir, escribir, leer y medir |
-| `simbolos/glifos.tex` | Dibujo y definición de los signos activos |
-| `simbolos/raices.tex` | Dibujo y definición de las raíces |
-| `simbolos/archivo.tex` | Signos retirados, para leer apuntes antiguos |
+Esto es un proyecto personal en curso, no un producto terminado.
 
-## Historia
+- **No está probado a mano.** Las formas se diseñaron y revisaron, pero todavía
+  no hay una prueba de escritura real. Esa es la siguiente etapa.
+- **No afirmo que sea más rápido** que escribir en español abreviado. El cuaderno
+  trae las pruebas para averiguarlo (velocidad en tres formatos, dictado y
+  relectura a los 2 y 14 días); hasta tener esos datos, es una pregunta abierta.
+- **Lo medido hasta ahora:** en las diez clases de ejemplo, el español bajó del
+  80 % al 46 % del contenido.
+- **Los pares que más me preocupan** escritos rápido: Parte de y Origen; Lugar,
+  Puede y Debe; Cantidad y la letra E. Se decidirá con papel, no con teoría.
 
-La versión anterior, un lenguaje lógico formal, está en la etiqueta
-`v1-formal` (`git checkout v1-formal`).
+El historial de decisiones y de cambios está en el anexo B del manual.
+
+## Cómo colaborar
+
+Lo más útil que puedes aportar: si tomas apuntes a mano, **qué relación se te
+pierde más seguido al releer**. Eso decide qué signos merecen existir. También son
+bienvenidas las contradicciones que encuentres en las reglas; las últimas tres
+rondas de correcciones salieron justamente de una revisión crítica externa.
+
+Abre un *issue* con lo que encuentres.
+
+## Licencia
+
+[GNU GPL versión 3 o posterior](LICENSE). Puedes usar, copiar, modificar y
+distribuir el proyecto; si distribuyes una versión modificada, debe seguir siendo
+libre y bajo la misma licencia.
+
+## Créditos
+
+Desarrollado por [stiffis](https://github.com/stiffis) con asistencia de IA
+(Claude) y una revisión crítica externa hecha con Codex, que encontró
+contradicciones que se corrigieron en la versión 3.1. Las decisiones de diseño
+son mías.
+
+Inspiraciones estudiadas, sin copiar sus signos: taquigrafía Gregg y Teeline,
+Blissymbolics, los grafos existenciales de Peirce, el método Cornell, el
+*bullet journal* y la notación de Iverson.
