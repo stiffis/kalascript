@@ -3,6 +3,7 @@ compilado/*
 .nvimlog
 riscv_isa.*
 linkedin/
+img/
 *.aux
 *.log
 *.out

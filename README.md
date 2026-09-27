@@ -7,23 +7,15 @@ ya no sé si quise decir *causa*, *después*, *implica* o *se convierte en*. Lo 
 importante de un apunte —cómo se relacionan las ideas— es justo lo que se pierde.
 KalaScript le da un signo distinto a cada una de esas relaciones.
 
-![Detalle de un apunte](img/detalle.png)
-
-> *Principio de copia: la idea viene de la impresión. Por lo tanto, una idea sin
-> impresión de origen es una palabra vacía. Hume: «A causa B» es el hábito de ver
-> A y después B, muchas veces.*
-
 No reemplaza al español ni a la notación de cada ciencia: se mezcla con ellos.
 
 ## Cómo se ve
 
-| Hoja de consulta | Una clase de filosofía | Una de computación |
-|---|---|---|
-| ![](img/hoja-consulta.png) | ![](img/clase-hume.png) | ![](img/clase-busqueda-binaria.png) |
-
-Diez clases de ejemplo, de filosofía a química, escritas como si fueran en vivo:
-
-![Diez clases](img/diez-clases.png)
+Los apuntes de ejemplo ([`apuntes.pdf`](compilado/apuntes.pdf)) son diez clases
+escritas como si fueran en vivo, en hoja cuadriculada: filosofía, ecuaciones
+diferenciales, cálculo vectorial, complejidad computacional, búsqueda binaria,
+química, biología, historia y psicología. La hoja de consulta
+([`atlas.pdf`](compilado/atlas.pdf)) muestra todos los signos en tres páginas.
 
 ## Qué incluye
 
