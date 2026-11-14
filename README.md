@@ -3,7 +3,7 @@
 **Una escritura personal para tomar apuntes a mano, en cualquier materia.**
 
 En un cuaderno común todo se une con la misma flecha «→», y una semana después
-ya no sé si quise decir *causa*, *después*, *implica* o *se convierte en*. Lo más
+ya no sé si quise decir _causa_, _después_, _implica_ o _se convierte en_. Lo más
 importante de un apunte —cómo se relacionan las ideas— es justo lo que se pierde.
 KalaScript le da un signo distinto a cada una de esas relaciones.
 
@@ -21,12 +21,12 @@ química, biología, historia y psicología. La hoja de consulta
 
 Los PDF están versionados en [`compilado/`](compilado); no hace falta LaTeX para leerlos.
 
-| Documento | Qué es |
-|---|---|
-| [`KalaScript.pdf`](compilado/KalaScript.pdf) | Manual: idea, signos, raíces, reglas, plantillas y ejemplos por materia |
-| [`atlas.pdf`](compilado/atlas.pdf) | Hoja de consulta de 3 páginas, para imprimir y tener al lado del cuaderno |
-| [`practica.pdf`](compilado/practica.pdf) | Cuaderno con ~290 ejercicios de 15 tipos, con soluciones |
-| [`apuntes.pdf`](compilado/apuntes.pdf) | Diez clases de ejemplo en hoja cuadriculada |
+| Documento                                    | Qué es                                                                    |
+| -------------------------------------------- | ------------------------------------------------------------------------- |
+| [`KalaScript.pdf`](compilado/KalaScript.pdf) | Manual: idea, signos, raíces, reglas, plantillas y ejemplos por materia   |
+| [`atlas.pdf`](compilado/atlas.pdf)           | Hoja de consulta de 3 páginas, para imprimir y tener al lado del cuaderno |
+| [`practica.pdf`](compilado/practica.pdf)     | Cuaderno con ~290 ejercicios de 15 tipos, con soluciones                  |
+| [`apuntes.pdf`](compilado/apuntes.pdf)       | Diez clases de ejemplo en hoja cuadriculada                               |
 
 ## El sistema, en corto
 
@@ -85,21 +85,10 @@ pierde más seguido al releer**. Eso decide qué signos merecen existir. Tambié
 bienvenidas las contradicciones que encuentres en las reglas; las últimas tres
 rondas de correcciones salieron justamente de una revisión crítica externa.
 
-Abre un *issue* con lo que encuentres.
+Abre un _issue_ con lo que encuentres.
 
 ## Licencia
 
 [GNU GPL versión 3 o posterior](LICENSE). Puedes usar, copiar, modificar y
 distribuir el proyecto; si distribuyes una versión modificada, debe seguir siendo
 libre y bajo la misma licencia.
-
-## Créditos
-
-Desarrollado por [stiffis](https://github.com/stiffis) con asistencia de IA
-(Claude) y una revisión crítica externa hecha con Codex, que encontró
-contradicciones que se corrigieron en la versión 3.1. Las decisiones de diseño
-son mías.
-
-Inspiraciones estudiadas, sin copiar sus signos: taquigrafía Gregg y Teeline,
-Blissymbolics, los grafos existenciales de Peirce, el método Cornell, el
-*bullet journal* y la notación de Iverson.
